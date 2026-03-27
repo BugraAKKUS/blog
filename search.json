@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Notes from the Deep",
+    "section": "",
+    "text": "Post With Code\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\nHarlow Malloc\n\n\nMar 27, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\nTristan O’Malley\n\n\nMar 24, 2026\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I have a wide curiosity across many different fields — I love exploring, learning, and sharing what I find. Outside of that, I’m passionate about fitness and running.\nI run two YouTube channels: one where I share vlogs in my native language, and another — Bugra in Deep — where I turn the things I’ve learned about machine learning, deep learning, and statistics into videos. I also try to guide people on where and how to learn these topics.\nThis blog is an extension of that. Here I write about papers I’ve read, concepts I’ve found interesting, and ideas worth sharing. Whether you’re on a data science journey or simply curious about statistics, deep learning, or machine learning — I hope you find something useful here."
+  }
+]
