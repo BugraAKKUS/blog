@@ -1,0 +1,25 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://x.com/BugrainDeep
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/bugra-akkus/
+    - icon: github
+      text: Github
+      href: https://github.com/BugraAKKUS
+    - icon: youtube
+      text: YouTube
+      href: https://www.youtube.com/@BugraInDeep
+---
+
+I have a wide curiosity across many different fields — I love exploring, learning, and sharing what I find. Outside of that, I'm passionate about fitness and running.
+
+I run two YouTube channels: one where I share vlogs in my native language, and another — **Bugra in Deep** — where I turn the things I've learned about machine learning, deep learning, and statistics into videos. I also try to guide people on where and how to learn these topics.
+
+This blog is an extension of that. Here I write about papers I've read, concepts I've found interesting, and ideas worth sharing. Whether you're on a data science journey or simply curious about statistics, deep learning, or machine learning — I hope you find something useful here.
