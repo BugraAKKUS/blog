@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Bugra in Deep"
+  search: false
   navbar:
     left:
       - text: "Notes from the Deep"
@@ -26,3 +27,5 @@ format:
   html:
     theme: darkly
     css: styles.css
+execute:
+  freeze: auto

@@ -1,0 +1,6 @@
+---
+title: "Statistics vs Machine Learning"
+date: "2025-03-27"
+categories: [statistics, machine learning]
+description: "Are they really that different?"
+---z
