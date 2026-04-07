@@ -3,49 +3,17 @@ title: "The Two Cultures of Statistical Modeling"
 subtitle: "A Deep Dive into Leo Breiman's Landmark 2001 Paper"
 date: "2026-04-06"
 categories: [Statistics, Machine Learning, Data Science, Philosophy of Science]
-image: ""
+image: "two-way.jpg"
 toc: true
 toc-depth: 3
 number-sections: true
+bibliography: references.bib
 format:
   html:
-    theme: cosmo
     code-fold: true
     smooth-scroll: true
-    fontsize: 1.05em
-    linestretch: 1.7
-    mainfont: "Georgia, serif"
-    monofont: "JetBrains Mono, monospace"
-    css: |
-      .callout-note {
-        border-left-color: #2c5f7c !important;
-      }
-bibliography: references.bib
 ---
 
-```{css, echo=FALSE}
-h1, h2, h3 {
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-  letter-spacing: -0.02em;
-}
-blockquote {
-  border-left: 4px solid #8b4513;
-  padding-left: 1.2em;
-  color: #3a3a3a;
-  font-style: italic;
-  background: #faf6f0;
-  padding: 1em 1.2em;
-  border-radius: 0 6px 6px 0;
-}
-.figure-caption {
-  font-size: 0.9em;
-  color: #555;
-  font-style: italic;
-}
-table {
-  font-size: 0.95em;
-}
-```
 
 ## Prologue: A Statistician's Rebellion {.unnumbered}
 
