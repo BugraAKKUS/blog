@@ -210,11 +210,11 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="U3RhdGlzdGljcyUyQ01hY2hpbmUlMjBMZWFybmluZyUyQ0RhdGElMjBTY2llbmNlJTJDUGhpbG9zb3BoeSUyMG9mJTIwU2NpZW5jZQ==" data-listing-date-sort="1775422800000" data-listing-file-modified-sort="1775508932016" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2664">
+<div class="g-col-1" data-index="0" data-categories="U3RhdGlzdGljcyUyQ01hY2hpbmUlMjBMZWFybmluZyUyQ0RhdGElMjBTY2llbmNlJTJDUGhpbG9zb3BoeSUyMG9mJTIwU2NpZW5jZQ==" data-listing-date-sort="1775422800000" data-listing-file-modified-sort="1775594882337" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3382">
 <a href="./posts/statistics-vs-machine-learning/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" src="./posts/statistics-vs-machine-learning" class="thumbnail-image card-img" style="height: 150px;">
+<img loading="lazy" src="./posts/statistics-vs-machine-learning/two-way.jpg" class="thumbnail-image card-img" style="height: 150px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -235,7 +235,7 @@ Philosophy of Science
 </div>
 </div>
 <div class="card-text listing-description">
-<code>{css, echo=FALSE} h1, h2, h3 {   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;   letter-spacing: -0.02em; } blockquote {   border-left: 4px solid…</code>
+In August 2001, Leo Breiman — a professor at UC Berkeley who had spent thirteen years as a freelance consultant before returning to academia — published a paper in <em>Statistica…</em>
 </div>
 <div class="card-attribution card-text-small justify">
 <div class="listing-author">
@@ -344,7 +344,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/BugraAKKUS\.github\.io\/blog\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

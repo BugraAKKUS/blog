@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -51,10 +85,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-b6684852186f9bead5990c81a8e0d624.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-ecacbc253e94e0ff1f0599edc70d42cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -71,6 +105,8 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -103,9 +139,6 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../styles.css">
-<link rel="stylesheet" href=".callout-note {
-  border-left-color: #2c5f7c !important;
-}">
 </head>
 
 <body class="nav-fixed">
@@ -200,7 +233,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#prologue-a-statisticians-rebellion" id="toc-prologue-a-statisticians-rebellion" class="nav-link active" data-scroll-target="#prologue-a-statisticians-rebellion">Prologue: A Statistician’s Rebellion</a></li>
-  <li><a href="#the-black-box-metaphor" id="toc-the-black-box-metaphor" class="nav-link" data-scroll-target="#the-black-box-metaphor"><span class="header-section-number">1</span> The Black Box Metaphor</a></li>
+  <li><a href="#the-black-box-metaphor" id="toc-the-black-box-metaphor" class="nav-link" data-scroll-target="#the-black-box-metaphor"><span class="header-section-number">1</span> The Black Box Metaphor</a>
+  <ul class="collapse">
+  <li><a href="#the-two-cultures-an-interactive-view" id="toc-the-two-cultures-an-interactive-view" class="nav-link" data-scroll-target="#the-two-cultures-an-interactive-view"><span class="header-section-number">1.1</span> The Two Cultures: An Interactive View</a></li>
+  </ul></li>
   <li><a href="#breimans-journey-from-consulting-to-conviction" id="toc-breimans-journey-from-consulting-to-conviction" class="nav-link" data-scroll-target="#breimans-journey-from-consulting-to-conviction"><span class="header-section-number">2</span> Breiman’s Journey: From Consulting to Conviction</a>
   <ul class="collapse">
   <li><a href="#the-ozone-project" id="toc-the-ozone-project" class="nav-link" data-scroll-target="#the-ozone-project"><span class="header-section-number">2.1</span> The Ozone Project</a></li>
@@ -245,7 +281,6 @@ window.Quarto = {
 
 
 
-<p><code>{css, echo=FALSE} h1, h2, h3 {   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;   letter-spacing: -0.02em; } blockquote {   border-left: 4px solid #8b4513;   padding-left: 1.2em;   color: #3a3a3a;   font-style: italic;   background: #faf6f0;   padding: 1em 1.2em;   border-radius: 0 6px 6px 0; } .figure-caption {   font-size: 0.9em;   color: #555;   font-style: italic; } table {   font-size: 0.95em; }</code></p>
 <section id="prologue-a-statisticians-rebellion" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="prologue-a-statisticians-rebellion">Prologue: A Statistician’s Rebellion</h2>
 <p>In August 2001, Leo Breiman — a professor at UC Berkeley who had spent thirteen years as a freelance consultant before returning to academia — published a paper in <em>Statistical Science</em> that would become one of the most cited and debated works in the history of the field. “Statistical Modeling: The Two Cultures” was not merely a technical contribution; it was a manifesto. It challenged the philosophical foundations of an entire discipline and called for a paradigm shift that, in retrospect, anticipated the machine learning revolution we now inhabit.</p>
@@ -313,7 +348,73 @@ The Two Cultures at a Glance
 </div>
 </div>
 <p>This asymmetry — 98% versus 2% — is the provocation at the paper’s heart.</p>
+<section id="the-two-cultures-an-interactive-view" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="the-two-cultures-an-interactive-view"><span class="header-section-number">1.1</span> The Two Cultures: An Interactive View</h3>
+<p>Select a culture to see how it approaches the black box problem:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" data-startfrom="58" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 57;"><span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>viewof culture <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"Data Modeling Culture"</span><span class="op">,</span> <span class="st">"Algorithmic Modeling Culture"</span>]<span class="op">,</span> {</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Choose a culture:"</span><span class="op">,</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="st">"Data Modeling Culture"</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> isData <span class="op">=</span> culture <span class="op">===</span> <span class="st">"Data Modeling Culture"</span><span class="op">;</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> container <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"font-family: Inter, sans-serif; background: #1a1a2e; border-radius: 12px; padding: 24px; color: #e0e0e0; max-width: 600px;"</span><span class="op">;</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> row <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;"</span><span class="op">;</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> inputBox <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  inputBox<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"text-align:center;"</span><span class="op">;</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  inputBox<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;div style="font-size:13px;color:#999;margin-bottom:4px;"&gt;INPUT&lt;/div&gt;&lt;div style="background:#16213e;border:2px solid #4A9EFF;border-radius:8px;padding:10px 16px;font-weight:600;"&gt;x&lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> middleBox <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>  middleBox<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"text-align:center; flex: 1; margin: 0 16px;"</span><span class="op">;</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  middleBox<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="background:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#2c3e50'</span> <span class="op">:</span> <span class="st">'#1a1a2e'</span><span class="sc">}</span><span class="vs">;border:2px solid </span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#ff6b6b'</span><span class="sc">}</span><span class="vs">;border-radius:8px;padding:12px;font-size:13px;"&gt;</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;strong style="color:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#ff6b6b'</span><span class="sc">}</span><span class="vs">"&gt;</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'Known Model'</span> <span class="op">:</span> <span class="st">'Unknown Mechanism'</span><span class="sc">}</span><span class="vs">&lt;/strong&gt;&lt;br&gt;</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;span style="color:#aaa"&gt;</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'Linear Regression&lt;br&gt;Logistic Regression&lt;br&gt;Cox Model'</span> <span class="op">:</span> <span class="st">'Decision Trees&lt;br&gt;Neural Nets&lt;br&gt;SVMs'</span><span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="font-size:11px;color:#777;margin-top:6px;"&gt;Validation: </span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'Goodness-of-fit tests'</span> <span class="op">:</span> <span class="st">'Predictive accuracy'</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span><span class="op">;</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> outputBox <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>  outputBox<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"text-align:center;"</span><span class="op">;</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>  outputBox<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;div style="font-size:13px;color:#999;margin-bottom:4px;"&gt;OUTPUT&lt;/div&gt;&lt;div style="background:#16213e;border:2px solid #4A9EFF;border-radius:8px;padding:10px 16px;font-weight:600;"&gt;y&lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="fu">appendChild</span>(inputBox)<span class="op">;</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="fu">appendChild</span>(middleBox)<span class="op">;</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="fu">appendChild</span>(outputBox)<span class="op">;</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="fu">appendChild</span>(row)<span class="op">;</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> footer <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>  footer<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="vs">`background:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#1a2a1a'</span> <span class="op">:</span> <span class="st">'#2a1a1a'</span><span class="sc">}</span><span class="vs">;border-radius:8px;padding:12px;font-size:13px;color:#bbb;`</span><span class="op">;</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>  footer<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;strong style="color:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#50fa7b'</span> <span class="op">:</span> <span class="st">'#ff6b6b'</span><span class="sc">}</span><span class="vs">"&gt;Population:&lt;/strong&gt; </span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'~98% of statisticians'</span> <span class="op">:</span> <span class="st">'~2% of statisticians, many computer scientists'</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="fu">appendChild</span>(footer)<span class="op">;</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> container<span class="op">;</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
 <hr>
+</section>
 </section>
 <section id="breimans-journey-from-consulting-to-conviction" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="breimans-journey-from-consulting-to-conviction"><span class="header-section-number">2</span> Breiman’s Journey: From Consulting to Conviction</h2>
@@ -459,8 +560,59 @@ A Sobering Implication
 </tr>
 </tbody>
 </table>
-<p>Each tells a <strong>completely different story</strong> about which variables matter — yet all fit equally well. Breiman also found this with neural nets: running the same small net 100 times with different random initializations produced <strong>32 distinct minima</strong> with roughly equal test error.</p>
-<p>The practical consequence is <strong>instability</strong>: slight perturbations of the data cause the procedure to hop between very different models. Aggregation methods like <strong>bagging</strong> can help by averaging over competing models.</p>
+<p>Each tells a <strong>completely different story</strong> about which variables matter — yet all fit equally well. Click through the models below to see the Rashomon Effect in action:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" data-startfrom="220" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 219;"><span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a>rashomon_data <span class="op">=</span> [</span>
+<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">model</span><span class="op">:</span> <span class="st">"Picture 1"</span><span class="op">,</span> <span class="dt">vars</span><span class="op">:</span> [<span class="st">"x3"</span><span class="op">,</span> <span class="st">"x8"</span><span class="op">,</span> <span class="st">"x12"</span><span class="op">,</span> <span class="st">"x17"</span><span class="op">,</span> <span class="st">"x27"</span>]<span class="op">,</span> <span class="dt">eq</span><span class="op">:</span> <span class="st">"y = 2.1 + 3.8x₃ - 0.6x₈ + 83.2x₁₂ - 2.1x₁₇ + 3.2x₂₇"</span><span class="op">,</span> <span class="dt">rss</span><span class="op">:</span> <span class="fl">1.000</span> }<span class="op">,</span></span>
+<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">model</span><span class="op">:</span> <span class="st">"Picture 2"</span><span class="op">,</span> <span class="dt">vars</span><span class="op">:</span> [<span class="st">"x5"</span><span class="op">,</span> <span class="st">"x6"</span><span class="op">,</span> <span class="st">"x15"</span><span class="op">,</span> <span class="st">"x21"</span><span class="op">,</span> <span class="st">"x22"</span>]<span class="op">,</span> <span class="dt">eq</span><span class="op">:</span> <span class="st">"y = -8.9 + 4.6x₅ + 0.01x₆ + 12.0x₁₅ + 17.5x₂₁ + 0.2x₂₂"</span><span class="op">,</span> <span class="dt">rss</span><span class="op">:</span> <span class="fl">1.007</span> }<span class="op">,</span></span>
+<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">model</span><span class="op">:</span> <span class="st">"Picture 3"</span><span class="op">,</span> <span class="dt">vars</span><span class="op">:</span> [<span class="st">"x2"</span><span class="op">,</span> <span class="st">"x7"</span><span class="op">,</span> <span class="st">"x8"</span><span class="op">,</span> <span class="st">"x11"</span><span class="op">,</span> <span class="st">"x28"</span>]<span class="op">,</span> <span class="dt">eq</span><span class="op">:</span> <span class="st">"y = -76.7 + 9.3x₂ + 22.0x₇ - 13.2x₈ + 3.4x₁₁ + 7.2x₂₈"</span><span class="op">,</span> <span class="dt">rss</span><span class="op">:</span> <span class="fl">1.009</span> }</span>
+<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a>viewof rashomon_model <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(rashomon_data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">model</span>)<span class="op">,</span> {</span>
+<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Select model:"</span><span class="op">,</span></span>
+<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="st">"Picture 1"</span></span>
+<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> d <span class="op">=</span> rashomon_data<span class="op">.</span><span class="fu">find</span>(r <span class="kw">=&gt;</span> r<span class="op">.</span><span class="at">model</span> <span class="op">===</span> rashomon_model)<span class="op">;</span></span>
+<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> allVars <span class="op">=</span> [<span class="st">"x2"</span><span class="op">,</span><span class="st">"x3"</span><span class="op">,</span><span class="st">"x5"</span><span class="op">,</span><span class="st">"x6"</span><span class="op">,</span><span class="st">"x7"</span><span class="op">,</span><span class="st">"x8"</span><span class="op">,</span><span class="st">"x11"</span><span class="op">,</span><span class="st">"x12"</span><span class="op">,</span><span class="st">"x15"</span><span class="op">,</span><span class="st">"x17"</span><span class="op">,</span><span class="st">"x21"</span><span class="op">,</span><span class="st">"x22"</span><span class="op">,</span><span class="st">"x27"</span><span class="op">,</span><span class="st">"x28"</span>]<span class="op">;</span></span>
+<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`</span></span>
+<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="font-family: Inter, sans-serif; background: #1a1a2e; border-radius: 12px; padding: 20px; color: #e0e0e0; max-width: 600px;"&gt;</span></span>
+<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="font-size: 14px; color: #4A9EFF; font-weight: 600; margin-bottom: 8px;"&gt;</span><span class="sc">${</span>d<span class="op">.</span><span class="at">model</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="font-family: monospace; font-size: 13px; background: #0d1117; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; color: #a0d8ff;"&gt;</span><span class="sc">${</span>d<span class="op">.</span><span class="at">eq</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="font-size: 12px; color: #888; margin-bottom: 10px;"&gt;Relative RSS: &lt;strong style="color:#50fa7b"&gt;</span><span class="sc">${</span>d<span class="op">.</span><span class="at">rss</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="vs">&lt;/strong&gt; — nearly identical to the best model&lt;/div&gt;</span></span>
+<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="display: flex; flex-wrap: wrap; gap: 6px;"&gt;</span></span>
+<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a><span class="vs">        </span><span class="sc">${</span>allVars<span class="op">.</span><span class="fu">map</span>(v <span class="kw">=&gt;</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;span style="padding: 4px 10px; border-radius: 20px; font-size: 12px; background: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">vars</span><span class="op">.</span><span class="fu">includes</span>(v) <span class="op">?</span> <span class="st">'#4A9EFF22'</span> <span class="op">:</span> <span class="st">'#ffffff11'</span><span class="sc">}</span><span class="vs">; border: 1px solid </span><span class="sc">${</span>d<span class="op">.</span><span class="at">vars</span><span class="op">.</span><span class="fu">includes</span>(v) <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#333'</span><span class="sc">}</span><span class="vs">; color: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">vars</span><span class="op">.</span><span class="fu">includes</span>(v) <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#666'</span><span class="sc">}</span><span class="vs">;"&gt;</span><span class="sc">${</span>v<span class="sc">}</span><span class="vs">&lt;/span&gt;`</span>)<span class="sc">}</span></span>
+<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;</span></span>
+<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="margin-top: 12px; font-size: 12px; color: #888;"&gt;Each model uses completely different variables — yet fits equally well. This is the Rashomon Effect.&lt;/div&gt;</span></span>
+<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span><span class="op">;</span></span>
+<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="occam-simplicity-versus-accuracy" class="level3" data-number="6.2">
 <h3 data-number="6.2" class="anchored" data-anchor-id="occam-simplicity-versus-accuracy"><span class="header-section-number">6.2</span> Occam: Simplicity versus Accuracy</h3>
@@ -584,6 +736,72 @@ A Sobering Implication
 </tr>
 </tbody>
 </table>
+<p>Select a dataset below to see the error comparison visually:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" data-startfrom="274" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 273;"><span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a>forest_data <span class="op">=</span> [</span>
+<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Breast Cancer"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">2.9</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">5.9</span>}<span class="op">,</span></span>
+<span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Ionosphere"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">5.5</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">11.2</span>}<span class="op">,</span></span>
+<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Diabetes"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">24.2</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">25.3</span>}<span class="op">,</span></span>
+<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Glass"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">22.0</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">30.4</span>}<span class="op">,</span></span>
+<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Soybean"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">5.7</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">8.6</span>}<span class="op">,</span></span>
+<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Letters"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">3.4</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">12.4</span>}<span class="op">,</span></span>
+<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Satellite"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">8.6</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">14.8</span>}<span class="op">,</span></span>
+<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"DNA"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">3.9</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">6.2</span>}<span class="op">,</span></span>
+<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Digit"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">6.2</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">17.1</span>}</span>
+<span id="cb3-284"><a href="#cb3-284" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a>viewof selected_dataset <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(forest_data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">dataset</span>)<span class="op">,</span> {</span>
+<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Select dataset:"</span></span>
+<span id="cb3-288"><a href="#cb3-288" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-290"><a href="#cb3-290" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> d <span class="op">=</span> forest_data<span class="op">.</span><span class="fu">find</span>(x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">dataset</span> <span class="op">===</span> selected_dataset)<span class="op">;</span></span>
+<span id="cb3-292"><a href="#cb3-292" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> reduction <span class="op">=</span> (((d<span class="op">.</span><span class="at">tree</span> <span class="op">-</span> d<span class="op">.</span><span class="at">forest</span>) <span class="op">/</span> d<span class="op">.</span><span class="at">tree</span>) <span class="op">*</span> <span class="dv">100</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-294"><a href="#cb3-294" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-295"><a href="#cb3-295" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">barY</span>(</span>
+<span id="cb3-296"><a href="#cb3-296" aria-hidden="true" tabindex="-1"></a>        [{<span class="dt">method</span><span class="op">:</span> <span class="st">"Random Forest"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">forest</span>}<span class="op">,</span> {<span class="dt">method</span><span class="op">:</span> <span class="st">"Single Tree (CART)"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">tree</span>}]<span class="op">,</span></span>
+<span id="cb3-297"><a href="#cb3-297" aria-hidden="true" tabindex="-1"></a>        {<span class="dt">x</span><span class="op">:</span> <span class="st">"method"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"error"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> d2 <span class="kw">=&gt;</span> d2<span class="op">.</span><span class="at">method</span> <span class="op">===</span> <span class="st">"Random Forest"</span> <span class="op">?</span> <span class="st">"#4A9EFF"</span> <span class="op">:</span> <span class="st">"#ff6b6b"</span><span class="op">,</span> <span class="dt">rx</span><span class="op">:</span> <span class="dv">4</span>}</span>
+<span id="cb3-298"><a href="#cb3-298" aria-hidden="true" tabindex="-1"></a>      )<span class="op">,</span></span>
+<span id="cb3-299"><a href="#cb3-299" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">text</span>(</span>
+<span id="cb3-300"><a href="#cb3-300" aria-hidden="true" tabindex="-1"></a>        [{<span class="dt">method</span><span class="op">:</span> <span class="st">"Random Forest"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">forest</span>}<span class="op">,</span> {<span class="dt">method</span><span class="op">:</span> <span class="st">"Single Tree (CART)"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">tree</span>}]<span class="op">,</span></span>
+<span id="cb3-301"><a href="#cb3-301" aria-hidden="true" tabindex="-1"></a>        {<span class="dt">x</span><span class="op">:</span> <span class="st">"method"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"error"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> d2 <span class="kw">=&gt;</span> d2<span class="op">.</span><span class="at">error</span> <span class="op">+</span> <span class="st">"%"</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="op">-</span><span class="dv">8</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">14</span><span class="op">,</span> <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">"bold"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"white"</span>}</span>
+<span id="cb3-302"><a href="#cb3-302" aria-hidden="true" tabindex="-1"></a>      )<span class="op">,</span></span>
+<span id="cb3-303"><a href="#cb3-303" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
+<span id="cb3-304"><a href="#cb3-304" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
+<span id="cb3-305"><a href="#cb3-305" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Test Error (%)"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb3-306"><a href="#cb3-306" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
+<span id="cb3-307"><a href="#cb3-307" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="vs">`</span><span class="sc">${</span>selected_dataset<span class="sc">}</span><span class="vs">: Error reduced by </span><span class="sc">${</span>reduction<span class="sc">}</span><span class="vs">%`</span><span class="op">,</span></span>
+<span id="cb3-308"><a href="#cb3-308" aria-hidden="true" tabindex="-1"></a>    <span class="dt">style</span><span class="op">:</span> {<span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">"#ccc"</span>}<span class="op">,</span></span>
+<span id="cb3-309"><a href="#cb3-309" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">300</span></span>
+<span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-3" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
 <p>The reductions are striking. Some errors are halved; others cut by two-thirds. On the Statlog Project’s four benchmark datasets with separate test sets, random forests ranked <strong>first on all four</strong>. The next best classifier averaged rank 7.3.</p>
 <p>But forests are essentially <strong>uninterpretable</strong> — a tangle of 50 to 100 trees voting together. Breiman’s resolution: pursue accuracy first, then extract understanding. Which leads to the final section’s crucial argument.</p>
 </section>
@@ -749,6 +967,17 @@ The Core Lesson from Section 11
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBjdWx0dXJlID0gSW5wdXRzLnJhZGlvKFtcIkRhdGEgTW9kZWxpbmcgQ3VsdHVyZVwiLCBcIkFsZ29yaXRobWljIE1vZGVsaW5nIEN1bHR1cmVcIl0sIHtcbiAgbGFiZWw6IFwiQ2hvb3NlIGEgY3VsdHVyZTpcIixcbiAgdmFsdWU6IFwiRGF0YSBNb2RlbGluZyBDdWx0dXJlXCJcbn0pXG5cbntcbiAgY29uc3QgaXNEYXRhID0gY3VsdHVyZSA9PT0gXCJEYXRhIE1vZGVsaW5nIEN1bHR1cmVcIjtcbiAgY29uc3QgY29udGFpbmVyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKTtcbiAgY29udGFpbmVyLnN0eWxlLmNzc1RleHQgPSBcImZvbnQtZmFtaWx5OiBJbnRlciwgc2Fucy1zZXJpZjsgYmFja2dyb3VuZDogIzFhMWEyZTsgYm9yZGVyLXJhZGl1czogMTJweDsgcGFkZGluZzogMjRweDsgY29sb3I6ICNlMGUwZTA7IG1heC13aWR0aDogNjAwcHg7XCI7XG4gIFxuICBjb25zdCByb3cgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuICByb3cuc3R5bGUuY3NzVGV4dCA9IFwiZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IGNlbnRlcjsganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuOyBtYXJnaW4tYm90dG9tOiAyMHB4O1wiO1xuICBcbiAgY29uc3QgaW5wdXRCb3ggPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuICBpbnB1dEJveC5zdHlsZS5jc3NUZXh0ID0gXCJ0ZXh0LWFsaWduOmNlbnRlcjtcIjtcbiAgaW5wdXRCb3guaW5uZXJIVE1MID0gYDxkaXYgc3R5bGU9XCJmb250LXNpemU6MTNweDtjb2xvcjojOTk5O21hcmdpbi1ib3R0b206NHB4O1wiPklOUFVUPC9kaXY+PGRpdiBzdHlsZT1cImJhY2tncm91bmQ6IzE2MjEzZTtib3JkZXI6MnB4IHNvbGlkICM0QTlFRkY7Ym9yZGVyLXJhZGl1czo4cHg7cGFkZGluZzoxMHB4IDE2cHg7Zm9udC13ZWlnaHQ6NjAwO1wiPng8L2Rpdj5gO1xuICBcbiAgY29uc3QgbWlkZGxlQm94ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKTtcbiAgbWlkZGxlQm94LnN0eWxlLmNzc1RleHQgPSBcInRleHQtYWxpZ246Y2VudGVyOyBmbGV4OiAxOyBtYXJnaW46IDAgMTZweDtcIjtcbiAgbWlkZGxlQm94LmlubmVySFRNTCA9IGBcbiAgICA8ZGl2IHN0eWxlPVwiYmFja2dyb3VuZDoke2lzRGF0YSA/ICcjMmMzZTUwJyA6ICcjMWExYTJlJ307Ym9yZGVyOjJweCBzb2xpZCAke2lzRGF0YSA/ICcjNEE5RUZGJyA6ICcjZmY2YjZiJ307Ym9yZGVyLXJhZGl1czo4cHg7cGFkZGluZzoxMnB4O2ZvbnQtc2l6ZToxM3B4O1wiPlxuICAgICAgPHN0cm9uZyBzdHlsZT1cImNvbG9yOiR7aXNEYXRhID8gJyM0QTlFRkYnIDogJyNmZjZiNmInfVwiPiR7aXNEYXRhID8gJ0tub3duIE1vZGVsJyA6ICdVbmtub3duIE1lY2hhbmlzbSd9PC9zdHJvbmc+PGJyPlxuICAgICAgPHNwYW4gc3R5bGU9XCJjb2xvcjojYWFhXCI+JHtpc0RhdGEgPyAnTGluZWFyIFJlZ3Jlc3Npb248YnI+TG9naXN0aWMgUmVncmVzc2lvbjxicj5Db3ggTW9kZWwnIDogJ0RlY2lzaW9uIFRyZWVzPGJyPk5ldXJhbCBOZXRzPGJyPlNWTXMnfTwvc3Bhbj5cbiAgICA8L2Rpdj5cbiAgICA8ZGl2IHN0eWxlPVwiZm9udC1zaXplOjExcHg7Y29sb3I6Izc3NzttYXJnaW4tdG9wOjZweDtcIj5WYWxpZGF0aW9uOiAke2lzRGF0YSA/ICdHb29kbmVzcy1vZi1maXQgdGVzdHMnIDogJ1ByZWRpY3RpdmUgYWNjdXJhY3knfTwvZGl2PlxuICBgO1xuICBcbiAgY29uc3Qgb3V0cHV0Qm94ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKTtcbiAgb3V0cHV0Qm94LnN0eWxlLmNzc1RleHQgPSBcInRleHQtYWxpZ246Y2VudGVyO1wiO1xuICBvdXRwdXRCb3guaW5uZXJIVE1MID0gYDxkaXYgc3R5bGU9XCJmb250LXNpemU6MTNweDtjb2xvcjojOTk5O21hcmdpbi1ib3R0b206NHB4O1wiPk9VVFBVVDwvZGl2PjxkaXYgc3R5bGU9XCJiYWNrZ3JvdW5kOiMxNjIxM2U7Ym9yZGVyOjJweCBzb2xpZCAjNEE5RUZGO2JvcmRlci1yYWRpdXM6OHB4O3BhZGRpbmc6MTBweCAxNnB4O2ZvbnQtd2VpZ2h0OjYwMDtcIj55PC9kaXY+YDtcbiAgXG4gIHJvdy5hcHBlbmRDaGlsZChpbnB1dEJveCk7XG4gIHJvdy5hcHBlbmRDaGlsZChtaWRkbGVCb3gpO1xuICByb3cuYXBwZW5kQ2hpbGQob3V0cHV0Qm94KTtcbiAgY29udGFpbmVyLmFwcGVuZENoaWxkKHJvdyk7XG4gIFxuICBjb25zdCBmb290ZXIgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuICBmb290ZXIuc3R5bGUuY3NzVGV4dCA9IGBiYWNrZ3JvdW5kOiR7aXNEYXRhID8gJyMxYTJhMWEnIDogJyMyYTFhMWEnfTtib3JkZXItcmFkaXVzOjhweDtwYWRkaW5nOjEycHg7Zm9udC1zaXplOjEzcHg7Y29sb3I6I2JiYjtgO1xuICBmb290ZXIuaW5uZXJIVE1MID0gYDxzdHJvbmcgc3R5bGU9XCJjb2xvcjoke2lzRGF0YSA/ICcjNTBmYTdiJyA6ICcjZmY2YjZiJ31cIj5Qb3B1bGF0aW9uOjwvc3Ryb25nPiAke2lzRGF0YSA/ICd+OTglIG9mIHN0YXRpc3RpY2lhbnMnIDogJ34yJSBvZiBzdGF0aXN0aWNpYW5zLCBtYW55IGNvbXB1dGVyIHNjaWVudGlzdHMnfWA7XG4gIGNvbnRhaW5lci5hcHBlbmRDaGlsZChmb290ZXIpO1xuICBcbiAgcmV0dXJuIGNvbnRhaW5lcjtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InJhc2hvbW9uX2RhdGEgPSBbXG4gIHsgbW9kZWw6IFwiUGljdHVyZSAxXCIsIHZhcnM6IFtcIngzXCIsIFwieDhcIiwgXCJ4MTJcIiwgXCJ4MTdcIiwgXCJ4MjdcIl0sIGVxOiBcInkgPSAyLjEgKyAzLjh44oKDIC0gMC42eOKCiCArIDgzLjJ44oKB4oKCIC0gMi4xeOKCgeKChyArIDMuMnjigoLigodcIiwgcnNzOiAxLjAwMCB9LFxuICB7IG1vZGVsOiBcIlBpY3R1cmUgMlwiLCB2YXJzOiBbXCJ4NVwiLCBcIng2XCIsIFwieDE1XCIsIFwieDIxXCIsIFwieDIyXCJdLCBlcTogXCJ5ID0gLTguOSArIDQuNnjigoUgKyAwLjAxeOKChiArIDEyLjB44oKB4oKFICsgMTcuNXjigoLigoEgKyAwLjJ44oKC4oKCXCIsIHJzczogMS4wMDcgfSxcbiAgeyBtb2RlbDogXCJQaWN0dXJlIDNcIiwgdmFyczogW1wieDJcIiwgXCJ4N1wiLCBcIng4XCIsIFwieDExXCIsIFwieDI4XCJdLCBlcTogXCJ5ID0gLTc2LjcgKyA5LjN44oKCICsgMjIuMHjigocgLSAxMy4yeOKCiCArIDMuNHjigoHigoEgKyA3LjJ44oKC4oKIXCIsIHJzczogMS4wMDkgfVxuXVxuXG52aWV3b2YgcmFzaG9tb25fbW9kZWwgPSBJbnB1dHMucmFkaW8ocmFzaG9tb25fZGF0YS5tYXAoZCA9PiBkLm1vZGVsKSwge1xuICBsYWJlbDogXCJTZWxlY3QgbW9kZWw6XCIsXG4gIHZhbHVlOiBcIlBpY3R1cmUgMVwiXG59KVxuXG57XG4gIGNvbnN0IGQgPSByYXNob21vbl9kYXRhLmZpbmQociA9PiByLm1vZGVsID09PSByYXNob21vbl9tb2RlbCk7XG4gIGNvbnN0IGFsbFZhcnMgPSBbXCJ4MlwiLFwieDNcIixcIng1XCIsXCJ4NlwiLFwieDdcIixcIng4XCIsXCJ4MTFcIixcIngxMlwiLFwieDE1XCIsXCJ4MTdcIixcIngyMVwiLFwieDIyXCIsXCJ4MjdcIixcIngyOFwiXTtcbiAgcmV0dXJuIGh0bC5odG1sYFxuICAgIDxkaXYgc3R5bGU9XCJmb250LWZhbWlseTogSW50ZXIsIHNhbnMtc2VyaWY7IGJhY2tncm91bmQ6ICMxYTFhMmU7IGJvcmRlci1yYWRpdXM6IDEycHg7IHBhZGRpbmc6IDIwcHg7IGNvbG9yOiAjZTBlMGUwOyBtYXgtd2lkdGg6IDYwMHB4O1wiPlxuICAgICAgPGRpdiBzdHlsZT1cImZvbnQtc2l6ZTogMTRweDsgY29sb3I6ICM0QTlFRkY7IGZvbnQtd2VpZ2h0OiA2MDA7IG1hcmdpbi1ib3R0b206IDhweDtcIj4ke2QubW9kZWx9PC9kaXY+XG4gICAgICA8ZGl2IHN0eWxlPVwiZm9udC1mYW1pbHk6IG1vbm9zcGFjZTsgZm9udC1zaXplOiAxM3B4OyBiYWNrZ3JvdW5kOiAjMGQxMTE3OyBwYWRkaW5nOiAxMHB4IDE0cHg7IGJvcmRlci1yYWRpdXM6IDZweDsgbWFyZ2luLWJvdHRvbTogMTZweDsgY29sb3I6ICNhMGQ4ZmY7XCI+JHtkLmVxfTwvZGl2PlxuICAgICAgPGRpdiBzdHlsZT1cImZvbnQtc2l6ZTogMTJweDsgY29sb3I6ICM4ODg7IG1hcmdpbi1ib3R0b206IDEwcHg7XCI+UmVsYXRpdmUgUlNTOiA8c3Ryb25nIHN0eWxlPVwiY29sb3I6IzUwZmE3YlwiPiR7ZC5yc3MudG9GaXhlZCgzKX08L3N0cm9uZz4g4oCUIG5lYXJseSBpZGVudGljYWwgdG8gdGhlIGJlc3QgbW9kZWw8L2Rpdj5cbiAgICAgIDxkaXYgc3R5bGU9XCJkaXNwbGF5OiBmbGV4OyBmbGV4LXdyYXA6IHdyYXA7IGdhcDogNnB4O1wiPlxuICAgICAgICAke2FsbFZhcnMubWFwKHYgPT4gaHRsLmh0bWxgPHNwYW4gc3R5bGU9XCJwYWRkaW5nOiA0cHggMTBweDsgYm9yZGVyLXJhZGl1czogMjBweDsgZm9udC1zaXplOiAxMnB4OyBiYWNrZ3JvdW5kOiAke2QudmFycy5pbmNsdWRlcyh2KSA/ICcjNEE5RUZGMjInIDogJyNmZmZmZmYxMSd9OyBib3JkZXI6IDFweCBzb2xpZCAke2QudmFycy5pbmNsdWRlcyh2KSA/ICcjNEE5RUZGJyA6ICcjMzMzJ307IGNvbG9yOiAke2QudmFycy5pbmNsdWRlcyh2KSA/ICcjNEE5RUZGJyA6ICcjNjY2J307XCI+JHt2fTwvc3Bhbj5gKX1cbiAgICAgIDwvZGl2PlxuICAgICAgPGRpdiBzdHlsZT1cIm1hcmdpbi10b3A6IDEycHg7IGZvbnQtc2l6ZTogMTJweDsgY29sb3I6ICM4ODg7XCI+RWFjaCBtb2RlbCB1c2VzIGNvbXBsZXRlbHkgZGlmZmVyZW50IHZhcmlhYmxlcyDigJQgeWV0IGZpdHMgZXF1YWxseSB3ZWxsLiBUaGlzIGlzIHRoZSBSYXNob21vbiBFZmZlY3QuPC9kaXY+XG4gICAgPC9kaXY+XG4gIGA7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJmb3Jlc3RfZGF0YSA9IFtcbiAge2RhdGFzZXQ6IFwiQnJlYXN0IENhbmNlclwiLCBmb3Jlc3Q6IDIuOSwgdHJlZTogNS45fSxcbiAge2RhdGFzZXQ6IFwiSW9ub3NwaGVyZVwiLCBmb3Jlc3Q6IDUuNSwgdHJlZTogMTEuMn0sXG4gIHtkYXRhc2V0OiBcIkRpYWJldGVzXCIsIGZvcmVzdDogMjQuMiwgdHJlZTogMjUuM30sXG4gIHtkYXRhc2V0OiBcIkdsYXNzXCIsIGZvcmVzdDogMjIuMCwgdHJlZTogMzAuNH0sXG4gIHtkYXRhc2V0OiBcIlNveWJlYW5cIiwgZm9yZXN0OiA1LjcsIHRyZWU6IDguNn0sXG4gIHtkYXRhc2V0OiBcIkxldHRlcnNcIiwgZm9yZXN0OiAzLjQsIHRyZWU6IDEyLjR9LFxuICB7ZGF0YXNldDogXCJTYXRlbGxpdGVcIiwgZm9yZXN0OiA4LjYsIHRyZWU6IDE0Ljh9LFxuICB7ZGF0YXNldDogXCJETkFcIiwgZm9yZXN0OiAzLjksIHRyZWU6IDYuMn0sXG4gIHtkYXRhc2V0OiBcIkRpZ2l0XCIsIGZvcmVzdDogNi4yLCB0cmVlOiAxNy4xfVxuXVxuXG52aWV3b2Ygc2VsZWN0ZWRfZGF0YXNldCA9IElucHV0cy5zZWxlY3QoZm9yZXN0X2RhdGEubWFwKGQgPT4gZC5kYXRhc2V0KSwge1xuICBsYWJlbDogXCJTZWxlY3QgZGF0YXNldDpcIlxufSlcblxue1xuICBjb25zdCBkID0gZm9yZXN0X2RhdGEuZmluZCh4ID0+IHguZGF0YXNldCA9PT0gc2VsZWN0ZWRfZGF0YXNldCk7XG4gIGNvbnN0IHJlZHVjdGlvbiA9ICgoKGQudHJlZSAtIGQuZm9yZXN0KSAvIGQudHJlZSkgKiAxMDApLnRvRml4ZWQoMSk7XG4gIHJldHVybiBQbG90LnBsb3Qoe1xuICAgIG1hcmtzOiBbXG4gICAgICBQbG90LmJhclkoXG4gICAgICAgIFt7bWV0aG9kOiBcIlJhbmRvbSBGb3Jlc3RcIiwgZXJyb3I6IGQuZm9yZXN0fSwge21ldGhvZDogXCJTaW5nbGUgVHJlZSAoQ0FSVClcIiwgZXJyb3I6IGQudHJlZX1dLFxuICAgICAgICB7eDogXCJtZXRob2RcIiwgeTogXCJlcnJvclwiLCBmaWxsOiBkMiA9PiBkMi5tZXRob2QgPT09IFwiUmFuZG9tIEZvcmVzdFwiID8gXCIjNEE5RUZGXCIgOiBcIiNmZjZiNmJcIiwgcng6IDR9XG4gICAgICApLFxuICAgICAgUGxvdC50ZXh0KFxuICAgICAgICBbe21ldGhvZDogXCJSYW5kb20gRm9yZXN0XCIsIGVycm9yOiBkLmZvcmVzdH0sIHttZXRob2Q6IFwiU2luZ2xlIFRyZWUgKENBUlQpXCIsIGVycm9yOiBkLnRyZWV9XSxcbiAgICAgICAge3g6IFwibWV0aG9kXCIsIHk6IFwiZXJyb3JcIiwgdGV4dDogZDIgPT4gZDIuZXJyb3IgKyBcIiVcIiwgZHk6IC04LCBmb250U2l6ZTogMTQsIGZvbnRXZWlnaHQ6IFwiYm9sZFwiLCBmaWxsOiBcIndoaXRlXCJ9XG4gICAgICApLFxuICAgICAgUGxvdC5ydWxlWShbMF0pXG4gICAgXSxcbiAgICB5OiB7bGFiZWw6IFwiVGVzdCBFcnJvciAoJSlcIiwgZ3JpZDogdHJ1ZX0sXG4gICAgeDoge2xhYmVsOiBudWxsfSxcbiAgICB0aXRsZTogYCR7c2VsZWN0ZWRfZGF0YXNldH06IEVycm9yIHJlZHVjZWQgYnkgJHtyZWR1Y3Rpb259JWAsXG4gICAgc3R5bGU6IHtiYWNrZ3JvdW5kOiBcInRyYW5zcGFyZW50XCIsIGNvbG9yOiBcIiNjY2NcIn0sXG4gICAgd2lkdGg6IDUwMCxcbiAgICBoZWlnaHQ6IDMwMFxuICB9KTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnY3VsdHVyZScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdyYXNob21vbl9tb2RlbCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdzZWxlY3RlZF9kYXRhc2V0JykifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../posts/statistics-vs-machine-learning";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -839,7 +1068,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/BugraAKKUS\.github\.io\/blog\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

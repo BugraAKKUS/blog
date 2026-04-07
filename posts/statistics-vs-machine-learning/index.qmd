@@ -50,6 +50,56 @@ Two goals drive all statistical analysis: **prediction** (forecasting $\mathbf{y
 
 This asymmetry — 98% versus 2% — is the provocation at the paper's heart.
 
+### The Two Cultures: An Interactive View
+
+Select a culture to see how it approaches the black box problem:
+
+```{ojs}
+viewof culture = Inputs.radio(["Data Modeling Culture", "Algorithmic Modeling Culture"], {
+  label: "Choose a culture:",
+  value: "Data Modeling Culture"
+})
+
+{
+  const isData = culture === "Data Modeling Culture";
+  const container = document.createElement("div");
+  container.style.cssText = "font-family: Inter, sans-serif; background: #1a1a2e; border-radius: 12px; padding: 24px; color: #e0e0e0; max-width: 600px;";
+  
+  const row = document.createElement("div");
+  row.style.cssText = "display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;";
+  
+  const inputBox = document.createElement("div");
+  inputBox.style.cssText = "text-align:center;";
+  inputBox.innerHTML = `<div style="font-size:13px;color:#999;margin-bottom:4px;">INPUT</div><div style="background:#16213e;border:2px solid #4A9EFF;border-radius:8px;padding:10px 16px;font-weight:600;">x</div>`;
+  
+  const middleBox = document.createElement("div");
+  middleBox.style.cssText = "text-align:center; flex: 1; margin: 0 16px;";
+  middleBox.innerHTML = `
+    <div style="background:${isData ? '#2c3e50' : '#1a1a2e'};border:2px solid ${isData ? '#4A9EFF' : '#ff6b6b'};border-radius:8px;padding:12px;font-size:13px;">
+      <strong style="color:${isData ? '#4A9EFF' : '#ff6b6b'}">${isData ? 'Known Model' : 'Unknown Mechanism'}</strong><br>
+      <span style="color:#aaa">${isData ? 'Linear Regression<br>Logistic Regression<br>Cox Model' : 'Decision Trees<br>Neural Nets<br>SVMs'}</span>
+    </div>
+    <div style="font-size:11px;color:#777;margin-top:6px;">Validation: ${isData ? 'Goodness-of-fit tests' : 'Predictive accuracy'}</div>
+  `;
+  
+  const outputBox = document.createElement("div");
+  outputBox.style.cssText = "text-align:center;";
+  outputBox.innerHTML = `<div style="font-size:13px;color:#999;margin-bottom:4px;">OUTPUT</div><div style="background:#16213e;border:2px solid #4A9EFF;border-radius:8px;padding:10px 16px;font-weight:600;">y</div>`;
+  
+  row.appendChild(inputBox);
+  row.appendChild(middleBox);
+  row.appendChild(outputBox);
+  container.appendChild(row);
+  
+  const footer = document.createElement("div");
+  footer.style.cssText = `background:${isData ? '#1a2a1a' : '#2a1a1a'};border-radius:8px;padding:12px;font-size:13px;color:#bbb;`;
+  footer.innerHTML = `<strong style="color:${isData ? '#50fa7b' : '#ff6b6b'}">Population:</strong> ${isData ? '~98% of statisticians' : '~2% of statisticians, many computer scientists'}`;
+  container.appendChild(footer);
+  
+  return container;
+}
+```
+
 ---
 
 ## Breiman's Journey: From Consulting to Conviction
@@ -164,9 +214,36 @@ Consider subset selection with 30 variables, seeking the best 5-variable linear 
 | Picture 2 | $y = -8.9 + 4.6x_5 + 0.01x_6 + 12.0x_{15} + 17.5x_{21} + 0.2x_{22}$ |
 | Picture 3 | $y = -76.7 + 9.3x_2 + 22.0x_7 - 13.2x_8 + 3.4x_{11} + 7.2x_{28}$ |
 
-Each tells a **completely different story** about which variables matter — yet all fit equally well. Breiman also found this with neural nets: running the same small net 100 times with different random initializations produced **32 distinct minima** with roughly equal test error.
+Each tells a **completely different story** about which variables matter — yet all fit equally well. Click through the models below to see the Rashomon Effect in action:
 
-The practical consequence is **instability**: slight perturbations of the data cause the procedure to hop between very different models. Aggregation methods like **bagging** can help by averaging over competing models.
+```{ojs}
+rashomon_data = [
+  { model: "Picture 1", vars: ["x3", "x8", "x12", "x17", "x27"], eq: "y = 2.1 + 3.8x₃ - 0.6x₈ + 83.2x₁₂ - 2.1x₁₇ + 3.2x₂₇", rss: 1.000 },
+  { model: "Picture 2", vars: ["x5", "x6", "x15", "x21", "x22"], eq: "y = -8.9 + 4.6x₅ + 0.01x₆ + 12.0x₁₅ + 17.5x₂₁ + 0.2x₂₂", rss: 1.007 },
+  { model: "Picture 3", vars: ["x2", "x7", "x8", "x11", "x28"], eq: "y = -76.7 + 9.3x₂ + 22.0x₇ - 13.2x₈ + 3.4x₁₁ + 7.2x₂₈", rss: 1.009 }
+]
+
+viewof rashomon_model = Inputs.radio(rashomon_data.map(d => d.model), {
+  label: "Select model:",
+  value: "Picture 1"
+})
+
+{
+  const d = rashomon_data.find(r => r.model === rashomon_model);
+  const allVars = ["x2","x3","x5","x6","x7","x8","x11","x12","x15","x17","x21","x22","x27","x28"];
+  return htl.html`
+    <div style="font-family: Inter, sans-serif; background: #1a1a2e; border-radius: 12px; padding: 20px; color: #e0e0e0; max-width: 600px;">
+      <div style="font-size: 14px; color: #4A9EFF; font-weight: 600; margin-bottom: 8px;">${d.model}</div>
+      <div style="font-family: monospace; font-size: 13px; background: #0d1117; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; color: #a0d8ff;">${d.eq}</div>
+      <div style="font-size: 12px; color: #888; margin-bottom: 10px;">Relative RSS: <strong style="color:#50fa7b">${d.rss.toFixed(3)}</strong> — nearly identical to the best model</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+        ${allVars.map(v => htl.html`<span style="padding: 4px 10px; border-radius: 20px; font-size: 12px; background: ${d.vars.includes(v) ? '#4A9EFF22' : '#ffffff11'}; border: 1px solid ${d.vars.includes(v) ? '#4A9EFF' : '#333'}; color: ${d.vars.includes(v) ? '#4A9EFF' : '#666'};">${v}</span>`)}
+      </div>
+      <div style="margin-top: 12px; font-size: 12px; color: #888;">Each model uses completely different variables — yet fits equally well. This is the Rashomon Effect.</div>
+    </div>
+  `;
+}
+```
 
 ### Occam: Simplicity versus Accuracy
 
@@ -190,6 +267,50 @@ His evidence is compelling. The following table, reproduced from the paper, comp
 | Digit | 7,291 | 2,007 | 256 | 10 | **6.2** | 17.1 |
 
 : **Table 2 from Breiman (2001).** Test set misclassification error (%). Forests consistently and dramatically outperform single trees. {.hover}
+
+Select a dataset below to see the error comparison visually:
+
+```{ojs}
+forest_data = [
+  {dataset: "Breast Cancer", forest: 2.9, tree: 5.9},
+  {dataset: "Ionosphere", forest: 5.5, tree: 11.2},
+  {dataset: "Diabetes", forest: 24.2, tree: 25.3},
+  {dataset: "Glass", forest: 22.0, tree: 30.4},
+  {dataset: "Soybean", forest: 5.7, tree: 8.6},
+  {dataset: "Letters", forest: 3.4, tree: 12.4},
+  {dataset: "Satellite", forest: 8.6, tree: 14.8},
+  {dataset: "DNA", forest: 3.9, tree: 6.2},
+  {dataset: "Digit", forest: 6.2, tree: 17.1}
+]
+
+viewof selected_dataset = Inputs.select(forest_data.map(d => d.dataset), {
+  label: "Select dataset:"
+})
+
+{
+  const d = forest_data.find(x => x.dataset === selected_dataset);
+  const reduction = (((d.tree - d.forest) / d.tree) * 100).toFixed(1);
+  return Plot.plot({
+    marks: [
+      Plot.barY(
+        [{method: "Random Forest", error: d.forest}, {method: "Single Tree (CART)", error: d.tree}],
+        {x: "method", y: "error", fill: d2 => d2.method === "Random Forest" ? "#4A9EFF" : "#ff6b6b", rx: 4}
+      ),
+      Plot.text(
+        [{method: "Random Forest", error: d.forest}, {method: "Single Tree (CART)", error: d.tree}],
+        {x: "method", y: "error", text: d2 => d2.error + "%", dy: -8, fontSize: 14, fontWeight: "bold", fill: "white"}
+      ),
+      Plot.ruleY([0])
+    ],
+    y: {label: "Test Error (%)", grid: true},
+    x: {label: null},
+    title: `${selected_dataset}: Error reduced by ${reduction}%`,
+    style: {background: "transparent", color: "#ccc"},
+    width: 500,
+    height: 300
+  });
+}
+```
 
 The reductions are striking. Some errors are halved; others cut by two-thirds. On the Statlog Project's four benchmark datasets with separate test sets, random forests ranked **first on all four**. The next best classifier averaged rank 7.3.
 
