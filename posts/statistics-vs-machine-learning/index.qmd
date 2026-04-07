@@ -11,8 +11,9 @@ bibliography: references.bib
 format:
   html:
     include-after-body: ../../subscribe.html
-    code-tools: False
     smooth-scroll: true
+execute:
+  echo: false
 ---
 
 ## Why I Read This Paper {.unnumbered}
