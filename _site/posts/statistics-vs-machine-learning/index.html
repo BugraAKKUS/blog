@@ -199,7 +199,7 @@ window.Quarto = {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">The Two Cultures of Statistical Modeling</h1>
-            <p class="subtitle lead">A Deep Dive into Leo Breiman’s Landmark 2001 Paper</p>
+            <p class="subtitle lead">Reading Breiman’s 2001 Paper in 2026</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Statistics</div>
                 <div class="quarto-category">Machine Learning</div>
@@ -232,44 +232,32 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#prologue-a-statisticians-rebellion" id="toc-prologue-a-statisticians-rebellion" class="nav-link active" data-scroll-target="#prologue-a-statisticians-rebellion">Prologue: A Statistician’s Rebellion</a></li>
-  <li><a href="#the-black-box-metaphor" id="toc-the-black-box-metaphor" class="nav-link" data-scroll-target="#the-black-box-metaphor"><span class="header-section-number">1</span> The Black Box Metaphor</a>
+  <li><a href="#why-i-read-this-paper" id="toc-why-i-read-this-paper" class="nav-link active" data-scroll-target="#why-i-read-this-paper">Why I Read This Paper</a></li>
+  <li><a href="#the-setup-what-even-is-a-statistical-model" id="toc-the-setup-what-even-is-a-statistical-model" class="nav-link" data-scroll-target="#the-setup-what-even-is-a-statistical-model"><span class="header-section-number">1</span> The Setup: What Even Is a Statistical Model?</a>
   <ul class="collapse">
-  <li><a href="#the-two-cultures-an-interactive-view" id="toc-the-two-cultures-an-interactive-view" class="nav-link" data-scroll-target="#the-two-cultures-an-interactive-view"><span class="header-section-number">1.1</span> The Two Cultures: An Interactive View</a></li>
+  <li><a href="#two-very-different-answers" id="toc-two-very-different-answers" class="nav-link" data-scroll-target="#two-very-different-answers"><span class="header-section-number">1.1</span> Two Very Different Answers</a></li>
   </ul></li>
-  <li><a href="#breimans-journey-from-consulting-to-conviction" id="toc-breimans-journey-from-consulting-to-conviction" class="nav-link" data-scroll-target="#breimans-journey-from-consulting-to-conviction"><span class="header-section-number">2</span> Breiman’s Journey: From Consulting to Conviction</a>
+  <li><a href="#breimans-background-he-wasnt-just-theorizing" id="toc-breimans-background-he-wasnt-just-theorizing" class="nav-link" data-scroll-target="#breimans-background-he-wasnt-just-theorizing"><span class="header-section-number">2</span> Breiman’s Background: He Wasn’t Just Theorizing</a></li>
+  <li><a href="#whats-actually-wrong-with-data-models" id="toc-whats-actually-wrong-with-data-models" class="nav-link" data-scroll-target="#whats-actually-wrong-with-data-models"><span class="header-section-number">3</span> What’s Actually Wrong with Data Models?</a>
   <ul class="collapse">
-  <li><a href="#the-ozone-project" id="toc-the-ozone-project" class="nav-link" data-scroll-target="#the-ozone-project"><span class="header-section-number">2.1</span> The Ozone Project</a></li>
-  <li><a href="#the-chlorine-project" id="toc-the-chlorine-project" class="nav-link" data-scroll-target="#the-chlorine-project"><span class="header-section-number">2.2</span> The Chlorine Project</a></li>
+  <li><a href="#the-core-problem" id="toc-the-core-problem" class="nav-link" data-scroll-target="#the-core-problem"><span class="header-section-number">3.1</span> The core problem</a></li>
+  <li><a href="#goodness-of-fit-tests-dont-really-work" id="toc-goodness-of-fit-tests-dont-really-work" class="nav-link" data-scroll-target="#goodness-of-fit-tests-dont-really-work"><span class="header-section-number">3.2</span> Goodness-of-fit tests don’t really work</a></li>
+  <li><a href="#the-multiplicity-problem" id="toc-the-multiplicity-problem" class="nav-link" data-scroll-target="#the-multiplicity-problem"><span class="header-section-number">3.3</span> The multiplicity problem</a></li>
   </ul></li>
-  <li><a href="#the-critique-what-is-wrong-with-data-models" id="toc-the-critique-what-is-wrong-with-data-models" class="nav-link" data-scroll-target="#the-critique-what-is-wrong-with-data-models"><span class="header-section-number">3</span> The Critique: What Is Wrong with Data Models?</a>
+  <li><a href="#the-algorithmic-world-was-moving-fast" id="toc-the-algorithmic-world-was-moving-fast" class="nav-link" data-scroll-target="#the-algorithmic-world-was-moving-fast"><span class="header-section-number">4</span> The Algorithmic World Was Moving Fast</a></li>
+  <li><a href="#three-big-lessons-from-machine-learning" id="toc-three-big-lessons-from-machine-learning" class="nav-link" data-scroll-target="#three-big-lessons-from-machine-learning"><span class="header-section-number">5</span> Three Big Lessons from Machine Learning</a>
   <ul class="collapse">
-  <li><a href="#the-almost-religious-belief" id="toc-the-almost-religious-belief" class="nav-link" data-scroll-target="#the-almost-religious-belief"><span class="header-section-number">3.1</span> The Almost-Religious Belief</a></li>
-  <li><a href="#the-linear-regression-parable" id="toc-the-linear-regression-parable" class="nav-link" data-scroll-target="#the-linear-regression-parable"><span class="header-section-number">3.2</span> The Linear Regression Parable</a></li>
-  <li><a href="#the-weakness-of-goodness-of-fit" id="toc-the-weakness-of-goodness-of-fit" class="nav-link" data-scroll-target="#the-weakness-of-goodness-of-fit"><span class="header-section-number">3.3</span> The Weakness of Goodness-of-Fit</a></li>
-  <li><a href="#the-multiplicity-problem" id="toc-the-multiplicity-problem" class="nav-link" data-scroll-target="#the-multiplicity-problem"><span class="header-section-number">3.4</span> The Multiplicity Problem</a></li>
+  <li><a href="#the-rashomon-effect" id="toc-the-rashomon-effect" class="nav-link" data-scroll-target="#the-rashomon-effect"><span class="header-section-number">5.1</span> 1. The Rashomon Effect</a></li>
+  <li><a href="#simpler-isnt-always-better" id="toc-simpler-isnt-always-better" class="nav-link" data-scroll-target="#simpler-isnt-always-better"><span class="header-section-number">5.2</span> 2. Simpler isn’t always better</a></li>
+  <li><a href="#more-variables-can-be-a-good-thing" id="toc-more-variables-can-be-a-good-thing" class="nav-link" data-scroll-target="#more-variables-can-be-a-good-thing"><span class="header-section-number">5.3</span> 3. More variables can be a good thing</a></li>
   </ul></li>
-  <li><a href="#the-limitations-and-the-hammer" id="toc-the-limitations-and-the-hammer" class="nav-link" data-scroll-target="#the-limitations-and-the-hammer"><span class="header-section-number">4</span> The Limitations and the Hammer</a></li>
-  <li><a href="#the-rise-of-algorithmic-modeling" id="toc-the-rise-of-algorithmic-modeling" class="nav-link" data-scroll-target="#the-rise-of-algorithmic-modeling"><span class="header-section-number">5</span> The Rise of Algorithmic Modeling</a>
+  <li><a href="#can-a-black-box-give-you-real-information" id="toc-can-a-black-box-give-you-real-information" class="nav-link" data-scroll-target="#can-a-black-box-give-you-real-information"><span class="header-section-number">6</span> Can a Black Box Give You Real Information?</a>
   <ul class="collapse">
-  <li><a href="#a-new-community" id="toc-a-new-community" class="nav-link" data-scroll-target="#a-new-community"><span class="header-section-number">5.1</span> A New Community</a></li>
-  <li><a href="#theoretical-foundations" id="toc-theoretical-foundations" class="nav-link" data-scroll-target="#theoretical-foundations"><span class="header-section-number">5.2</span> Theoretical Foundations</a></li>
+  <li><a href="#hepatitis-survival" id="toc-hepatitis-survival" class="nav-link" data-scroll-target="#hepatitis-survival"><span class="header-section-number">6.1</span> Hepatitis survival</a></li>
+  <li><a href="#liver-disease" id="toc-liver-disease" class="nav-link" data-scroll-target="#liver-disease"><span class="header-section-number">6.2</span> Liver disease</a></li>
+  <li><a href="#genes-81-patients" id="toc-genes-81-patients" class="nav-link" data-scroll-target="#genes-81-patients"><span class="header-section-number">6.3</span> 4,682 genes, 81 patients</a></li>
   </ul></li>
-  <li><a href="#three-conceptual-revolutions" id="toc-three-conceptual-revolutions" class="nav-link" data-scroll-target="#three-conceptual-revolutions"><span class="header-section-number">6</span> Three Conceptual Revolutions</a>
-  <ul class="collapse">
-  <li><a href="#rashomon-the-multiplicity-of-good-models" id="toc-rashomon-the-multiplicity-of-good-models" class="nav-link" data-scroll-target="#rashomon-the-multiplicity-of-good-models"><span class="header-section-number">6.1</span> Rashomon: The Multiplicity of Good Models</a></li>
-  <li><a href="#occam-simplicity-versus-accuracy" id="toc-occam-simplicity-versus-accuracy" class="nav-link" data-scroll-target="#occam-simplicity-versus-accuracy"><span class="header-section-number">6.2</span> Occam: Simplicity versus Accuracy</a></li>
-  <li><a href="#bellman-dimensionality-as-blessing" id="toc-bellman-dimensionality-as-blessing" class="nav-link" data-scroll-target="#bellman-dimensionality-as-blessing"><span class="header-section-number">6.3</span> Bellman: Dimensionality as Blessing</a></li>
-  </ul></li>
-  <li><a href="#information-from-a-black-box" id="toc-information-from-a-black-box" class="nav-link" data-scroll-target="#information-from-a-black-box"><span class="header-section-number">7</span> Information from a Black Box</a>
-  <ul class="collapse">
-  <li><a href="#example-i-hepatitis-survival" id="toc-example-i-hepatitis-survival" class="nav-link" data-scroll-target="#example-i-hepatitis-survival"><span class="header-section-number">7.1</span> Example I: Hepatitis Survival</a></li>
-  <li><a href="#example-ii-liver-disease-clustering" id="toc-example-ii-liver-disease-clustering" class="nav-link" data-scroll-target="#example-ii-liver-disease-clustering"><span class="header-section-number">7.2</span> Example II: Liver Disease Clustering</a></li>
-  <li><a href="#example-iii-microarray-gene-expression" id="toc-example-iii-microarray-gene-expression" class="nav-link" data-scroll-target="#example-iii-microarray-gene-expression"><span class="header-section-number">7.3</span> Example III: Microarray Gene Expression</a></li>
-  </ul></li>
-  <li><a href="#final-remarks-a-call-to-arms" id="toc-final-remarks-a-call-to-arms" class="nav-link" data-scroll-target="#final-remarks-a-call-to-arms"><span class="header-section-number">8</span> Final Remarks: A Call to Arms</a></li>
-  <li><a href="#why-this-paper-still-matters-in-2026" id="toc-why-this-paper-still-matters-in-2026" class="nav-link" data-scroll-target="#why-this-paper-still-matters-in-2026"><span class="header-section-number">9</span> Why This Paper Still Matters in 2026</a></li>
-  <li><a href="#key-figures-to-study-in-the-original-paper" id="toc-key-figures-to-study-in-the-original-paper" class="nav-link" data-scroll-target="#key-figures-to-study-in-the-original-paper"><span class="header-section-number">10</span> Key Figures to Study in the Original Paper</a></li>
+  <li><a href="#why-this-paper-feels-different-in-2026" id="toc-why-this-paper-feels-different-in-2026" class="nav-link" data-scroll-target="#why-this-paper-feels-different-in-2026"><span class="header-section-number">7</span> Why This Paper Feels Different in 2026</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -281,122 +269,69 @@ window.Quarto = {
 
 
 
-<section id="prologue-a-statisticians-rebellion" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="prologue-a-statisticians-rebellion">Prologue: A Statistician’s Rebellion</h2>
-<p>In August 2001, Leo Breiman — a professor at UC Berkeley who had spent thirteen years as a freelance consultant before returning to academia — published a paper in <em>Statistical Science</em> that would become one of the most cited and debated works in the history of the field. “Statistical Modeling: The Two Cultures” was not merely a technical contribution; it was a manifesto. It challenged the philosophical foundations of an entire discipline and called for a paradigm shift that, in retrospect, anticipated the machine learning revolution we now inhabit.</p>
-<p>This post walks through the paper’s architecture, section by section, and distills the arguments that make it essential reading a quarter-century later.</p>
+<section id="why-i-read-this-paper" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="why-i-read-this-paper">Why I Read This Paper</h2>
+<p>I kept seeing this paper mentioned everywhere — in lectures, in blog posts, in Twitter threads. “Breiman 2001” kept coming up like some kind of secret handshake between people who take statistics seriously. So I finally read it.</p>
+<p>It was written in 2001. But honestly? It feels like it was written about today.</p>
+<p>This post is my attempt to walk through the paper’s main ideas in plain language. I’m not an expert — I’m just someone who found this paper really thought-provoking and wanted to share what I learned.</p>
 <hr>
 </section>
-<section id="the-black-box-metaphor" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="the-black-box-metaphor"><span class="header-section-number">1</span> The Black Box Metaphor</h2>
-<p>Breiman opens with an elegant framing device. Imagine nature as a <strong>black box</strong>:</p>
-<ul>
-<li>A vector of input variables <span class="math inline">\(\mathbf{x}\)</span> enters one side.</li>
-<li>Response variables <span class="math inline">\(\mathbf{y}\)</span> emerge from the other.</li>
-<li>Inside, some unknown mechanism connects them.</li>
-</ul>
+<section id="the-setup-what-even-is-a-statistical-model" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="the-setup-what-even-is-a-statistical-model"><span class="header-section-number">1</span> The Setup: What Even Is a Statistical Model?</h2>
+<p>Breiman starts with a simple picture. You have some input data <strong>x</strong>, and you want to predict some output <strong>y</strong>. Between them sits a black box — nature, doing something mysterious to connect the two.</p>
 <p><span class="math display">\[
-\mathbf{x} \longrightarrow \boxed{\text{Nature}} \longrightarrow \mathbf{y}
+\mathbf{x} \longrightarrow \boxed{\text{???}} \longrightarrow \mathbf{y}
 \]</span></p>
-<p>Two goals drive all statistical analysis: <strong>prediction</strong> (forecasting <span class="math inline">\(\mathbf{y}\)</span> for future <span class="math inline">\(\mathbf{x}\)</span>) and <strong>information extraction</strong> (understanding how nature links <span class="math inline">\(\mathbf{x}\)</span> to <span class="math inline">\(\mathbf{y}\)</span>). But the two cultures diverge sharply on <em>how</em> to pursue these goals.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-The Two Cultures at a Glance
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">Data Modeling Culture</th>
-<th style="text-align: left;">Algorithmic Modeling Culture</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Assumption</strong></td>
-<td style="text-align: left;">The data-generating mechanism is a known stochastic model</td>
-<td style="text-align: left;">The data-generating mechanism is complex and unknown</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Approach</strong></td>
-<td style="text-align: left;">Fit parametric models (linear regression, logistic regression, Cox model)</td>
-<td style="text-align: left;">Deploy algorithms that learn <span class="math inline">\(f(\mathbf{x})\)</span> (decision trees, neural nets, SVMs)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Validation</strong></td>
-<td style="text-align: left;">Goodness-of-fit tests, residual analysis</td>
-<td style="text-align: left;">Predictive accuracy on held-out test sets</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Population</strong></td>
-<td style="text-align: left;">~98% of statisticians (Breiman’s estimate)</td>
-<td style="text-align: left;">~2% of statisticians, many computer scientists</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>This asymmetry — 98% versus 2% — is the provocation at the paper’s heart.</p>
-<section id="the-two-cultures-an-interactive-view" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="the-two-cultures-an-interactive-view"><span class="header-section-number">1.1</span> The Two Cultures: An Interactive View</h3>
-<p>Select a culture to see how it approaches the black box problem:</p>
+<p>The question is: how do you figure out what’s inside that box?</p>
+<p>According to Breiman, in 2001, basically all statisticians answered this question the same way. And he thought that was a big problem.</p>
+<section id="two-very-different-answers" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="two-very-different-answers"><span class="header-section-number">1.1</span> Two Very Different Answers</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1" data-startfrom="58" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 57;"><span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>viewof culture <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"Data Modeling Culture"</span><span class="op">,</span> <span class="st">"Algorithmic Modeling Culture"</span>]<span class="op">,</span> {</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Choose a culture:"</span><span class="op">,</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="st">"Data Modeling Culture"</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> isData <span class="op">=</span> culture <span class="op">===</span> <span class="st">"Data Modeling Culture"</span><span class="op">;</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> container <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"font-family: Inter, sans-serif; background: #1a1a2e; border-radius: 12px; padding: 24px; color: #e0e0e0; max-width: 600px;"</span><span class="op">;</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> row <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;"</span><span class="op">;</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> inputBox <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  inputBox<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"text-align:center;"</span><span class="op">;</span></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  inputBox<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;div style="font-size:13px;color:#999;margin-bottom:4px;"&gt;INPUT&lt;/div&gt;&lt;div style="background:#16213e;border:2px solid #4A9EFF;border-radius:8px;padding:10px 16px;font-weight:600;"&gt;x&lt;/div&gt;`</span><span class="op">;</span></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> middleBox <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>  middleBox<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"text-align:center; flex: 1; margin: 0 16px;"</span><span class="op">;</span></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  middleBox<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`</span></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="background:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#2c3e50'</span> <span class="op">:</span> <span class="st">'#1a1a2e'</span><span class="sc">}</span><span class="vs">;border:2px solid </span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#ff6b6b'</span><span class="sc">}</span><span class="vs">;border-radius:8px;padding:12px;font-size:13px;"&gt;</span></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;strong style="color:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#ff6b6b'</span><span class="sc">}</span><span class="vs">"&gt;</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'Known Model'</span> <span class="op">:</span> <span class="st">'Unknown Mechanism'</span><span class="sc">}</span><span class="vs">&lt;/strong&gt;&lt;br&gt;</span></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;span style="color:#aaa"&gt;</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'Linear Regression&lt;br&gt;Logistic Regression&lt;br&gt;Cox Model'</span> <span class="op">:</span> <span class="st">'Decision Trees&lt;br&gt;Neural Nets&lt;br&gt;SVMs'</span><span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="font-size:11px;color:#777;margin-top:6px;"&gt;Validation: </span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'Goodness-of-fit tests'</span> <span class="op">:</span> <span class="st">'Predictive accuracy'</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span><span class="op">;</span></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> outputBox <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>  outputBox<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"text-align:center;"</span><span class="op">;</span></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>  outputBox<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;div style="font-size:13px;color:#999;margin-bottom:4px;"&gt;OUTPUT&lt;/div&gt;&lt;div style="background:#16213e;border:2px solid #4A9EFF;border-radius:8px;padding:10px 16px;font-weight:600;"&gt;y&lt;/div&gt;`</span><span class="op">;</span></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="fu">appendChild</span>(inputBox)<span class="op">;</span></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="fu">appendChild</span>(middleBox)<span class="op">;</span></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="fu">appendChild</span>(outputBox)<span class="op">;</span></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="fu">appendChild</span>(row)<span class="op">;</span></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> footer <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>  footer<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="vs">`background:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#1a2a1a'</span> <span class="op">:</span> <span class="st">'#2a1a1a'</span><span class="sc">}</span><span class="vs">;border-radius:8px;padding:12px;font-size:13px;color:#bbb;`</span><span class="op">;</span></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>  footer<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;strong style="color:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#50fa7b'</span> <span class="op">:</span> <span class="st">'#ff6b6b'</span><span class="sc">}</span><span class="vs">"&gt;Population:&lt;/strong&gt; </span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'~98% of statisticians'</span> <span class="op">:</span> <span class="st">'~2% of statisticians, many computer scientists'</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="fu">appendChild</span>(footer)<span class="op">;</span></span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> container<span class="op">;</span></span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" data-startfrom="42" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 41;"><span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>viewof culture <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>([<span class="st">"Data Modeling Culture"</span><span class="op">,</span> <span class="st">"Algorithmic Modeling Culture"</span>]<span class="op">,</span> {</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Choose a culture:"</span><span class="op">,</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="st">"Data Modeling Culture"</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> isData <span class="op">=</span> culture <span class="op">===</span> <span class="st">"Data Modeling Culture"</span><span class="op">;</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> container <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"font-family: Inter, sans-serif; background: #1a1a2e; border-radius: 12px; padding: 24px; color: #e0e0e0; max-width: 600px;"</span><span class="op">;</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> row <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;"</span><span class="op">;</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> inputBox <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  inputBox<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"text-align:center;"</span><span class="op">;</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  inputBox<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;div style="font-size:13px;color:#999;margin-bottom:4px;"&gt;INPUT&lt;/div&gt;&lt;div style="background:#16213e;border:2px solid #4A9EFF;border-radius:8px;padding:10px 16px;font-weight:600;"&gt;x&lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> middleBox <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  middleBox<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"text-align:center; flex: 1; margin: 0 16px;"</span><span class="op">;</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>  middleBox<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="background:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#2c3e50'</span> <span class="op">:</span> <span class="st">'#1a1a2e'</span><span class="sc">}</span><span class="vs">;border:2px solid </span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#ff6b6b'</span><span class="sc">}</span><span class="vs">;border-radius:8px;padding:12px;font-size:13px;"&gt;</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;strong style="color:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#ff6b6b'</span><span class="sc">}</span><span class="vs">"&gt;</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'Known Model'</span> <span class="op">:</span> <span class="st">'Unknown Mechanism'</span><span class="sc">}</span><span class="vs">&lt;/strong&gt;&lt;br&gt;</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;span style="color:#aaa"&gt;</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'Linear Regression&lt;br&gt;Logistic Regression&lt;br&gt;Cox Model'</span> <span class="op">:</span> <span class="st">'Decision Trees&lt;br&gt;Neural Nets&lt;br&gt;SVMs'</span><span class="sc">}</span><span class="vs">&lt;/span&gt;</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="font-size:11px;color:#777;margin-top:6px;"&gt;Validation: </span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'Goodness-of-fit tests'</span> <span class="op">:</span> <span class="st">'Predictive accuracy on test data'</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span><span class="op">;</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> outputBox <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>  outputBox<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"text-align:center;"</span><span class="op">;</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>  outputBox<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;div style="font-size:13px;color:#999;margin-bottom:4px;"&gt;OUTPUT&lt;/div&gt;&lt;div style="background:#16213e;border:2px solid #4A9EFF;border-radius:8px;padding:10px 16px;font-weight:600;"&gt;y&lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="fu">appendChild</span>(inputBox)<span class="op">;</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="fu">appendChild</span>(middleBox)<span class="op">;</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  row<span class="op">.</span><span class="fu">appendChild</span>(outputBox)<span class="op">;</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="fu">appendChild</span>(row)<span class="op">;</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> footer <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  footer<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="vs">`background:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#1a2a1a'</span> <span class="op">:</span> <span class="st">'#2a1a1a'</span><span class="sc">}</span><span class="vs">;border-radius:8px;padding:12px;font-size:13px;color:#bbb;`</span><span class="op">;</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  footer<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;strong style="color:</span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'#50fa7b'</span> <span class="op">:</span> <span class="st">'#ff6b6b'</span><span class="sc">}</span><span class="vs">"&gt;Who does this?&lt;/strong&gt; </span><span class="sc">${</span>isData <span class="op">?</span> <span class="st">'About 98% of statisticians in 2001'</span> <span class="op">:</span> <span class="st">'About 2% of statisticians — mostly people from CS and engineering'</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="fu">appendChild</span>(footer)<span class="op">;</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> container<span class="op">;</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -413,183 +348,101 @@ The Two Cultures at a Glance
 </div>
 </div>
 </div>
+<p>The <strong>data modeling culture</strong> says: assume nature works in a specific way (like linear regression), fit your data to that assumption, and draw conclusions. Clean, elegant, well-understood mathematically.</p>
+<p>The <strong>algorithmic modeling culture</strong> says: we don’t know how nature works, so let’s just find whatever function predicts best. Don’t assume, just learn.</p>
+<p>Breiman’s argument is simple: 98% of statisticians were doing the first thing, and he thought that was causing real problems.</p>
 <hr>
 </section>
 </section>
-<section id="breimans-journey-from-consulting-to-conviction" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="breimans-journey-from-consulting-to-conviction"><span class="header-section-number">2</span> Breiman’s Journey: From Consulting to Conviction</h2>
-<section id="the-ozone-project" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="the-ozone-project"><span class="header-section-number">2.1</span> The Ozone Project</h3>
-<p>In 1970s Los Angeles, ozone pollution posed a serious public health crisis. The EPA funded a large-scale effort to predict next-day ozone levels 12 hours in advance, using over <strong>450 meteorological variables</strong> measured across seven years. Breiman and his team attempted the prediction with large linear regressions, variable selection, and quadratic interaction terms — the best tools available pre-1980. The project <strong>failed</strong>: the false alarm rate was unacceptably high. Breiman laments that he could not revisit the problem with later algorithmic tools.</p>
-</section>
-<section id="the-chlorine-project" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="the-chlorine-project"><span class="header-section-number">2.2</span> The Chlorine Project</h3>
-<p>The EPA needed to determine whether a chemical compound contained chlorine from its mass spectra alone. The predictor space had <strong>variable dimensionality</strong> — molecular weights ranged from 30 to over 10,000. Discriminant analysis struggled with this structure. Breiman turned to <strong>decision trees</strong>, incorporating domain knowledge into 1,500 carefully designed binary questions applicable to spectra of any dimensionality. The result: <strong>95% accuracy</strong> on both chlorine-containing and non-chlorine compounds.</p>
+<section id="breimans-background-he-wasnt-just-theorizing" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="breimans-background-he-wasnt-just-theorizing"><span class="header-section-number">2</span> Breiman’s Background: He Wasn’t Just Theorizing</h2>
+<p>One thing that makes this paper different from a typical academic critique is that Breiman actually spent 13 years as a freelance consultant before going back to academia. He worked on real, messy, high-stakes prediction problems — ozone levels, chemical toxicity, speech, radar.</p>
+<p>Two examples he shares:</p>
+<p><strong>Predicting LA ozone levels:</strong> They had 7 years of data, 450+ weather variables, and needed to predict next-day ozone 12 hours ahead. They used the best statistical tools available in the 1970s — linear regression, variable selection. It failed. The false alarm rate was too high. Breiman says he wishes he could go back and try it with modern tools.</p>
+<p><strong>Identifying chlorine in chemicals:</strong> Using mass spectra data, they needed to classify whether a compound contained chlorine. Standard methods struggled because the data had variable dimensions. Breiman built a decision tree with 1,500 binary questions. Result: 95% accuracy.</p>
+<p>These two stories basically set up the whole paper. He learned from practice that you should use whatever works, not whatever fits a theoretical framework.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Breiman’s Five Consulting Principles
+The principles he took from consulting
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Focus on finding a good solution — that is what you are paid for.</li>
-<li>Live with the data before you plunge into modeling.</li>
-<li>Search for a model that gives a good solution, whether algorithmic or data-based.</li>
-<li>Predictive accuracy on test sets is the criterion for model quality.</li>
-<li>Computers are an indispensable partner.</li>
+<li>Focus on finding a good solution — that is the goal</li>
+<li>Spend time with the data before building models</li>
+<li>Use whichever type of model works best for the problem</li>
+<li>Test your model on data it hasn’t seen before</li>
+<li>Computers are not just tools — they are partners</li>
 </ol>
 </div>
 </div>
-<p>These principles, forged in practice, became the philosophical backbone of the entire paper.</p>
 <hr>
 </section>
+<section id="whats-actually-wrong-with-data-models" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="whats-actually-wrong-with-data-models"><span class="header-section-number">3</span> What’s Actually Wrong with Data Models?</h2>
+<p>This is where Breiman gets sharp. He argues that the statistical community’s love for data models was causing real harm.</p>
+<section id="the-core-problem" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="the-core-problem"><span class="header-section-number">3.1</span> The core problem</h3>
+<p>When you fit a data model, the conclusions you draw are about <strong>your model</strong>, not about reality. If your model is wrong, your conclusions are wrong. Sounds obvious, right? But he argues people kept ignoring this.</p>
+<p>His example: someone ran a linear regression to check for gender discrimination in faculty salaries. The gender coefficient was significant at the 5% level. Case closed, proof of discrimination, right? Breiman’s point is that nobody checked whether a linear model was even appropriate for this data in the first place.</p>
 </section>
-<section id="the-critique-what-is-wrong-with-data-models" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="the-critique-what-is-wrong-with-data-models"><span class="header-section-number">3</span> The Critique: What Is Wrong with Data Models?</h2>
-<section id="the-almost-religious-belief" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="the-almost-religious-belief"><span class="header-section-number">3.1</span> The Almost-Religious Belief</h3>
-<p>When Breiman returned to academia and opened the <em>Annals of Statistics</em>, he found that every article began with:</p>
-<blockquote class="blockquote">
-<p><em>“Assume that the data are generated by the following model: …”</em></p>
-</blockquote>
-<p>He identifies a troubling logical chain:</p>
-<ol type="1">
-<li>Conclusions drawn from a fitted model are about <strong>the model’s mechanism</strong>, not nature’s.</li>
-<li>If the model is a poor emulation of nature, the conclusions may be <strong>wrong</strong>.</li>
-<li>Yet once a model is posited, it is treated as truth — the belief in its validity becomes “almost religious.”</li>
-</ol>
-</section>
-<section id="the-linear-regression-parable" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="the-linear-regression-parable"><span class="header-section-number">3.2</span> The Linear Regression Parable</h3>
-<p>Breiman illustrates the danger with a canonical example. Consider the standard linear model:</p>
-<p><span class="math display">\[
-y = b_0 + \sum_{m=1}^{M} b_m x_m + \varepsilon, \quad \varepsilon \sim N(0, \sigma^2)
-\]</span></p>
-<p>This model yields elegant mathematics — hypothesis tests, confidence intervals, distributional theory for residual sums of squares. Its mathematical beauty made it seductive. Hundreds of published papers claimed to prove various effects simply because a coefficient reached the 5% significance threshold, with minimal scrutiny of whether the data could plausibly have been generated by a linear process.</p>
-<p>His specific case: a study of gender discrimination in faculty salaries used linear regression on 25 predictor variables. The gender coefficient was significant at the 5% level, and this was taken as definitive evidence. No one checked whether the model actually fit the data.</p>
-</section>
-<section id="the-weakness-of-goodness-of-fit" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="the-weakness-of-goodness-of-fit"><span class="header-section-number">3.3</span> The Weakness of Goodness-of-Fit</h3>
-<p>Breiman reveals a critical vulnerability:</p>
-<ul>
-<li>He set up a <strong>simulated</strong> regression in seven dimensions with controlled nonlinearity. Standard goodness-of-fit tests failed to reject linearity until the departure was extreme.</li>
-<li>Bickel, Ritov, and Stoker (2001) showed that omnibus goodness-of-fit tests have very little power unless the direction of the alternative is precisely specified.</li>
-<li>William Cleveland — one of the founders of residual analysis — admitted at a 1993 Berkeley seminar that residual analysis could not reliably detect lack of fit beyond four to five dimensions.</li>
-</ul>
+<section id="goodness-of-fit-tests-dont-really-work" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="goodness-of-fit-tests-dont-really-work"><span class="header-section-number">3.2</span> Goodness-of-fit tests don’t really work</h3>
+<p>You might say “but we test whether the model fits!” And Breiman says — yeah, those tests are weaker than you think. He ran a simulation with a clearly non-linear dataset and standard tests kept saying “the linear model fits just fine” until the non-linearity became extreme.</p>
+<p>William Cleveland, one of the people who invented residual analysis, admitted at a seminar that residual analysis can’t reliably detect problems in data with more than 4-5 dimensions. Most real datasets have way more than that.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-A Sobering Implication
+The uncomfortable truth
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>An acceptable residual plot <strong>does not</strong> imply the model is a good fit to the data. In high dimensions, many very different models can produce passable residual plots.</p>
+<p>A model that “passes” goodness-of-fit tests isn’t necessarily correct. It just means the tests couldn’t detect the problem. In high dimensions, many wrong models look fine on paper.</p>
 </div>
 </div>
 </section>
-<section id="the-multiplicity-problem" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="the-multiplicity-problem"><span class="header-section-number">3.4</span> The Multiplicity Problem</h3>
-<p>Even when goodness-of-fit tests are applied, they give binary yes/no answers. Multiple models can pass all checks and yet tell <strong>completely different stories</strong> about nature. This multiplicity — which Breiman would later connect to the “Rashomon Effect” — means the choice of model is often arbitrary, yet the conclusions are presented as definitive.</p>
-<hr>
-</section>
-</section>
-<section id="the-limitations-and-the-hammer" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="the-limitations-and-the-hammer"><span class="header-section-number">4</span> The Limitations and the Hammer</h2>
-<p>Breiman’s most memorable line in this section echoes an old proverb:</p>
-<blockquote class="blockquote">
-<p><em>“If all a man has is a hammer, then every problem looks like a nail.”</em></p>
-</blockquote>
-<p>The insistence on data models has, he argues:</p>
-<ul>
-<li><strong>Frozen</strong> the statistical toolkit at logistic regression, discriminant analysis, and linear regression.</li>
-<li><strong>Excluded</strong> statisticians from exciting problems in speech recognition, image classification, and financial prediction.</li>
-<li>Driven the field toward ever more baroque Bayesian and MCMC constructions that lose the original simplicity advantage.</li>
-</ul>
-<hr>
-</section>
-<section id="the-rise-of-algorithmic-modeling" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="the-rise-of-algorithmic-modeling"><span class="header-section-number">5</span> The Rise of Algorithmic Modeling</h2>
-<section id="a-new-community" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="a-new-community"><span class="header-section-number">5.1</span> A New Community</h3>
-<p>In the mid-1980s, neural nets and decision trees became practical. A community of young computer scientists, physicists, and engineers began tackling complex prediction problems — handwriting recognition, speech recognition, nonlinear time series — where data models were plainly inadequate. Their criterion was stark: <strong>predictive accuracy on test data</strong>.</p>
-</section>
-<section id="theoretical-foundations" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="theoretical-foundations"><span class="header-section-number">5.2</span> Theoretical Foundations</h3>
-<p>The theory in this community shifted from data model assumptions to <strong>algorithm properties</strong> — convergence, capacity, and what makes predictors accurate. The single assumption: data is drawn i.i.d. from an unknown distribution.</p>
-<p>The most consequential theoretical advance came from <strong>Vladimir Vapnik</strong>, whose bounds on generalization error — depending on the “capacity” of an algorithm — led directly to the invention of <strong>Support Vector Machines</strong>.</p>
-<hr>
-</section>
-</section>
-<section id="three-conceptual-revolutions" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="three-conceptual-revolutions"><span class="header-section-number">6</span> Three Conceptual Revolutions</h2>
-<p>Breiman identifies three paradigm-shifting lessons from the machine learning community, each named after a resonant cultural reference.</p>
-<section id="rashomon-the-multiplicity-of-good-models" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="rashomon-the-multiplicity-of-good-models"><span class="header-section-number">6.1</span> Rashomon: The Multiplicity of Good Models</h3>
-<p>Named after Kurosawa’s film in which four witnesses to the same event give irreconcilable accounts, the <strong>Rashomon Effect</strong> describes a mathematical reality: many very different models can achieve nearly identical error rates.</p>
-<p>Consider subset selection with 30 variables, seeking the best 5-variable linear regression. There are roughly 140,000 possible subsets. Many will have residual sum of squares within 1% of the best. Three such models might look like this:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 41%">
-<col style="width: 58%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Model</th>
-<th style="text-align: left;">Equation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Picture 1</td>
-<td style="text-align: left;"><span class="math inline">\(y = 2.1 + 3.8x_3 - 0.6x_8 + 83.2x_{12} - 2.1x_{17} + 3.2x_{27}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Picture 2</td>
-<td style="text-align: left;"><span class="math inline">\(y = -8.9 + 4.6x_5 + 0.01x_6 + 12.0x_{15} + 17.5x_{21} + 0.2x_{22}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Picture 3</td>
-<td style="text-align: left;"><span class="math inline">\(y = -76.7 + 9.3x_2 + 22.0x_7 - 13.2x_8 + 3.4x_{11} + 7.2x_{28}\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>Each tells a <strong>completely different story</strong> about which variables matter — yet all fit equally well. Click through the models below to see the Rashomon Effect in action:</p>
+<section id="the-multiplicity-problem" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="the-multiplicity-problem"><span class="header-section-number">3.3</span> The multiplicity problem</h3>
+<p>Here’s another thing that bothered him. Say you have 30 variables and you want to find the best 5-variable linear model. There are around 140,000 possible combinations. Many of them will fit your data almost equally well — but they’ll tell completely different stories about which variables matter.</p>
+<p>Breiman called this the <strong>Rashomon Effect</strong>, named after a Kurosawa film where four witnesses describe the same event in completely contradictory ways. The effect is real in statistics too.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2" data-startfrom="220" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 219;"><span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a>rashomon_data <span class="op">=</span> [</span>
-<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">model</span><span class="op">:</span> <span class="st">"Picture 1"</span><span class="op">,</span> <span class="dt">vars</span><span class="op">:</span> [<span class="st">"x3"</span><span class="op">,</span> <span class="st">"x8"</span><span class="op">,</span> <span class="st">"x12"</span><span class="op">,</span> <span class="st">"x17"</span><span class="op">,</span> <span class="st">"x27"</span>]<span class="op">,</span> <span class="dt">eq</span><span class="op">:</span> <span class="st">"y = 2.1 + 3.8x₃ - 0.6x₈ + 83.2x₁₂ - 2.1x₁₇ + 3.2x₂₇"</span><span class="op">,</span> <span class="dt">rss</span><span class="op">:</span> <span class="fl">1.000</span> }<span class="op">,</span></span>
-<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">model</span><span class="op">:</span> <span class="st">"Picture 2"</span><span class="op">,</span> <span class="dt">vars</span><span class="op">:</span> [<span class="st">"x5"</span><span class="op">,</span> <span class="st">"x6"</span><span class="op">,</span> <span class="st">"x15"</span><span class="op">,</span> <span class="st">"x21"</span><span class="op">,</span> <span class="st">"x22"</span>]<span class="op">,</span> <span class="dt">eq</span><span class="op">:</span> <span class="st">"y = -8.9 + 4.6x₅ + 0.01x₆ + 12.0x₁₅ + 17.5x₂₁ + 0.2x₂₂"</span><span class="op">,</span> <span class="dt">rss</span><span class="op">:</span> <span class="fl">1.007</span> }<span class="op">,</span></span>
-<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">model</span><span class="op">:</span> <span class="st">"Picture 3"</span><span class="op">,</span> <span class="dt">vars</span><span class="op">:</span> [<span class="st">"x2"</span><span class="op">,</span> <span class="st">"x7"</span><span class="op">,</span> <span class="st">"x8"</span><span class="op">,</span> <span class="st">"x11"</span><span class="op">,</span> <span class="st">"x28"</span>]<span class="op">,</span> <span class="dt">eq</span><span class="op">:</span> <span class="st">"y = -76.7 + 9.3x₂ + 22.0x₇ - 13.2x₈ + 3.4x₁₁ + 7.2x₂₈"</span><span class="op">,</span> <span class="dt">rss</span><span class="op">:</span> <span class="fl">1.009</span> }</span>
-<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a>viewof rashomon_model <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(rashomon_data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">model</span>)<span class="op">,</span> {</span>
-<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Select model:"</span><span class="op">,</span></span>
-<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="st">"Picture 1"</span></span>
-<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> d <span class="op">=</span> rashomon_data<span class="op">.</span><span class="fu">find</span>(r <span class="kw">=&gt;</span> r<span class="op">.</span><span class="at">model</span> <span class="op">===</span> rashomon_model)<span class="op">;</span></span>
-<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> allVars <span class="op">=</span> [<span class="st">"x2"</span><span class="op">,</span><span class="st">"x3"</span><span class="op">,</span><span class="st">"x5"</span><span class="op">,</span><span class="st">"x6"</span><span class="op">,</span><span class="st">"x7"</span><span class="op">,</span><span class="st">"x8"</span><span class="op">,</span><span class="st">"x11"</span><span class="op">,</span><span class="st">"x12"</span><span class="op">,</span><span class="st">"x15"</span><span class="op">,</span><span class="st">"x17"</span><span class="op">,</span><span class="st">"x21"</span><span class="op">,</span><span class="st">"x22"</span><span class="op">,</span><span class="st">"x27"</span><span class="op">,</span><span class="st">"x28"</span>]<span class="op">;</span></span>
-<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`</span></span>
-<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="font-family: Inter, sans-serif; background: #1a1a2e; border-radius: 12px; padding: 20px; color: #e0e0e0; max-width: 600px;"&gt;</span></span>
-<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="font-size: 14px; color: #4A9EFF; font-weight: 600; margin-bottom: 8px;"&gt;</span><span class="sc">${</span>d<span class="op">.</span><span class="at">model</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="font-family: monospace; font-size: 13px; background: #0d1117; padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; color: #a0d8ff;"&gt;</span><span class="sc">${</span>d<span class="op">.</span><span class="at">eq</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="font-size: 12px; color: #888; margin-bottom: 10px;"&gt;Relative RSS: &lt;strong style="color:#50fa7b"&gt;</span><span class="sc">${</span>d<span class="op">.</span><span class="at">rss</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="vs">&lt;/strong&gt; — nearly identical to the best model&lt;/div&gt;</span></span>
-<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="display: flex; flex-wrap: wrap; gap: 6px;"&gt;</span></span>
-<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a><span class="vs">        </span><span class="sc">${</span>allVars<span class="op">.</span><span class="fu">map</span>(v <span class="kw">=&gt;</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;span style="padding: 4px 10px; border-radius: 20px; font-size: 12px; background: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">vars</span><span class="op">.</span><span class="fu">includes</span>(v) <span class="op">?</span> <span class="st">'#4A9EFF22'</span> <span class="op">:</span> <span class="st">'#ffffff11'</span><span class="sc">}</span><span class="vs">; border: 1px solid </span><span class="sc">${</span>d<span class="op">.</span><span class="at">vars</span><span class="op">.</span><span class="fu">includes</span>(v) <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#333'</span><span class="sc">}</span><span class="vs">; color: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">vars</span><span class="op">.</span><span class="fu">includes</span>(v) <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#666'</span><span class="sc">}</span><span class="vs">;"&gt;</span><span class="sc">${</span>v<span class="sc">}</span><span class="vs">&lt;/span&gt;`</span>)<span class="sc">}</span></span>
-<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;</span></span>
-<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div style="margin-top: 12px; font-size: 12px; color: #888;"&gt;Each model uses completely different variables — yet fits equally well. This is the Rashomon Effect.&lt;/div&gt;</span></span>
-<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
-<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span><span class="op">;</span></span>
-<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" data-startfrom="146" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 145;"><span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>rashomon_data <span class="op">=</span> [</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">model</span><span class="op">:</span> <span class="st">"Picture 1"</span><span class="op">,</span> <span class="dt">vars</span><span class="op">:</span> [<span class="st">"x3"</span><span class="op">,</span> <span class="st">"x8"</span><span class="op">,</span> <span class="st">"x12"</span><span class="op">,</span> <span class="st">"x17"</span><span class="op">,</span> <span class="st">"x27"</span>]<span class="op">,</span> <span class="dt">eq</span><span class="op">:</span> <span class="st">"y = 2.1 + 3.8x₃ - 0.6x₈ + 83.2x₁₂ - 2.1x₁₇ + 3.2x₂₇"</span><span class="op">,</span> <span class="dt">rss</span><span class="op">:</span> <span class="fl">1.000</span> }<span class="op">,</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">model</span><span class="op">:</span> <span class="st">"Picture 2"</span><span class="op">,</span> <span class="dt">vars</span><span class="op">:</span> [<span class="st">"x5"</span><span class="op">,</span> <span class="st">"x6"</span><span class="op">,</span> <span class="st">"x15"</span><span class="op">,</span> <span class="st">"x21"</span><span class="op">,</span> <span class="st">"x22"</span>]<span class="op">,</span> <span class="dt">eq</span><span class="op">:</span> <span class="st">"y = -8.9 + 4.6x₅ + 0.01x₆ + 12.0x₁₅ + 17.5x₂₁ + 0.2x₂₂"</span><span class="op">,</span> <span class="dt">rss</span><span class="op">:</span> <span class="fl">1.007</span> }<span class="op">,</span></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">model</span><span class="op">:</span> <span class="st">"Picture 3"</span><span class="op">,</span> <span class="dt">vars</span><span class="op">:</span> [<span class="st">"x2"</span><span class="op">,</span> <span class="st">"x7"</span><span class="op">,</span> <span class="st">"x8"</span><span class="op">,</span> <span class="st">"x11"</span><span class="op">,</span> <span class="st">"x28"</span>]<span class="op">,</span> <span class="dt">eq</span><span class="op">:</span> <span class="st">"y = -76.7 + 9.3x₂ + 22.0x₇ - 13.2x₈ + 3.4x₁₁ + 7.2x₂₈"</span><span class="op">,</span> <span class="dt">rss</span><span class="op">:</span> <span class="fl">1.009</span> }</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>viewof rashomon_model <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">radio</span>(rashomon_data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">model</span>)<span class="op">,</span> {</span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Three models with nearly identical fit — but totally different variables:"</span><span class="op">,</span></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>  <span class="dt">value</span><span class="op">:</span> <span class="st">"Picture 1"</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> d <span class="op">=</span> rashomon_data<span class="op">.</span><span class="fu">find</span>(r <span class="kw">=&gt;</span> r<span class="op">.</span><span class="at">model</span> <span class="op">===</span> rashomon_model)<span class="op">;</span></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> allVars <span class="op">=</span> [<span class="st">"x2"</span><span class="op">,</span><span class="st">"x3"</span><span class="op">,</span><span class="st">"x5"</span><span class="op">,</span><span class="st">"x6"</span><span class="op">,</span><span class="st">"x7"</span><span class="op">,</span><span class="st">"x8"</span><span class="op">,</span><span class="st">"x11"</span><span class="op">,</span><span class="st">"x12"</span><span class="op">,</span><span class="st">"x15"</span><span class="op">,</span><span class="st">"x17"</span><span class="op">,</span><span class="st">"x21"</span><span class="op">,</span><span class="st">"x22"</span><span class="op">,</span><span class="st">"x27"</span><span class="op">,</span><span class="st">"x28"</span>]<span class="op">;</span></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> container <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"div"</span>)<span class="op">;</span></span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">"font-family: Inter, sans-serif; background: #1a1a2e; border-radius: 12px; padding: 20px; color: #e0e0e0; max-width: 600px;"</span><span class="op">;</span></span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>  container<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`</span></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="font-size:14px;color:#4A9EFF;font-weight:600;margin-bottom:8px;"&gt;</span><span class="sc">${</span>d<span class="op">.</span><span class="at">model</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="font-family:monospace;font-size:13px;background:#0d1117;padding:10px 14px;border-radius:6px;margin-bottom:16px;color:#a0d8ff;"&gt;</span><span class="sc">${</span>d<span class="op">.</span><span class="at">eq</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="font-size:12px;color:#888;margin-bottom:12px;"&gt;Relative RSS: &lt;strong style="color:#50fa7b"&gt;</span><span class="sc">${</span>d<span class="op">.</span><span class="at">rss</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="vs">&lt;/strong&gt; — almost identical fit to the best model&lt;/div&gt;</span></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="display:flex;flex-wrap:wrap;gap:6px;"&gt;</span></span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a><span class="vs">      </span><span class="sc">${</span>allVars<span class="op">.</span><span class="fu">map</span>(v <span class="kw">=&gt;</span> <span class="vs">`&lt;span style="padding:4px 10px;border-radius:20px;font-size:12px;background:</span><span class="sc">${</span>d<span class="op">.</span><span class="at">vars</span><span class="op">.</span><span class="fu">includes</span>(v) <span class="op">?</span> <span class="st">'#4A9EFF22'</span> <span class="op">:</span> <span class="st">'#ffffff11'</span><span class="sc">}</span><span class="vs">;border:1px solid </span><span class="sc">${</span>d<span class="op">.</span><span class="at">vars</span><span class="op">.</span><span class="fu">includes</span>(v) <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#333'</span><span class="sc">}</span><span class="vs">;color:</span><span class="sc">${</span>d<span class="op">.</span><span class="at">vars</span><span class="op">.</span><span class="fu">includes</span>(v) <span class="op">?</span> <span class="st">'#4A9EFF'</span> <span class="op">:</span> <span class="st">'#555'</span><span class="sc">}</span><span class="vs">;"&gt;</span><span class="sc">${</span>v<span class="sc">}</span><span class="vs">&lt;/span&gt;`</span>)<span class="op">.</span><span class="fu">join</span>(<span class="st">''</span>)<span class="sc">}</span></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div style="margin-top:12px;font-size:12px;color:#777;"&gt;Switch between models — same fit, completely different variables. Which story do you believe?&lt;/div&gt;</span></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span><span class="op">;</span></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> container<span class="op">;</span></span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -613,172 +466,71 @@ A Sobering Implication
 </div>
 </div>
 </div>
+<p>So which model is “correct”? Breiman’s uncomfortable answer is: there’s no good way to tell. And yet, each model would lead you to different conclusions about what drives the outcome.</p>
+<hr>
 </section>
-<section id="occam-simplicity-versus-accuracy" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="occam-simplicity-versus-accuracy"><span class="header-section-number">6.2</span> Occam: Simplicity versus Accuracy</h3>
-<p>Occam’s Razor suggests simpler models are preferable. Breiman argues this creates a genuine dilemma in prediction:</p>
-<blockquote class="blockquote">
-<p><em>Accuracy generally requires more complex prediction methods. Simple and interpretable functions do not make the most accurate predictors.</em></p>
-</blockquote>
-<p>His evidence is compelling. The following table, reproduced from the paper, compares single decision trees (CART) to random forests across ten benchmark datasets:</p>
-<table class="table-hover caption-top table">
-<caption><strong>Table 2 from Breiman (2001).</strong> Test set misclassification error (%). Forests consistently and dramatically outperform single trees.</caption>
-<colgroup>
-<col style="width: 25%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Data Set</th>
-<th style="text-align: center;">Training Size</th>
-<th style="text-align: center;">Test Size</th>
-<th style="text-align: center;">Variables</th>
-<th style="text-align: center;">Classes</th>
-<th style="text-align: center;">Forest Error (%)</th>
-<th style="text-align: center;">Single Tree Error (%)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Breast Cancer</td>
-<td style="text-align: center;">699</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;"><strong>2.9</strong></td>
-<td style="text-align: center;">5.9</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ionosphere</td>
-<td style="text-align: center;">351</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">34</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;"><strong>5.5</strong></td>
-<td style="text-align: center;">11.2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Diabetes</td>
-<td style="text-align: center;">768</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;"><strong>24.2</strong></td>
-<td style="text-align: center;">25.3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Glass</td>
-<td style="text-align: center;">214</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;"><strong>22.0</strong></td>
-<td style="text-align: center;">30.4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Soybean</td>
-<td style="text-align: center;">683</td>
-<td style="text-align: center;">—</td>
-<td style="text-align: center;">35</td>
-<td style="text-align: center;">19</td>
-<td style="text-align: center;"><strong>5.7</strong></td>
-<td style="text-align: center;">8.6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Letters</td>
-<td style="text-align: center;">15,000</td>
-<td style="text-align: center;">5,000</td>
-<td style="text-align: center;">16</td>
-<td style="text-align: center;">26</td>
-<td style="text-align: center;"><strong>3.4</strong></td>
-<td style="text-align: center;">12.4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Satellite</td>
-<td style="text-align: center;">4,435</td>
-<td style="text-align: center;">2,000</td>
-<td style="text-align: center;">36</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;"><strong>8.6</strong></td>
-<td style="text-align: center;">14.8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Shuttle (×10³)</td>
-<td style="text-align: center;">43,500</td>
-<td style="text-align: center;">14,500</td>
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">7</td>
-<td style="text-align: center;"><strong>0.007</strong></td>
-<td style="text-align: center;">0.062</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">DNA</td>
-<td style="text-align: center;">2,000</td>
-<td style="text-align: center;">1,186</td>
-<td style="text-align: center;">60</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;"><strong>3.9</strong></td>
-<td style="text-align: center;">6.2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Digit</td>
-<td style="text-align: center;">7,291</td>
-<td style="text-align: center;">2,007</td>
-<td style="text-align: center;">256</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;"><strong>6.2</strong></td>
-<td style="text-align: center;">17.1</td>
-</tr>
-</tbody>
-</table>
-<p>Select a dataset below to see the error comparison visually:</p>
+</section>
+<section id="the-algorithmic-world-was-moving-fast" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="the-algorithmic-world-was-moving-fast"><span class="header-section-number">4</span> The Algorithmic World Was Moving Fast</h2>
+<p>While statisticians were busy debating which parametric model to use, something was happening outside statistics departments.</p>
+<p>In the mid-1980s, a community of computer scientists, physicists and engineers started working on prediction problems where it was obvious no standard model would work — handwriting recognition, speech, image classification. They didn’t care about the model. They cared about whether it worked.</p>
+<p>This community eventually became what we now call <strong>machine learning</strong>.</p>
+<p>Their theoretical foundation was different too. Vladimir Vapnik built a theory of how well algorithms generalize to new data, which led to <strong>Support Vector Machines</strong> — which at the time outperformed neural nets on many tasks.</p>
+<hr>
+</section>
+<section id="three-big-lessons-from-machine-learning" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="three-big-lessons-from-machine-learning"><span class="header-section-number">5</span> Three Big Lessons from Machine Learning</h2>
+<p>Breiman identified three ideas from the ML world that he thought statisticians were ignoring.</p>
+<section id="the-rashomon-effect" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="the-rashomon-effect"><span class="header-section-number">5.1</span> 1. The Rashomon Effect</h3>
+<p>Many models fit equally well but tell different stories. Aggregating them — like <strong>Random Forests</strong> do — reduces this instability and usually improves accuracy.</p>
+</section>
+<section id="simpler-isnt-always-better" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="simpler-isnt-always-better"><span class="header-section-number">5.2</span> 2. Simpler isn’t always better</h3>
+<p>The traditional idea is: simpler models are better, interpretable is good. Breiman says that for <em>prediction accuracy</em>, this is just not true. Complex models predict better.</p>
+<p>Here’s the actual data from the paper — Random Forests vs single Decision Trees:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3" data-startfrom="274" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 273;"><span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a>forest_data <span class="op">=</span> [</span>
-<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Breast Cancer"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">2.9</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">5.9</span>}<span class="op">,</span></span>
-<span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Ionosphere"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">5.5</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">11.2</span>}<span class="op">,</span></span>
-<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Diabetes"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">24.2</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">25.3</span>}<span class="op">,</span></span>
-<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Glass"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">22.0</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">30.4</span>}<span class="op">,</span></span>
-<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Soybean"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">5.7</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">8.6</span>}<span class="op">,</span></span>
-<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Letters"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">3.4</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">12.4</span>}<span class="op">,</span></span>
-<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Satellite"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">8.6</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">14.8</span>}<span class="op">,</span></span>
-<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"DNA"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">3.9</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">6.2</span>}<span class="op">,</span></span>
-<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Digit"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">6.2</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">17.1</span>}</span>
-<span id="cb3-284"><a href="#cb3-284" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a>viewof selected_dataset <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(forest_data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">dataset</span>)<span class="op">,</span> {</span>
-<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Select dataset:"</span></span>
-<span id="cb3-288"><a href="#cb3-288" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-290"><a href="#cb3-290" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> d <span class="op">=</span> forest_data<span class="op">.</span><span class="fu">find</span>(x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">dataset</span> <span class="op">===</span> selected_dataset)<span class="op">;</span></span>
-<span id="cb3-292"><a href="#cb3-292" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> reduction <span class="op">=</span> (((d<span class="op">.</span><span class="at">tree</span> <span class="op">-</span> d<span class="op">.</span><span class="at">forest</span>) <span class="op">/</span> d<span class="op">.</span><span class="at">tree</span>) <span class="op">*</span> <span class="dv">100</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb3-294"><a href="#cb3-294" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb3-295"><a href="#cb3-295" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">barY</span>(</span>
-<span id="cb3-296"><a href="#cb3-296" aria-hidden="true" tabindex="-1"></a>        [{<span class="dt">method</span><span class="op">:</span> <span class="st">"Random Forest"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">forest</span>}<span class="op">,</span> {<span class="dt">method</span><span class="op">:</span> <span class="st">"Single Tree (CART)"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">tree</span>}]<span class="op">,</span></span>
-<span id="cb3-297"><a href="#cb3-297" aria-hidden="true" tabindex="-1"></a>        {<span class="dt">x</span><span class="op">:</span> <span class="st">"method"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"error"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> d2 <span class="kw">=&gt;</span> d2<span class="op">.</span><span class="at">method</span> <span class="op">===</span> <span class="st">"Random Forest"</span> <span class="op">?</span> <span class="st">"#4A9EFF"</span> <span class="op">:</span> <span class="st">"#ff6b6b"</span><span class="op">,</span> <span class="dt">rx</span><span class="op">:</span> <span class="dv">4</span>}</span>
-<span id="cb3-298"><a href="#cb3-298" aria-hidden="true" tabindex="-1"></a>      )<span class="op">,</span></span>
-<span id="cb3-299"><a href="#cb3-299" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">text</span>(</span>
-<span id="cb3-300"><a href="#cb3-300" aria-hidden="true" tabindex="-1"></a>        [{<span class="dt">method</span><span class="op">:</span> <span class="st">"Random Forest"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">forest</span>}<span class="op">,</span> {<span class="dt">method</span><span class="op">:</span> <span class="st">"Single Tree (CART)"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">tree</span>}]<span class="op">,</span></span>
-<span id="cb3-301"><a href="#cb3-301" aria-hidden="true" tabindex="-1"></a>        {<span class="dt">x</span><span class="op">:</span> <span class="st">"method"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"error"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> d2 <span class="kw">=&gt;</span> d2<span class="op">.</span><span class="at">error</span> <span class="op">+</span> <span class="st">"%"</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="op">-</span><span class="dv">8</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">14</span><span class="op">,</span> <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">"bold"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"white"</span>}</span>
-<span id="cb3-302"><a href="#cb3-302" aria-hidden="true" tabindex="-1"></a>      )<span class="op">,</span></span>
-<span id="cb3-303"><a href="#cb3-303" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
-<span id="cb3-304"><a href="#cb3-304" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
-<span id="cb3-305"><a href="#cb3-305" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Test Error (%)"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
-<span id="cb3-306"><a href="#cb3-306" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
-<span id="cb3-307"><a href="#cb3-307" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="vs">`</span><span class="sc">${</span>selected_dataset<span class="sc">}</span><span class="vs">: Error reduced by </span><span class="sc">${</span>reduction<span class="sc">}</span><span class="vs">%`</span><span class="op">,</span></span>
-<span id="cb3-308"><a href="#cb3-308" aria-hidden="true" tabindex="-1"></a>    <span class="dt">style</span><span class="op">:</span> {<span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">"#ccc"</span>}<span class="op">,</span></span>
-<span id="cb3-309"><a href="#cb3-309" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
-<span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">300</span></span>
-<span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" data-startfrom="207" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 206;"><span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a>forest_data <span class="op">=</span> [</span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Breast Cancer"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">2.9</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">5.9</span>}<span class="op">,</span></span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Ionosphere"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">5.5</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">11.2</span>}<span class="op">,</span></span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Diabetes"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">24.2</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">25.3</span>}<span class="op">,</span></span>
+<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Glass"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">22.0</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">30.4</span>}<span class="op">,</span></span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Soybean"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">5.7</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">8.6</span>}<span class="op">,</span></span>
+<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Letters"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">3.4</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">12.4</span>}<span class="op">,</span></span>
+<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Satellite"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">8.6</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">14.8</span>}<span class="op">,</span></span>
+<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"DNA"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">3.9</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">6.2</span>}<span class="op">,</span></span>
+<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">dataset</span><span class="op">:</span> <span class="st">"Digit"</span><span class="op">,</span> <span class="dt">forest</span><span class="op">:</span> <span class="fl">6.2</span><span class="op">,</span> <span class="dt">tree</span><span class="op">:</span> <span class="fl">17.1</span>}</span>
+<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a>viewof selected_dataset <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(forest_data<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">dataset</span>)<span class="op">,</span> {</span>
+<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Pick a dataset:"</span></span>
+<span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> d <span class="op">=</span> forest_data<span class="op">.</span><span class="fu">find</span>(x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">dataset</span> <span class="op">===</span> selected_dataset)<span class="op">;</span></span>
+<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> reduction <span class="op">=</span> (((d<span class="op">.</span><span class="at">tree</span> <span class="op">-</span> d<span class="op">.</span><span class="at">forest</span>) <span class="op">/</span> d<span class="op">.</span><span class="at">tree</span>) <span class="op">*</span> <span class="dv">100</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Plot<span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">barY</span>(</span>
+<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a>        [{<span class="dt">method</span><span class="op">:</span> <span class="st">"Random Forest"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">forest</span>}<span class="op">,</span> {<span class="dt">method</span><span class="op">:</span> <span class="st">"Single Tree"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">tree</span>}]<span class="op">,</span></span>
+<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a>        {<span class="dt">x</span><span class="op">:</span> <span class="st">"method"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"error"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> d2 <span class="kw">=&gt;</span> d2<span class="op">.</span><span class="at">method</span> <span class="op">===</span> <span class="st">"Random Forest"</span> <span class="op">?</span> <span class="st">"#4A9EFF"</span> <span class="op">:</span> <span class="st">"#ff6b6b"</span><span class="op">,</span> <span class="dt">rx</span><span class="op">:</span> <span class="dv">4</span>}</span>
+<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a>      )<span class="op">,</span></span>
+<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">text</span>(</span>
+<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a>        [{<span class="dt">method</span><span class="op">:</span> <span class="st">"Random Forest"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">forest</span>}<span class="op">,</span> {<span class="dt">method</span><span class="op">:</span> <span class="st">"Single Tree"</span><span class="op">,</span> <span class="dt">error</span><span class="op">:</span> d<span class="op">.</span><span class="at">tree</span>}]<span class="op">,</span></span>
+<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a>        {<span class="dt">x</span><span class="op">:</span> <span class="st">"method"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"error"</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> d2 <span class="kw">=&gt;</span> d2<span class="op">.</span><span class="at">error</span> <span class="op">+</span> <span class="st">"%"</span><span class="op">,</span> <span class="dt">dy</span><span class="op">:</span> <span class="op">-</span><span class="dv">8</span><span class="op">,</span> <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">14</span><span class="op">,</span> <span class="dt">fontWeight</span><span class="op">:</span> <span class="st">"bold"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"white"</span>}</span>
+<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a>      )<span class="op">,</span></span>
+<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])</span>
+<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
+<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Test Error (%)"</span><span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="kw">null</span>}<span class="op">,</span></span>
+<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="vs">`</span><span class="sc">${</span>selected_dataset<span class="sc">}</span><span class="vs"> — Forest cut error by </span><span class="sc">${</span>reduction<span class="sc">}</span><span class="vs">%`</span><span class="op">,</span></span>
+<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a>    <span class="dt">style</span><span class="op">:</span> {<span class="dt">background</span><span class="op">:</span> <span class="st">"transparent"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">"#ccc"</span>}<span class="op">,</span></span>
+<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
+<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">300</span></span>
+<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -802,158 +554,85 @@ A Sobering Implication
 </div>
 </div>
 </div>
-<p>The reductions are striking. Some errors are halved; others cut by two-thirds. On the Statlog Project’s four benchmark datasets with separate test sets, random forests ranked <strong>first on all four</strong>. The next best classifier averaged rank 7.3.</p>
-<p>But forests are essentially <strong>uninterpretable</strong> — a tangle of 50 to 100 trees voting together. Breiman’s resolution: pursue accuracy first, then extract understanding. Which leads to the final section’s crucial argument.</p>
+<p>On some datasets the error is literally cut in half. The forest just predicts better. But it’s much harder to explain <em>why</em> it made a specific prediction. Breiman’s response: go for accuracy first, then figure out why.</p>
 </section>
-<section id="bellman-dimensionality-as-blessing" class="level3" data-number="6.3">
-<h3 data-number="6.3" class="anchored" data-anchor-id="bellman-dimensionality-as-blessing"><span class="header-section-number">6.3</span> Bellman: Dimensionality as Blessing</h3>
-<p>For decades, the received wisdom was to <em>reduce</em> dimensionality — find a few good features and discard the rest. Breiman argues the opposite: <strong>more variables mean more information</strong>, and modern algorithms can extract it.</p>
-<p>Two landmark examples:</p>
-<ol type="1">
-<li><p><strong>The Amit–Geman Shape Recognition Forest</strong>: Thousands of hierarchically assembled geometric features, 1,000+ shallow trees with random feature selection at each node. On the NIST handwriting dataset (100,000 training / 50,000 test): <strong>0.7% error</strong> — near human limits.</p></li>
-<li><p><strong>Support Vector Machines</strong>: Vapnik’s insight — if classes aren’t separable in the original space, <em>increase</em> dimensionality by adding polynomial features. An elegant bound governs generalization:</p></li>
-</ol>
-<p><span class="math display">\[
-\mathbb{E}[\text{GE}] \leq \frac{\mathbb{E}[\text{number of support vectors}]}{N - 1}
-\]</span></p>
-<p>On the ZIP Code digit data with fourth-degree monomials: <strong>4.1% test error</strong>. On the larger NIST dataset: <strong>1.1%</strong>.</p>
+<section id="more-variables-can-be-a-good-thing" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="more-variables-can-be-a-good-thing"><span class="header-section-number">5.3</span> 3. More variables can be a good thing</h3>
+<p>Old wisdom said: if you have too many variables, reduce them. Pick the important ones.</p>
+<p>Breiman says the opposite. The Amit-Geman handwriting recognition system used thousands of small geometric features and ran over 1,000 shallow trees — and got 0.7% error on a massive test set, near human-level performance.</p>
+<p>SVMs took this even further. Vapnik showed that if your data isn’t separable, you can increase the dimensionality by adding polynomial features until it is. And he proved it works with a clean theoretical bound on how well the model generalizes.</p>
 <hr>
 </section>
 </section>
-<section id="information-from-a-black-box" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="information-from-a-black-box"><span class="header-section-number">7</span> Information from a Black Box</h2>
-<p>This is the paper’s crescendo. Breiman dismantles the assumption that interpretability requires a simple model:</p>
-<blockquote class="blockquote">
-<p><em>The goal is not interpretability, but accurate information.</em></p>
-</blockquote>
-<section id="example-i-hepatitis-survival" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="example-i-hepatitis-survival"><span class="header-section-number">7.1</span> Example I: Hepatitis Survival</h3>
-<p>A dataset of 155 hepatitis patients with 19 covariates and a survive/die outcome.</p>
-<p><strong>Logistic regression</strong> achieves 17.4% error — barely better than the 20.6% baseline of predicting everyone survives. Its standardized coefficients point to variables 7 and 11 as most important (the paper’s Figure 1).</p>
-<p><strong>Random forests</strong> achieves <strong>12.3% error</strong> — a nearly 30% reduction. Its variable importance measure (Figure 2) highlights variables 12 and 17 instead. When these are tested individually, each yields ~14.3% error alone, and combining them does no better — they are <strong>highly correlated surrogates</strong> for each other.</p>
-<table class="table-hover caption-top table">
-<caption>Comparison of methods on the hepatitis dataset. The more accurate model identifies different — and more reliable — important variables.</caption>
+<section id="can-a-black-box-give-you-real-information" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="can-a-black-box-give-you-real-information"><span class="header-section-number">6</span> Can a Black Box Give You Real Information?</h2>
+<p>The obvious objection to algorithmic models is: sure, they predict well, but you can’t understand what they’re doing. A doctor can read a logistic regression. Nobody can read a forest of 100 trees.</p>
+<p>Breiman’s response: you’re asking the wrong question. The goal isn’t interpretability — it’s <strong>accurate information</strong>. And sometimes complex models give you <em>more</em> accurate information than simple ones, even about which variables matter.</p>
+<p>He shows this with three examples from real medical and biological datasets.</p>
+<section id="hepatitis-survival" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="hepatitis-survival"><span class="header-section-number">6.1</span> Hepatitis survival</h3>
+<p>155 patients, 19 variables, survive or die.</p>
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Method</th>
-<th style="text-align: center;">Error Rate</th>
-<th style="text-align: left;">Important Variables Identified</th>
+<th style="text-align: center;">Error</th>
+<th style="text-align: left;">Variables called “important”</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Logistic Regression</td>
 <td style="text-align: center;">17.4%</td>
-<td style="text-align: left;">Variables 7, 11</td>
+<td style="text-align: left;">Variables 7 and 11</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Random Forests</td>
-<td style="text-align: center;"><strong>12.3%</strong></td>
-<td style="text-align: left;">Variables 12, 17</td>
+<td style="text-align: left;">Random Forest</td>
+<td style="text-align: center;">12.3%</td>
+<td style="text-align: left;">Variables 12 and 17</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Baseline (predict all survive)</td>
+<td style="text-align: left;">Always predict survival</td>
 <td style="text-align: center;">20.6%</td>
 <td style="text-align: left;">—</td>
 </tr>
 </tbody>
 </table>
-<p>This resolves a puzzle from earlier work by Diaconis and Efron (1983), who had found via bootstrap analysis that no single variable appeared important in more than 60% of samples. Breiman explains: variables 12 and 17 are surrogates, so when one appears in a bootstrap model, the other is redundant. Either one appears in 7 out of 10 bootstrap samples they examined.</p>
+<p>The random forest not only predicted better — it pointed to completely different variables as important. When Breiman tested variables 12 and 17 individually, they were much more predictive than 7 and 11. The simpler model was literally pointing at the wrong things because it couldn’t fit the data properly.</p>
 </section>
-<section id="example-ii-liver-disease-clustering" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="example-ii-liver-disease-clustering"><span class="header-section-number">7.2</span> Example II: Liver Disease Clustering</h3>
-<p>The Bupa liver dataset (345 patients, 6 blood test covariates, two severity classes) reveals something logistic regression cannot: random forests’ intrinsic similarity measure discovers <strong>two distinct clusters</strong> within the severe class. One cluster has high scores on blood tests 3, 4, and 5; the other has low scores. This kind of substructure — potentially representing different disease pathways — is invisible to standard parametric models.</p>
+<section id="liver-disease" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="liver-disease"><span class="header-section-number">6.2</span> Liver disease</h3>
+<p>On another medical dataset, the random forest’s similarity measure found that patients with severe liver disease actually split into two distinct groups — high blood test scores vs low. Standard logistic regression never would have found this because it doesn’t look for subgroups.</p>
 </section>
-<section id="example-iii-microarray-gene-expression" class="level3" data-number="7.3">
-<h3 data-number="7.3" class="anchored" data-anchor-id="example-iii-microarray-gene-expression"><span class="header-section-number">7.3</span> Example III: Microarray Gene Expression</h3>
-<p>A lymphoma dataset with 81 samples and <strong>4,682 gene expression variables</strong> across three classes. Traditional statistical wisdom says fitting a model to 4,682 variables with 81 observations is folly. Random forests handles it naturally — with no variable selection — achieving low error and producing a sharp importance ranking across all genes (Figure 6 in the paper).</p>
+<section id="genes-81-patients" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="genes-81-patients"><span class="header-section-number">6.3</span> 4,682 genes, 81 patients</h3>
+<p>Classical statistics would say this is impossible — you can’t fit a model with more variables than observations. Random forests handled it fine, got low error, and produced a ranking of which genes mattered most.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-The Core Lesson from Section 11
+The actual point
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Higher predictive accuracy is associated with <strong>more reliable information</strong> about the underlying data mechanism. Weak predictive accuracy can lead to questionable conclusions. The choice is not between accuracy and understanding — accuracy <em>enables</em> understanding.</p>
+<p>Better predictive accuracy doesn’t just mean better predictions. It often means the model found something real in the data that a weaker model missed entirely.</p>
 </div>
 </div>
 <hr>
 </section>
 </section>
-<section id="final-remarks-a-call-to-arms" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="final-remarks-a-call-to-arms"><span class="header-section-number">8</span> Final Remarks: A Call to Arms</h2>
-<p>Breiman closes with a plea that is both generous and firm. He is not against data models — sometimes they are the right tool. But the field’s <strong>vested interest</strong> in them, regardless of the problem, is damaging. He points to astronomy (scanning millions of stellar objects), genetics (microarray analysis), and massive commercial datasets as domains where statisticians are being sidelined because they refuse to look beyond parametric models.</p>
+<section id="why-this-paper-feels-different-in-2026" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="why-this-paper-feels-different-in-2026"><span class="header-section-number">7</span> Why This Paper Feels Different in 2026</h2>
+<p>When Breiman wrote this, deep learning barely existed. Random forests were new. The idea that a computer could beat a human at chess still felt futuristic.</p>
+<p>Now look where we are. GPT-4, Claude, Gemini — language models that nobody fully understands but that clearly work. AlphaFold predicted protein structures that biologists spent decades trying to solve, using a black box. Explainable AI has become its own research field, basically formalizing exactly what Breiman argued. The Rashomon Effect is now an active area of study — Cynthia Rudin and others are building on it directly.</p>
+<p>The 98/2 split he described in 2001 has completely flipped. Most ML researchers are clearly in the algorithmic culture now. The question has actually reversed — how do we make these incredibly powerful black boxes more interpretable?</p>
+<p>But his warning still applies in both directions. Using a complex model just because it’s trendy is as wrong as using linear regression just because it’s familiar. The data and the problem should drive the choice.</p>
+<p>He ended the paper with this line, and I think it still holds:</p>
 <blockquote class="blockquote">
 <p>The roots of statistics, as in science, lie in working with data and checking theory against data.</p>
 </blockquote>
-<p>He expresses hope that the field will return to those roots — a hope that, viewed from 2026, has been substantially fulfilled by the rise of data science, machine learning, and a new generation of statisticians comfortable with both cultures.</p>
-<hr>
-</section>
-<section id="why-this-paper-still-matters-in-2026" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="why-this-paper-still-matters-in-2026"><span class="header-section-number">9</span> Why This Paper Still Matters in 2026</h2>
-<p>Twenty-five years later, Breiman’s paper reads as remarkably prescient:</p>
-<ul>
-<li><strong>Deep learning</strong> has vindicated the algorithmic culture far beyond what Breiman could have imagined, achieving superhuman performance in vision, language, and protein structure prediction.</li>
-<li><strong>Explainable AI (XAI)</strong> has become a major research field — essentially the formalization of Breiman’s Section 11 argument that black boxes can yield information.</li>
-<li><strong>The Rashomon Effect</strong> has been formalized into an active research program, with recent work by Cynthia Rudin and others on “Rashomon sets” of near-optimal models.</li>
-<li><strong>Cross-validation and test-set evaluation</strong> are now standard practice, just as Breiman advocated.</li>
-<li>The <strong>98/2 split</strong> has shifted dramatically. Many statistics departments now teach random forests, gradient boosting, and neural networks alongside regression and hypothesis testing.</li>
-</ul>
-<p>Yet the paper’s deeper warning remains relevant: the temptation to let the model drive the analysis, rather than the problem and the data, is perennial. Every time a practitioner fits a model without checking predictive accuracy, or treats a significant p-value as proof without examining model adequacy, Breiman’s critique applies.</p>
-<hr>
-</section>
-<section id="key-figures-to-study-in-the-original-paper" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="key-figures-to-study-in-the-original-paper"><span class="header-section-number">10</span> Key Figures to Study in the Original Paper</h2>
-<p>For readers who wish to examine the original, the following figures are especially instructive:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 30%">
-<col style="width: 43%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Figure</th>
-<th style="text-align: left;">Content</th>
-<th style="text-align: left;">Key Insight</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Figure 1</td>
-<td style="text-align: left;">Standardized logistic regression coefficients (hepatitis)</td>
-<td style="text-align: left;">Shows what a weaker model considers important</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Figure 2</td>
-<td style="text-align: left;">Random forest variable importance (hepatitis)</td>
-<td style="text-align: left;">Reveals different, more reliable important variables</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Figure 3</td>
-<td style="text-align: left;">Variables 12 &amp; 17 vs.&nbsp;probability of death</td>
-<td style="text-align: left;">Demonstrates the two variables are correlated surrogates</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Figure 4</td>
-<td style="text-align: left;">Variable importance (Bupa liver data)</td>
-<td style="text-align: left;">Identifies key blood tests via algorithmic importance</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Figure 5</td>
-<td style="text-align: left;">Cluster averages in Bupa data</td>
-<td style="text-align: left;">Uncovers hidden subgroups invisible to logistic regression</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Figure 6</td>
-<td style="text-align: left;">Microarray gene importance (4,682 genes)</td>
-<td style="text-align: left;">Demonstrates scalability to ultra-high-dimensional data</td>
-</tr>
-</tbody>
-</table>
 <hr>
 </section>
 <section id="references" class="level2 unnumbered">
@@ -968,7 +647,7 @@ The Core Lesson from Section 11
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBjdWx0dXJlID0gSW5wdXRzLnJhZGlvKFtcIkRhdGEgTW9kZWxpbmcgQ3VsdHVyZVwiLCBcIkFsZ29yaXRobWljIE1vZGVsaW5nIEN1bHR1cmVcIl0sIHtcbiAgbGFiZWw6IFwiQ2hvb3NlIGEgY3VsdHVyZTpcIixcbiAgdmFsdWU6IFwiRGF0YSBNb2RlbGluZyBDdWx0dXJlXCJcbn0pXG5cbntcbiAgY29uc3QgaXNEYXRhID0gY3VsdHVyZSA9PT0gXCJEYXRhIE1vZGVsaW5nIEN1bHR1cmVcIjtcbiAgY29uc3QgY29udGFpbmVyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKTtcbiAgY29udGFpbmVyLnN0eWxlLmNzc1RleHQgPSBcImZvbnQtZmFtaWx5OiBJbnRlciwgc2Fucy1zZXJpZjsgYmFja2dyb3VuZDogIzFhMWEyZTsgYm9yZGVyLXJhZGl1czogMTJweDsgcGFkZGluZzogMjRweDsgY29sb3I6ICNlMGUwZTA7IG1heC13aWR0aDogNjAwcHg7XCI7XG4gIFxuICBjb25zdCByb3cgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuICByb3cuc3R5bGUuY3NzVGV4dCA9IFwiZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IGNlbnRlcjsganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuOyBtYXJnaW4tYm90dG9tOiAyMHB4O1wiO1xuICBcbiAgY29uc3QgaW5wdXRCb3ggPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuICBpbnB1dEJveC5zdHlsZS5jc3NUZXh0ID0gXCJ0ZXh0LWFsaWduOmNlbnRlcjtcIjtcbiAgaW5wdXRCb3guaW5uZXJIVE1MID0gYDxkaXYgc3R5bGU9XCJmb250LXNpemU6MTNweDtjb2xvcjojOTk5O21hcmdpbi1ib3R0b206NHB4O1wiPklOUFVUPC9kaXY+PGRpdiBzdHlsZT1cImJhY2tncm91bmQ6IzE2MjEzZTtib3JkZXI6MnB4IHNvbGlkICM0QTlFRkY7Ym9yZGVyLXJhZGl1czo4cHg7cGFkZGluZzoxMHB4IDE2cHg7Zm9udC13ZWlnaHQ6NjAwO1wiPng8L2Rpdj5gO1xuICBcbiAgY29uc3QgbWlkZGxlQm94ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKTtcbiAgbWlkZGxlQm94LnN0eWxlLmNzc1RleHQgPSBcInRleHQtYWxpZ246Y2VudGVyOyBmbGV4OiAxOyBtYXJnaW46IDAgMTZweDtcIjtcbiAgbWlkZGxlQm94LmlubmVySFRNTCA9IGBcbiAgICA8ZGl2IHN0eWxlPVwiYmFja2dyb3VuZDoke2lzRGF0YSA/ICcjMmMzZTUwJyA6ICcjMWExYTJlJ307Ym9yZGVyOjJweCBzb2xpZCAke2lzRGF0YSA/ICcjNEE5RUZGJyA6ICcjZmY2YjZiJ307Ym9yZGVyLXJhZGl1czo4cHg7cGFkZGluZzoxMnB4O2ZvbnQtc2l6ZToxM3B4O1wiPlxuICAgICAgPHN0cm9uZyBzdHlsZT1cImNvbG9yOiR7aXNEYXRhID8gJyM0QTlFRkYnIDogJyNmZjZiNmInfVwiPiR7aXNEYXRhID8gJ0tub3duIE1vZGVsJyA6ICdVbmtub3duIE1lY2hhbmlzbSd9PC9zdHJvbmc+PGJyPlxuICAgICAgPHNwYW4gc3R5bGU9XCJjb2xvcjojYWFhXCI+JHtpc0RhdGEgPyAnTGluZWFyIFJlZ3Jlc3Npb248YnI+TG9naXN0aWMgUmVncmVzc2lvbjxicj5Db3ggTW9kZWwnIDogJ0RlY2lzaW9uIFRyZWVzPGJyPk5ldXJhbCBOZXRzPGJyPlNWTXMnfTwvc3Bhbj5cbiAgICA8L2Rpdj5cbiAgICA8ZGl2IHN0eWxlPVwiZm9udC1zaXplOjExcHg7Y29sb3I6Izc3NzttYXJnaW4tdG9wOjZweDtcIj5WYWxpZGF0aW9uOiAke2lzRGF0YSA/ICdHb29kbmVzcy1vZi1maXQgdGVzdHMnIDogJ1ByZWRpY3RpdmUgYWNjdXJhY3knfTwvZGl2PlxuICBgO1xuICBcbiAgY29uc3Qgb3V0cHV0Qm94ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKTtcbiAgb3V0cHV0Qm94LnN0eWxlLmNzc1RleHQgPSBcInRleHQtYWxpZ246Y2VudGVyO1wiO1xuICBvdXRwdXRCb3guaW5uZXJIVE1MID0gYDxkaXYgc3R5bGU9XCJmb250LXNpemU6MTNweDtjb2xvcjojOTk5O21hcmdpbi1ib3R0b206NHB4O1wiPk9VVFBVVDwvZGl2PjxkaXYgc3R5bGU9XCJiYWNrZ3JvdW5kOiMxNjIxM2U7Ym9yZGVyOjJweCBzb2xpZCAjNEE5RUZGO2JvcmRlci1yYWRpdXM6OHB4O3BhZGRpbmc6MTBweCAxNnB4O2ZvbnQtd2VpZ2h0OjYwMDtcIj55PC9kaXY+YDtcbiAgXG4gIHJvdy5hcHBlbmRDaGlsZChpbnB1dEJveCk7XG4gIHJvdy5hcHBlbmRDaGlsZChtaWRkbGVCb3gpO1xuICByb3cuYXBwZW5kQ2hpbGQob3V0cHV0Qm94KTtcbiAgY29udGFpbmVyLmFwcGVuZENoaWxkKHJvdyk7XG4gIFxuICBjb25zdCBmb290ZXIgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuICBmb290ZXIuc3R5bGUuY3NzVGV4dCA9IGBiYWNrZ3JvdW5kOiR7aXNEYXRhID8gJyMxYTJhMWEnIDogJyMyYTFhMWEnfTtib3JkZXItcmFkaXVzOjhweDtwYWRkaW5nOjEycHg7Zm9udC1zaXplOjEzcHg7Y29sb3I6I2JiYjtgO1xuICBmb290ZXIuaW5uZXJIVE1MID0gYDxzdHJvbmcgc3R5bGU9XCJjb2xvcjoke2lzRGF0YSA/ICcjNTBmYTdiJyA6ICcjZmY2YjZiJ31cIj5Qb3B1bGF0aW9uOjwvc3Ryb25nPiAke2lzRGF0YSA/ICd+OTglIG9mIHN0YXRpc3RpY2lhbnMnIDogJ34yJSBvZiBzdGF0aXN0aWNpYW5zLCBtYW55IGNvbXB1dGVyIHNjaWVudGlzdHMnfWA7XG4gIGNvbnRhaW5lci5hcHBlbmRDaGlsZChmb290ZXIpO1xuICBcbiAgcmV0dXJuIGNvbnRhaW5lcjtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InJhc2hvbW9uX2RhdGEgPSBbXG4gIHsgbW9kZWw6IFwiUGljdHVyZSAxXCIsIHZhcnM6IFtcIngzXCIsIFwieDhcIiwgXCJ4MTJcIiwgXCJ4MTdcIiwgXCJ4MjdcIl0sIGVxOiBcInkgPSAyLjEgKyAzLjh44oKDIC0gMC42eOKCiCArIDgzLjJ44oKB4oKCIC0gMi4xeOKCgeKChyArIDMuMnjigoLigodcIiwgcnNzOiAxLjAwMCB9LFxuICB7IG1vZGVsOiBcIlBpY3R1cmUgMlwiLCB2YXJzOiBbXCJ4NVwiLCBcIng2XCIsIFwieDE1XCIsIFwieDIxXCIsIFwieDIyXCJdLCBlcTogXCJ5ID0gLTguOSArIDQuNnjigoUgKyAwLjAxeOKChiArIDEyLjB44oKB4oKFICsgMTcuNXjigoLigoEgKyAwLjJ44oKC4oKCXCIsIHJzczogMS4wMDcgfSxcbiAgeyBtb2RlbDogXCJQaWN0dXJlIDNcIiwgdmFyczogW1wieDJcIiwgXCJ4N1wiLCBcIng4XCIsIFwieDExXCIsIFwieDI4XCJdLCBlcTogXCJ5ID0gLTc2LjcgKyA5LjN44oKCICsgMjIuMHjigocgLSAxMy4yeOKCiCArIDMuNHjigoHigoEgKyA3LjJ44oKC4oKIXCIsIHJzczogMS4wMDkgfVxuXVxuXG52aWV3b2YgcmFzaG9tb25fbW9kZWwgPSBJbnB1dHMucmFkaW8ocmFzaG9tb25fZGF0YS5tYXAoZCA9PiBkLm1vZGVsKSwge1xuICBsYWJlbDogXCJTZWxlY3QgbW9kZWw6XCIsXG4gIHZhbHVlOiBcIlBpY3R1cmUgMVwiXG59KVxuXG57XG4gIGNvbnN0IGQgPSByYXNob21vbl9kYXRhLmZpbmQociA9PiByLm1vZGVsID09PSByYXNob21vbl9tb2RlbCk7XG4gIGNvbnN0IGFsbFZhcnMgPSBbXCJ4MlwiLFwieDNcIixcIng1XCIsXCJ4NlwiLFwieDdcIixcIng4XCIsXCJ4MTFcIixcIngxMlwiLFwieDE1XCIsXCJ4MTdcIixcIngyMVwiLFwieDIyXCIsXCJ4MjdcIixcIngyOFwiXTtcbiAgcmV0dXJuIGh0bC5odG1sYFxuICAgIDxkaXYgc3R5bGU9XCJmb250LWZhbWlseTogSW50ZXIsIHNhbnMtc2VyaWY7IGJhY2tncm91bmQ6ICMxYTFhMmU7IGJvcmRlci1yYWRpdXM6IDEycHg7IHBhZGRpbmc6IDIwcHg7IGNvbG9yOiAjZTBlMGUwOyBtYXgtd2lkdGg6IDYwMHB4O1wiPlxuICAgICAgPGRpdiBzdHlsZT1cImZvbnQtc2l6ZTogMTRweDsgY29sb3I6ICM0QTlFRkY7IGZvbnQtd2VpZ2h0OiA2MDA7IG1hcmdpbi1ib3R0b206IDhweDtcIj4ke2QubW9kZWx9PC9kaXY+XG4gICAgICA8ZGl2IHN0eWxlPVwiZm9udC1mYW1pbHk6IG1vbm9zcGFjZTsgZm9udC1zaXplOiAxM3B4OyBiYWNrZ3JvdW5kOiAjMGQxMTE3OyBwYWRkaW5nOiAxMHB4IDE0cHg7IGJvcmRlci1yYWRpdXM6IDZweDsgbWFyZ2luLWJvdHRvbTogMTZweDsgY29sb3I6ICNhMGQ4ZmY7XCI+JHtkLmVxfTwvZGl2PlxuICAgICAgPGRpdiBzdHlsZT1cImZvbnQtc2l6ZTogMTJweDsgY29sb3I6ICM4ODg7IG1hcmdpbi1ib3R0b206IDEwcHg7XCI+UmVsYXRpdmUgUlNTOiA8c3Ryb25nIHN0eWxlPVwiY29sb3I6IzUwZmE3YlwiPiR7ZC5yc3MudG9GaXhlZCgzKX08L3N0cm9uZz4g4oCUIG5lYXJseSBpZGVudGljYWwgdG8gdGhlIGJlc3QgbW9kZWw8L2Rpdj5cbiAgICAgIDxkaXYgc3R5bGU9XCJkaXNwbGF5OiBmbGV4OyBmbGV4LXdyYXA6IHdyYXA7IGdhcDogNnB4O1wiPlxuICAgICAgICAke2FsbFZhcnMubWFwKHYgPT4gaHRsLmh0bWxgPHNwYW4gc3R5bGU9XCJwYWRkaW5nOiA0cHggMTBweDsgYm9yZGVyLXJhZGl1czogMjBweDsgZm9udC1zaXplOiAxMnB4OyBiYWNrZ3JvdW5kOiAke2QudmFycy5pbmNsdWRlcyh2KSA/ICcjNEE5RUZGMjInIDogJyNmZmZmZmYxMSd9OyBib3JkZXI6IDFweCBzb2xpZCAke2QudmFycy5pbmNsdWRlcyh2KSA/ICcjNEE5RUZGJyA6ICcjMzMzJ307IGNvbG9yOiAke2QudmFycy5pbmNsdWRlcyh2KSA/ICcjNEE5RUZGJyA6ICcjNjY2J307XCI+JHt2fTwvc3Bhbj5gKX1cbiAgICAgIDwvZGl2PlxuICAgICAgPGRpdiBzdHlsZT1cIm1hcmdpbi10b3A6IDEycHg7IGZvbnQtc2l6ZTogMTJweDsgY29sb3I6ICM4ODg7XCI+RWFjaCBtb2RlbCB1c2VzIGNvbXBsZXRlbHkgZGlmZmVyZW50IHZhcmlhYmxlcyDigJQgeWV0IGZpdHMgZXF1YWxseSB3ZWxsLiBUaGlzIGlzIHRoZSBSYXNob21vbiBFZmZlY3QuPC9kaXY+XG4gICAgPC9kaXY+XG4gIGA7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTMiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJmb3Jlc3RfZGF0YSA9IFtcbiAge2RhdGFzZXQ6IFwiQnJlYXN0IENhbmNlclwiLCBmb3Jlc3Q6IDIuOSwgdHJlZTogNS45fSxcbiAge2RhdGFzZXQ6IFwiSW9ub3NwaGVyZVwiLCBmb3Jlc3Q6IDUuNSwgdHJlZTogMTEuMn0sXG4gIHtkYXRhc2V0OiBcIkRpYWJldGVzXCIsIGZvcmVzdDogMjQuMiwgdHJlZTogMjUuM30sXG4gIHtkYXRhc2V0OiBcIkdsYXNzXCIsIGZvcmVzdDogMjIuMCwgdHJlZTogMzAuNH0sXG4gIHtkYXRhc2V0OiBcIlNveWJlYW5cIiwgZm9yZXN0OiA1LjcsIHRyZWU6IDguNn0sXG4gIHtkYXRhc2V0OiBcIkxldHRlcnNcIiwgZm9yZXN0OiAzLjQsIHRyZWU6IDEyLjR9LFxuICB7ZGF0YXNldDogXCJTYXRlbGxpdGVcIiwgZm9yZXN0OiA4LjYsIHRyZWU6IDE0Ljh9LFxuICB7ZGF0YXNldDogXCJETkFcIiwgZm9yZXN0OiAzLjksIHRyZWU6IDYuMn0sXG4gIHtkYXRhc2V0OiBcIkRpZ2l0XCIsIGZvcmVzdDogNi4yLCB0cmVlOiAxNy4xfVxuXVxuXG52aWV3b2Ygc2VsZWN0ZWRfZGF0YXNldCA9IElucHV0cy5zZWxlY3QoZm9yZXN0X2RhdGEubWFwKGQgPT4gZC5kYXRhc2V0KSwge1xuICBsYWJlbDogXCJTZWxlY3QgZGF0YXNldDpcIlxufSlcblxue1xuICBjb25zdCBkID0gZm9yZXN0X2RhdGEuZmluZCh4ID0+IHguZGF0YXNldCA9PT0gc2VsZWN0ZWRfZGF0YXNldCk7XG4gIGNvbnN0IHJlZHVjdGlvbiA9ICgoKGQudHJlZSAtIGQuZm9yZXN0KSAvIGQudHJlZSkgKiAxMDApLnRvRml4ZWQoMSk7XG4gIHJldHVybiBQbG90LnBsb3Qoe1xuICAgIG1hcmtzOiBbXG4gICAgICBQbG90LmJhclkoXG4gICAgICAgIFt7bWV0aG9kOiBcIlJhbmRvbSBGb3Jlc3RcIiwgZXJyb3I6IGQuZm9yZXN0fSwge21ldGhvZDogXCJTaW5nbGUgVHJlZSAoQ0FSVClcIiwgZXJyb3I6IGQudHJlZX1dLFxuICAgICAgICB7eDogXCJtZXRob2RcIiwgeTogXCJlcnJvclwiLCBmaWxsOiBkMiA9PiBkMi5tZXRob2QgPT09IFwiUmFuZG9tIEZvcmVzdFwiID8gXCIjNEE5RUZGXCIgOiBcIiNmZjZiNmJcIiwgcng6IDR9XG4gICAgICApLFxuICAgICAgUGxvdC50ZXh0KFxuICAgICAgICBbe21ldGhvZDogXCJSYW5kb20gRm9yZXN0XCIsIGVycm9yOiBkLmZvcmVzdH0sIHttZXRob2Q6IFwiU2luZ2xlIFRyZWUgKENBUlQpXCIsIGVycm9yOiBkLnRyZWV9XSxcbiAgICAgICAge3g6IFwibWV0aG9kXCIsIHk6IFwiZXJyb3JcIiwgdGV4dDogZDIgPT4gZDIuZXJyb3IgKyBcIiVcIiwgZHk6IC04LCBmb250U2l6ZTogMTQsIGZvbnRXZWlnaHQ6IFwiYm9sZFwiLCBmaWxsOiBcIndoaXRlXCJ9XG4gICAgICApLFxuICAgICAgUGxvdC5ydWxlWShbMF0pXG4gICAgXSxcbiAgICB5OiB7bGFiZWw6IFwiVGVzdCBFcnJvciAoJSlcIiwgZ3JpZDogdHJ1ZX0sXG4gICAgeDoge2xhYmVsOiBudWxsfSxcbiAgICB0aXRsZTogYCR7c2VsZWN0ZWRfZGF0YXNldH06IEVycm9yIHJlZHVjZWQgYnkgJHtyZWR1Y3Rpb259JWAsXG4gICAgc3R5bGU6IHtiYWNrZ3JvdW5kOiBcInRyYW5zcGFyZW50XCIsIGNvbG9yOiBcIiNjY2NcIn0sXG4gICAgd2lkdGg6IDUwMCxcbiAgICBoZWlnaHQ6IDMwMFxuICB9KTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnY3VsdHVyZScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdyYXNob21vbl9tb2RlbCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdzZWxlY3RlZF9kYXRhc2V0JykifV19
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBjdWx0dXJlID0gSW5wdXRzLnJhZGlvKFtcIkRhdGEgTW9kZWxpbmcgQ3VsdHVyZVwiLCBcIkFsZ29yaXRobWljIE1vZGVsaW5nIEN1bHR1cmVcIl0sIHtcbiAgbGFiZWw6IFwiQ2hvb3NlIGEgY3VsdHVyZTpcIixcbiAgdmFsdWU6IFwiRGF0YSBNb2RlbGluZyBDdWx0dXJlXCJcbn0pXG5cbntcbiAgY29uc3QgaXNEYXRhID0gY3VsdHVyZSA9PT0gXCJEYXRhIE1vZGVsaW5nIEN1bHR1cmVcIjtcbiAgY29uc3QgY29udGFpbmVyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKTtcbiAgY29udGFpbmVyLnN0eWxlLmNzc1RleHQgPSBcImZvbnQtZmFtaWx5OiBJbnRlciwgc2Fucy1zZXJpZjsgYmFja2dyb3VuZDogIzFhMWEyZTsgYm9yZGVyLXJhZGl1czogMTJweDsgcGFkZGluZzogMjRweDsgY29sb3I6ICNlMGUwZTA7IG1heC13aWR0aDogNjAwcHg7XCI7XG4gIFxuICBjb25zdCByb3cgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuICByb3cuc3R5bGUuY3NzVGV4dCA9IFwiZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IGNlbnRlcjsganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuOyBtYXJnaW4tYm90dG9tOiAyMHB4O1wiO1xuICBcbiAgY29uc3QgaW5wdXRCb3ggPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KFwiZGl2XCIpO1xuICBpbnB1dEJveC5zdHlsZS5jc3NUZXh0ID0gXCJ0ZXh0LWFsaWduOmNlbnRlcjtcIjtcbiAgaW5wdXRCb3guaW5uZXJIVE1MID0gYDxkaXYgc3R5bGU9XCJmb250LXNpemU6MTNweDtjb2xvcjojOTk5O21hcmdpbi1ib3R0b206NHB4O1wiPklOUFVUPC9kaXY+PGRpdiBzdHlsZT1cImJhY2tncm91bmQ6IzE2MjEzZTtib3JkZXI6MnB4IHNvbGlkICM0QTlFRkY7Ym9yZGVyLXJhZGl1czo4cHg7cGFkZGluZzoxMHB4IDE2cHg7Zm9udC13ZWlnaHQ6NjAwO1wiPng8L2Rpdj5gO1xuICBcbiAgY29uc3QgbWlkZGxlQm94ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKTtcbiAgbWlkZGxlQm94LnN0eWxlLmNzc1RleHQgPSBcInRleHQtYWxpZ246Y2VudGVyOyBmbGV4OiAxOyBtYXJnaW46IDAgMTZweDtcIjtcbiAgbWlkZGxlQm94LmlubmVySFRNTCA9IGBcbiAgICA8ZGl2IHN0eWxlPVwiYmFja2dyb3VuZDoke2lzRGF0YSA/ICcjMmMzZTUwJyA6ICcjMWExYTJlJ307Ym9yZGVyOjJweCBzb2xpZCAke2lzRGF0YSA/ICcjNEE5RUZGJyA6ICcjZmY2YjZiJ307Ym9yZGVyLXJhZGl1czo4cHg7cGFkZGluZzoxMnB4O2ZvbnQtc2l6ZToxM3B4O1wiPlxuICAgICAgPHN0cm9uZyBzdHlsZT1cImNvbG9yOiR7aXNEYXRhID8gJyM0QTlFRkYnIDogJyNmZjZiNmInfVwiPiR7aXNEYXRhID8gJ0tub3duIE1vZGVsJyA6ICdVbmtub3duIE1lY2hhbmlzbSd9PC9zdHJvbmc+PGJyPlxuICAgICAgPHNwYW4gc3R5bGU9XCJjb2xvcjojYWFhXCI+JHtpc0RhdGEgPyAnTGluZWFyIFJlZ3Jlc3Npb248YnI+TG9naXN0aWMgUmVncmVzc2lvbjxicj5Db3ggTW9kZWwnIDogJ0RlY2lzaW9uIFRyZWVzPGJyPk5ldXJhbCBOZXRzPGJyPlNWTXMnfTwvc3Bhbj5cbiAgICA8L2Rpdj5cbiAgICA8ZGl2IHN0eWxlPVwiZm9udC1zaXplOjExcHg7Y29sb3I6Izc3NzttYXJnaW4tdG9wOjZweDtcIj5WYWxpZGF0aW9uOiAke2lzRGF0YSA/ICdHb29kbmVzcy1vZi1maXQgdGVzdHMnIDogJ1ByZWRpY3RpdmUgYWNjdXJhY3kgb24gdGVzdCBkYXRhJ308L2Rpdj5cbiAgYDtcbiAgXG4gIGNvbnN0IG91dHB1dEJveCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIik7XG4gIG91dHB1dEJveC5zdHlsZS5jc3NUZXh0ID0gXCJ0ZXh0LWFsaWduOmNlbnRlcjtcIjtcbiAgb3V0cHV0Qm94LmlubmVySFRNTCA9IGA8ZGl2IHN0eWxlPVwiZm9udC1zaXplOjEzcHg7Y29sb3I6Izk5OTttYXJnaW4tYm90dG9tOjRweDtcIj5PVVRQVVQ8L2Rpdj48ZGl2IHN0eWxlPVwiYmFja2dyb3VuZDojMTYyMTNlO2JvcmRlcjoycHggc29saWQgIzRBOUVGRjtib3JkZXItcmFkaXVzOjhweDtwYWRkaW5nOjEwcHggMTZweDtmb250LXdlaWdodDo2MDA7XCI+eTwvZGl2PmA7XG4gIFxuICByb3cuYXBwZW5kQ2hpbGQoaW5wdXRCb3gpO1xuICByb3cuYXBwZW5kQ2hpbGQobWlkZGxlQm94KTtcbiAgcm93LmFwcGVuZENoaWxkKG91dHB1dEJveCk7XG4gIGNvbnRhaW5lci5hcHBlbmRDaGlsZChyb3cpO1xuICBcbiAgY29uc3QgZm9vdGVyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudChcImRpdlwiKTtcbiAgZm9vdGVyLnN0eWxlLmNzc1RleHQgPSBgYmFja2dyb3VuZDoke2lzRGF0YSA/ICcjMWEyYTFhJyA6ICcjMmExYTFhJ307Ym9yZGVyLXJhZGl1czo4cHg7cGFkZGluZzoxMnB4O2ZvbnQtc2l6ZToxM3B4O2NvbG9yOiNiYmI7YDtcbiAgZm9vdGVyLmlubmVySFRNTCA9IGA8c3Ryb25nIHN0eWxlPVwiY29sb3I6JHtpc0RhdGEgPyAnIzUwZmE3YicgOiAnI2ZmNmI2Yid9XCI+V2hvIGRvZXMgdGhpcz88L3N0cm9uZz4gJHtpc0RhdGEgPyAnQWJvdXQgOTglIG9mIHN0YXRpc3RpY2lhbnMgaW4gMjAwMScgOiAnQWJvdXQgMiUgb2Ygc3RhdGlzdGljaWFucyDigJQgbW9zdGx5IHBlb3BsZSBmcm9tIENTIGFuZCBlbmdpbmVlcmluZyd9YDtcbiAgY29udGFpbmVyLmFwcGVuZENoaWxkKGZvb3Rlcik7XG4gIFxuICByZXR1cm4gY29udGFpbmVyO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoicmFzaG9tb25fZGF0YSA9IFtcbiAgeyBtb2RlbDogXCJQaWN0dXJlIDFcIiwgdmFyczogW1wieDNcIiwgXCJ4OFwiLCBcIngxMlwiLCBcIngxN1wiLCBcIngyN1wiXSwgZXE6IFwieSA9IDIuMSArIDMuOHjigoMgLSAwLjZ44oKIICsgODMuMnjigoHigoIgLSAyLjF44oKB4oKHICsgMy4yeOKCguKCh1wiLCByc3M6IDEuMDAwIH0sXG4gIHsgbW9kZWw6IFwiUGljdHVyZSAyXCIsIHZhcnM6IFtcIng1XCIsIFwieDZcIiwgXCJ4MTVcIiwgXCJ4MjFcIiwgXCJ4MjJcIl0sIGVxOiBcInkgPSAtOC45ICsgNC42eOKChSArIDAuMDF44oKGICsgMTIuMHjigoHigoUgKyAxNy41eOKCguKCgSArIDAuMnjigoLigoJcIiwgcnNzOiAxLjAwNyB9LFxuICB7IG1vZGVsOiBcIlBpY3R1cmUgM1wiLCB2YXJzOiBbXCJ4MlwiLCBcIng3XCIsIFwieDhcIiwgXCJ4MTFcIiwgXCJ4MjhcIl0sIGVxOiBcInkgPSAtNzYuNyArIDkuM3jigoIgKyAyMi4weOKChyAtIDEzLjJ44oKIICsgMy40eOKCgeKCgSArIDcuMnjigoLigohcIiwgcnNzOiAxLjAwOSB9XG5dXG5cbnZpZXdvZiByYXNob21vbl9tb2RlbCA9IElucHV0cy5yYWRpbyhyYXNob21vbl9kYXRhLm1hcChkID0+IGQubW9kZWwpLCB7XG4gIGxhYmVsOiBcIlRocmVlIG1vZGVscyB3aXRoIG5lYXJseSBpZGVudGljYWwgZml0IOKAlCBidXQgdG90YWxseSBkaWZmZXJlbnQgdmFyaWFibGVzOlwiLFxuICB2YWx1ZTogXCJQaWN0dXJlIDFcIlxufSlcblxue1xuICBjb25zdCBkID0gcmFzaG9tb25fZGF0YS5maW5kKHIgPT4gci5tb2RlbCA9PT0gcmFzaG9tb25fbW9kZWwpO1xuICBjb25zdCBhbGxWYXJzID0gW1wieDJcIixcIngzXCIsXCJ4NVwiLFwieDZcIixcIng3XCIsXCJ4OFwiLFwieDExXCIsXCJ4MTJcIixcIngxNVwiLFwieDE3XCIsXCJ4MjFcIixcIngyMlwiLFwieDI3XCIsXCJ4MjhcIl07XG4gIGNvbnN0IGNvbnRhaW5lciA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIik7XG4gIGNvbnRhaW5lci5zdHlsZS5jc3NUZXh0ID0gXCJmb250LWZhbWlseTogSW50ZXIsIHNhbnMtc2VyaWY7IGJhY2tncm91bmQ6ICMxYTFhMmU7IGJvcmRlci1yYWRpdXM6IDEycHg7IHBhZGRpbmc6IDIwcHg7IGNvbG9yOiAjZTBlMGUwOyBtYXgtd2lkdGg6IDYwMHB4O1wiO1xuICBcbiAgY29udGFpbmVyLmlubmVySFRNTCA9IGBcbiAgICA8ZGl2IHN0eWxlPVwiZm9udC1zaXplOjE0cHg7Y29sb3I6IzRBOUVGRjtmb250LXdlaWdodDo2MDA7bWFyZ2luLWJvdHRvbTo4cHg7XCI+JHtkLm1vZGVsfTwvZGl2PlxuICAgIDxkaXYgc3R5bGU9XCJmb250LWZhbWlseTptb25vc3BhY2U7Zm9udC1zaXplOjEzcHg7YmFja2dyb3VuZDojMGQxMTE3O3BhZGRpbmc6MTBweCAxNHB4O2JvcmRlci1yYWRpdXM6NnB4O21hcmdpbi1ib3R0b206MTZweDtjb2xvcjojYTBkOGZmO1wiPiR7ZC5lcX08L2Rpdj5cbiAgICA8ZGl2IHN0eWxlPVwiZm9udC1zaXplOjEycHg7Y29sb3I6Izg4ODttYXJnaW4tYm90dG9tOjEycHg7XCI+UmVsYXRpdmUgUlNTOiA8c3Ryb25nIHN0eWxlPVwiY29sb3I6IzUwZmE3YlwiPiR7ZC5yc3MudG9GaXhlZCgzKX08L3N0cm9uZz4g4oCUIGFsbW9zdCBpZGVudGljYWwgZml0IHRvIHRoZSBiZXN0IG1vZGVsPC9kaXY+XG4gICAgPGRpdiBzdHlsZT1cImRpc3BsYXk6ZmxleDtmbGV4LXdyYXA6d3JhcDtnYXA6NnB4O1wiPlxuICAgICAgJHthbGxWYXJzLm1hcCh2ID0+IGA8c3BhbiBzdHlsZT1cInBhZGRpbmc6NHB4IDEwcHg7Ym9yZGVyLXJhZGl1czoyMHB4O2ZvbnQtc2l6ZToxMnB4O2JhY2tncm91bmQ6JHtkLnZhcnMuaW5jbHVkZXModikgPyAnIzRBOUVGRjIyJyA6ICcjZmZmZmZmMTEnfTtib3JkZXI6MXB4IHNvbGlkICR7ZC52YXJzLmluY2x1ZGVzKHYpID8gJyM0QTlFRkYnIDogJyMzMzMnfTtjb2xvcjoke2QudmFycy5pbmNsdWRlcyh2KSA/ICcjNEE5RUZGJyA6ICcjNTU1J307XCI+JHt2fTwvc3Bhbj5gKS5qb2luKCcnKX1cbiAgICA8L2Rpdj5cbiAgICA8ZGl2IHN0eWxlPVwibWFyZ2luLXRvcDoxMnB4O2ZvbnQtc2l6ZToxMnB4O2NvbG9yOiM3Nzc7XCI+U3dpdGNoIGJldHdlZW4gbW9kZWxzIOKAlCBzYW1lIGZpdCwgY29tcGxldGVseSBkaWZmZXJlbnQgdmFyaWFibGVzLiBXaGljaCBzdG9yeSBkbyB5b3UgYmVsaWV2ZT88L2Rpdj5cbiAgYDtcbiAgcmV0dXJuIGNvbnRhaW5lcjtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZvcmVzdF9kYXRhID0gW1xuICB7ZGF0YXNldDogXCJCcmVhc3QgQ2FuY2VyXCIsIGZvcmVzdDogMi45LCB0cmVlOiA1Ljl9LFxuICB7ZGF0YXNldDogXCJJb25vc3BoZXJlXCIsIGZvcmVzdDogNS41LCB0cmVlOiAxMS4yfSxcbiAge2RhdGFzZXQ6IFwiRGlhYmV0ZXNcIiwgZm9yZXN0OiAyNC4yLCB0cmVlOiAyNS4zfSxcbiAge2RhdGFzZXQ6IFwiR2xhc3NcIiwgZm9yZXN0OiAyMi4wLCB0cmVlOiAzMC40fSxcbiAge2RhdGFzZXQ6IFwiU295YmVhblwiLCBmb3Jlc3Q6IDUuNywgdHJlZTogOC42fSxcbiAge2RhdGFzZXQ6IFwiTGV0dGVyc1wiLCBmb3Jlc3Q6IDMuNCwgdHJlZTogMTIuNH0sXG4gIHtkYXRhc2V0OiBcIlNhdGVsbGl0ZVwiLCBmb3Jlc3Q6IDguNiwgdHJlZTogMTQuOH0sXG4gIHtkYXRhc2V0OiBcIkROQVwiLCBmb3Jlc3Q6IDMuOSwgdHJlZTogNi4yfSxcbiAge2RhdGFzZXQ6IFwiRGlnaXRcIiwgZm9yZXN0OiA2LjIsIHRyZWU6IDE3LjF9XG5dXG5cbnZpZXdvZiBzZWxlY3RlZF9kYXRhc2V0ID0gSW5wdXRzLnNlbGVjdChmb3Jlc3RfZGF0YS5tYXAoZCA9PiBkLmRhdGFzZXQpLCB7XG4gIGxhYmVsOiBcIlBpY2sgYSBkYXRhc2V0OlwiXG59KVxuXG57XG4gIGNvbnN0IGQgPSBmb3Jlc3RfZGF0YS5maW5kKHggPT4geC5kYXRhc2V0ID09PSBzZWxlY3RlZF9kYXRhc2V0KTtcbiAgY29uc3QgcmVkdWN0aW9uID0gKCgoZC50cmVlIC0gZC5mb3Jlc3QpIC8gZC50cmVlKSAqIDEwMCkudG9GaXhlZCgxKTtcbiAgcmV0dXJuIFBsb3QucGxvdCh7XG4gICAgbWFya3M6IFtcbiAgICAgIFBsb3QuYmFyWShcbiAgICAgICAgW3ttZXRob2Q6IFwiUmFuZG9tIEZvcmVzdFwiLCBlcnJvcjogZC5mb3Jlc3R9LCB7bWV0aG9kOiBcIlNpbmdsZSBUcmVlXCIsIGVycm9yOiBkLnRyZWV9XSxcbiAgICAgICAge3g6IFwibWV0aG9kXCIsIHk6IFwiZXJyb3JcIiwgZmlsbDogZDIgPT4gZDIubWV0aG9kID09PSBcIlJhbmRvbSBGb3Jlc3RcIiA/IFwiIzRBOUVGRlwiIDogXCIjZmY2YjZiXCIsIHJ4OiA0fVxuICAgICAgKSxcbiAgICAgIFBsb3QudGV4dChcbiAgICAgICAgW3ttZXRob2Q6IFwiUmFuZG9tIEZvcmVzdFwiLCBlcnJvcjogZC5mb3Jlc3R9LCB7bWV0aG9kOiBcIlNpbmdsZSBUcmVlXCIsIGVycm9yOiBkLnRyZWV9XSxcbiAgICAgICAge3g6IFwibWV0aG9kXCIsIHk6IFwiZXJyb3JcIiwgdGV4dDogZDIgPT4gZDIuZXJyb3IgKyBcIiVcIiwgZHk6IC04LCBmb250U2l6ZTogMTQsIGZvbnRXZWlnaHQ6IFwiYm9sZFwiLCBmaWxsOiBcIndoaXRlXCJ9XG4gICAgICApLFxuICAgICAgUGxvdC5ydWxlWShbMF0pXG4gICAgXSxcbiAgICB5OiB7bGFiZWw6IFwiVGVzdCBFcnJvciAoJSlcIiwgZ3JpZDogdHJ1ZX0sXG4gICAgeDoge2xhYmVsOiBudWxsfSxcbiAgICB0aXRsZTogYCR7c2VsZWN0ZWRfZGF0YXNldH0g4oCUIEZvcmVzdCBjdXQgZXJyb3IgYnkgJHtyZWR1Y3Rpb259JWAsXG4gICAgc3R5bGU6IHtiYWNrZ3JvdW5kOiBcInRyYW5zcGFyZW50XCIsIGNvbG9yOiBcIiNjY2NcIn0sXG4gICAgd2lkdGg6IDUwMCxcbiAgICBoZWlnaHQ6IDMwMFxuICB9KTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnY3VsdHVyZScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdyYXNob21vbl9tb2RlbCcpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdzZWxlY3RlZF9kYXRhc2V0JykifV19
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
