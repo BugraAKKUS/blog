@@ -11,14 +11,14 @@
     "href": "posts/statistics-vs-machine-learning/index.html",
     "title": "The Two Cultures of Statistical Modeling",
     "section": "",
-    "text": "{css, echo=FALSE} h1, h2, h3 {   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;   letter-spacing: -0.02em; } blockquote {   border-left: 4px solid #8b4513;   padding-left: 1.2em;   color: #3a3a3a;   font-style: italic;   background: #faf6f0;   padding: 1em 1.2em;   border-radius: 0 6px 6px 0; } .figure-caption {   font-size: 0.9em;   color: #555;   font-style: italic; } table {   font-size: 0.95em; }"
+    "text": "In August 2001, Leo Breiman — a professor at UC Berkeley who had spent thirteen years as a freelance consultant before returning to academia — published a paper in Statistical Science that would become one of the most cited and debated works in the history of the field. “Statistical Modeling: The Two Cultures” was not merely a technical contribution; it was a manifesto. It challenged the philosophical foundations of an entire discipline and called for a paradigm shift that, in retrospect, anticipated the machine learning revolution we now inhabit.\nThis post walks through the paper’s architecture, section by section, and distills the arguments that make it essential reading a quarter-century later."
   },
   {
     "objectID": "posts/statistics-vs-machine-learning/index.html#prologue-a-statisticians-rebellion",
     "href": "posts/statistics-vs-machine-learning/index.html#prologue-a-statisticians-rebellion",
     "title": "The Two Cultures of Statistical Modeling",
-    "section": "Prologue: A Statistician’s Rebellion",
-    "text": "Prologue: A Statistician’s Rebellion\nIn August 2001, Leo Breiman — a professor at UC Berkeley who had spent thirteen years as a freelance consultant before returning to academia — published a paper in Statistical Science that would become one of the most cited and debated works in the history of the field. “Statistical Modeling: The Two Cultures” was not merely a technical contribution; it was a manifesto. It challenged the philosophical foundations of an entire discipline and called for a paradigm shift that, in retrospect, anticipated the machine learning revolution we now inhabit.\nThis post walks through the paper’s architecture, section by section, and distills the arguments that make it essential reading a quarter-century later."
+    "section": "",
+    "text": "In August 2001, Leo Breiman — a professor at UC Berkeley who had spent thirteen years as a freelance consultant before returning to academia — published a paper in Statistical Science that would become one of the most cited and debated works in the history of the field. “Statistical Modeling: The Two Cultures” was not merely a technical contribution; it was a manifesto. It challenged the philosophical foundations of an entire discipline and called for a paradigm shift that, in retrospect, anticipated the machine learning revolution we now inhabit.\nThis post walks through the paper’s architecture, section by section, and distills the arguments that make it essential reading a quarter-century later."
   },
   {
     "objectID": "posts/statistics-vs-machine-learning/index.html#the-black-box-metaphor",
