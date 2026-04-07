@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-03-27">
-<meta name="description" content="Are they really that different?">
+<meta name="dcterms.date" content="2026-04-06">
 
-<title>Statistics vs Machine Learning – Bugra in Deep</title>
+<title>The Two Cultures of Statistical Modeling – Bugra in Deep</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -33,10 +51,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ecacbc253e94e0ff1f0599edc70d42cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-b6684852186f9bead5990c81a8e0d624.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -52,12 +70,45 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href=".callout-note {
+  border-left-color: #2c5f7c !important;
+}">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -114,15 +165,13 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Statistics vs Machine Learning</h1>
-                  <div>
-        <div class="description">
-          Are they really that different?
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">statistics</div>
-                <div class="quarto-category">machine learning</div>
+      <h1 class="title">The Two Cultures of Statistical Modeling</h1>
+            <p class="subtitle lead">A Deep Dive into Leo Breiman’s Landmark 2001 Paper</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Statistics</div>
+                <div class="quarto-category">Machine Learning</div>
+                <div class="quarto-category">Data Science</div>
+                <div class="quarto-category">Philosophy of Science</div>
               </div>
                   </div>
   </div>
@@ -134,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 27, 2025</p>
+        <p class="date">April 6, 2026</p>
       </div>
     </div>
     
@@ -145,7 +194,50 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#prologue-a-statisticians-rebellion" id="toc-prologue-a-statisticians-rebellion" class="nav-link active" data-scroll-target="#prologue-a-statisticians-rebellion">Prologue: A Statistician’s Rebellion</a></li>
+  <li><a href="#the-black-box-metaphor" id="toc-the-black-box-metaphor" class="nav-link" data-scroll-target="#the-black-box-metaphor"><span class="header-section-number">1</span> The Black Box Metaphor</a></li>
+  <li><a href="#breimans-journey-from-consulting-to-conviction" id="toc-breimans-journey-from-consulting-to-conviction" class="nav-link" data-scroll-target="#breimans-journey-from-consulting-to-conviction"><span class="header-section-number">2</span> Breiman’s Journey: From Consulting to Conviction</a>
+  <ul class="collapse">
+  <li><a href="#the-ozone-project" id="toc-the-ozone-project" class="nav-link" data-scroll-target="#the-ozone-project"><span class="header-section-number">2.1</span> The Ozone Project</a></li>
+  <li><a href="#the-chlorine-project" id="toc-the-chlorine-project" class="nav-link" data-scroll-target="#the-chlorine-project"><span class="header-section-number">2.2</span> The Chlorine Project</a></li>
+  </ul></li>
+  <li><a href="#the-critique-what-is-wrong-with-data-models" id="toc-the-critique-what-is-wrong-with-data-models" class="nav-link" data-scroll-target="#the-critique-what-is-wrong-with-data-models"><span class="header-section-number">3</span> The Critique: What Is Wrong with Data Models?</a>
+  <ul class="collapse">
+  <li><a href="#the-almost-religious-belief" id="toc-the-almost-religious-belief" class="nav-link" data-scroll-target="#the-almost-religious-belief"><span class="header-section-number">3.1</span> The Almost-Religious Belief</a></li>
+  <li><a href="#the-linear-regression-parable" id="toc-the-linear-regression-parable" class="nav-link" data-scroll-target="#the-linear-regression-parable"><span class="header-section-number">3.2</span> The Linear Regression Parable</a></li>
+  <li><a href="#the-weakness-of-goodness-of-fit" id="toc-the-weakness-of-goodness-of-fit" class="nav-link" data-scroll-target="#the-weakness-of-goodness-of-fit"><span class="header-section-number">3.3</span> The Weakness of Goodness-of-Fit</a></li>
+  <li><a href="#the-multiplicity-problem" id="toc-the-multiplicity-problem" class="nav-link" data-scroll-target="#the-multiplicity-problem"><span class="header-section-number">3.4</span> The Multiplicity Problem</a></li>
+  </ul></li>
+  <li><a href="#the-limitations-and-the-hammer" id="toc-the-limitations-and-the-hammer" class="nav-link" data-scroll-target="#the-limitations-and-the-hammer"><span class="header-section-number">4</span> The Limitations and the Hammer</a></li>
+  <li><a href="#the-rise-of-algorithmic-modeling" id="toc-the-rise-of-algorithmic-modeling" class="nav-link" data-scroll-target="#the-rise-of-algorithmic-modeling"><span class="header-section-number">5</span> The Rise of Algorithmic Modeling</a>
+  <ul class="collapse">
+  <li><a href="#a-new-community" id="toc-a-new-community" class="nav-link" data-scroll-target="#a-new-community"><span class="header-section-number">5.1</span> A New Community</a></li>
+  <li><a href="#theoretical-foundations" id="toc-theoretical-foundations" class="nav-link" data-scroll-target="#theoretical-foundations"><span class="header-section-number">5.2</span> Theoretical Foundations</a></li>
+  </ul></li>
+  <li><a href="#three-conceptual-revolutions" id="toc-three-conceptual-revolutions" class="nav-link" data-scroll-target="#three-conceptual-revolutions"><span class="header-section-number">6</span> Three Conceptual Revolutions</a>
+  <ul class="collapse">
+  <li><a href="#rashomon-the-multiplicity-of-good-models" id="toc-rashomon-the-multiplicity-of-good-models" class="nav-link" data-scroll-target="#rashomon-the-multiplicity-of-good-models"><span class="header-section-number">6.1</span> Rashomon: The Multiplicity of Good Models</a></li>
+  <li><a href="#occam-simplicity-versus-accuracy" id="toc-occam-simplicity-versus-accuracy" class="nav-link" data-scroll-target="#occam-simplicity-versus-accuracy"><span class="header-section-number">6.2</span> Occam: Simplicity versus Accuracy</a></li>
+  <li><a href="#bellman-dimensionality-as-blessing" id="toc-bellman-dimensionality-as-blessing" class="nav-link" data-scroll-target="#bellman-dimensionality-as-blessing"><span class="header-section-number">6.3</span> Bellman: Dimensionality as Blessing</a></li>
+  </ul></li>
+  <li><a href="#information-from-a-black-box" id="toc-information-from-a-black-box" class="nav-link" data-scroll-target="#information-from-a-black-box"><span class="header-section-number">7</span> Information from a Black Box</a>
+  <ul class="collapse">
+  <li><a href="#example-i-hepatitis-survival" id="toc-example-i-hepatitis-survival" class="nav-link" data-scroll-target="#example-i-hepatitis-survival"><span class="header-section-number">7.1</span> Example I: Hepatitis Survival</a></li>
+  <li><a href="#example-ii-liver-disease-clustering" id="toc-example-ii-liver-disease-clustering" class="nav-link" data-scroll-target="#example-ii-liver-disease-clustering"><span class="header-section-number">7.2</span> Example II: Liver Disease Clustering</a></li>
+  <li><a href="#example-iii-microarray-gene-expression" id="toc-example-iii-microarray-gene-expression" class="nav-link" data-scroll-target="#example-iii-microarray-gene-expression"><span class="header-section-number">7.3</span> Example III: Microarray Gene Expression</a></li>
+  </ul></li>
+  <li><a href="#final-remarks-a-call-to-arms" id="toc-final-remarks-a-call-to-arms" class="nav-link" data-scroll-target="#final-remarks-a-call-to-arms"><span class="header-section-number">8</span> Final Remarks: A Call to Arms</a></li>
+  <li><a href="#why-this-paper-still-matters-in-2026" id="toc-why-this-paper-still-matters-in-2026" class="nav-link" data-scroll-target="#why-this-paper-still-matters-in-2026"><span class="header-section-number">9</span> Why This Paper Still Matters in 2026</a></li>
+  <li><a href="#key-figures-to-study-in-the-original-paper" id="toc-key-figures-to-study-in-the-original-paper" class="nav-link" data-scroll-target="#key-figures-to-study-in-the-original-paper"><span class="header-section-number">10</span> Key Figures to Study in the Original Paper</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -153,8 +245,508 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<p><code>{css, echo=FALSE} h1, h2, h3 {   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;   letter-spacing: -0.02em; } blockquote {   border-left: 4px solid #8b4513;   padding-left: 1.2em;   color: #3a3a3a;   font-style: italic;   background: #faf6f0;   padding: 1em 1.2em;   border-radius: 0 6px 6px 0; } .figure-caption {   font-size: 0.9em;   color: #555;   font-style: italic; } table {   font-size: 0.95em; }</code></p>
+<section id="prologue-a-statisticians-rebellion" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="prologue-a-statisticians-rebellion">Prologue: A Statistician’s Rebellion</h2>
+<p>In August 2001, Leo Breiman — a professor at UC Berkeley who had spent thirteen years as a freelance consultant before returning to academia — published a paper in <em>Statistical Science</em> that would become one of the most cited and debated works in the history of the field. “Statistical Modeling: The Two Cultures” was not merely a technical contribution; it was a manifesto. It challenged the philosophical foundations of an entire discipline and called for a paradigm shift that, in retrospect, anticipated the machine learning revolution we now inhabit.</p>
+<p>This post walks through the paper’s architecture, section by section, and distills the arguments that make it essential reading a quarter-century later.</p>
+<hr>
+</section>
+<section id="the-black-box-metaphor" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="the-black-box-metaphor"><span class="header-section-number">1</span> The Black Box Metaphor</h2>
+<p>Breiman opens with an elegant framing device. Imagine nature as a <strong>black box</strong>:</p>
+<ul>
+<li>A vector of input variables <span class="math inline">\(\mathbf{x}\)</span> enters one side.</li>
+<li>Response variables <span class="math inline">\(\mathbf{y}\)</span> emerge from the other.</li>
+<li>Inside, some unknown mechanism connects them.</li>
+</ul>
+<p><span class="math display">\[
+\mathbf{x} \longrightarrow \boxed{\text{Nature}} \longrightarrow \mathbf{y}
+\]</span></p>
+<p>Two goals drive all statistical analysis: <strong>prediction</strong> (forecasting <span class="math inline">\(\mathbf{y}\)</span> for future <span class="math inline">\(\mathbf{x}\)</span>) and <strong>information extraction</strong> (understanding how nature links <span class="math inline">\(\mathbf{x}\)</span> to <span class="math inline">\(\mathbf{y}\)</span>). But the two cultures diverge sharply on <em>how</em> to pursue these goals.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Two Cultures at a Glance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Data Modeling Culture</th>
+<th style="text-align: left;">Algorithmic Modeling Culture</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Assumption</strong></td>
+<td style="text-align: left;">The data-generating mechanism is a known stochastic model</td>
+<td style="text-align: left;">The data-generating mechanism is complex and unknown</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Approach</strong></td>
+<td style="text-align: left;">Fit parametric models (linear regression, logistic regression, Cox model)</td>
+<td style="text-align: left;">Deploy algorithms that learn <span class="math inline">\(f(\mathbf{x})\)</span> (decision trees, neural nets, SVMs)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Validation</strong></td>
+<td style="text-align: left;">Goodness-of-fit tests, residual analysis</td>
+<td style="text-align: left;">Predictive accuracy on held-out test sets</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Population</strong></td>
+<td style="text-align: left;">~98% of statisticians (Breiman’s estimate)</td>
+<td style="text-align: left;">~2% of statisticians, many computer scientists</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>This asymmetry — 98% versus 2% — is the provocation at the paper’s heart.</p>
+<hr>
+</section>
+<section id="breimans-journey-from-consulting-to-conviction" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="breimans-journey-from-consulting-to-conviction"><span class="header-section-number">2</span> Breiman’s Journey: From Consulting to Conviction</h2>
+<section id="the-ozone-project" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="the-ozone-project"><span class="header-section-number">2.1</span> The Ozone Project</h3>
+<p>In 1970s Los Angeles, ozone pollution posed a serious public health crisis. The EPA funded a large-scale effort to predict next-day ozone levels 12 hours in advance, using over <strong>450 meteorological variables</strong> measured across seven years. Breiman and his team attempted the prediction with large linear regressions, variable selection, and quadratic interaction terms — the best tools available pre-1980. The project <strong>failed</strong>: the false alarm rate was unacceptably high. Breiman laments that he could not revisit the problem with later algorithmic tools.</p>
+</section>
+<section id="the-chlorine-project" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="the-chlorine-project"><span class="header-section-number">2.2</span> The Chlorine Project</h3>
+<p>The EPA needed to determine whether a chemical compound contained chlorine from its mass spectra alone. The predictor space had <strong>variable dimensionality</strong> — molecular weights ranged from 30 to over 10,000. Discriminant analysis struggled with this structure. Breiman turned to <strong>decision trees</strong>, incorporating domain knowledge into 1,500 carefully designed binary questions applicable to spectra of any dimensionality. The result: <strong>95% accuracy</strong> on both chlorine-containing and non-chlorine compounds.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Breiman’s Five Consulting Principles
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Focus on finding a good solution — that is what you are paid for.</li>
+<li>Live with the data before you plunge into modeling.</li>
+<li>Search for a model that gives a good solution, whether algorithmic or data-based.</li>
+<li>Predictive accuracy on test sets is the criterion for model quality.</li>
+<li>Computers are an indispensable partner.</li>
+</ol>
+</div>
+</div>
+<p>These principles, forged in practice, became the philosophical backbone of the entire paper.</p>
+<hr>
+</section>
+</section>
+<section id="the-critique-what-is-wrong-with-data-models" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="the-critique-what-is-wrong-with-data-models"><span class="header-section-number">3</span> The Critique: What Is Wrong with Data Models?</h2>
+<section id="the-almost-religious-belief" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="the-almost-religious-belief"><span class="header-section-number">3.1</span> The Almost-Religious Belief</h3>
+<p>When Breiman returned to academia and opened the <em>Annals of Statistics</em>, he found that every article began with:</p>
+<blockquote class="blockquote">
+<p><em>“Assume that the data are generated by the following model: …”</em></p>
+</blockquote>
+<p>He identifies a troubling logical chain:</p>
+<ol type="1">
+<li>Conclusions drawn from a fitted model are about <strong>the model’s mechanism</strong>, not nature’s.</li>
+<li>If the model is a poor emulation of nature, the conclusions may be <strong>wrong</strong>.</li>
+<li>Yet once a model is posited, it is treated as truth — the belief in its validity becomes “almost religious.”</li>
+</ol>
+</section>
+<section id="the-linear-regression-parable" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="the-linear-regression-parable"><span class="header-section-number">3.2</span> The Linear Regression Parable</h3>
+<p>Breiman illustrates the danger with a canonical example. Consider the standard linear model:</p>
+<p><span class="math display">\[
+y = b_0 + \sum_{m=1}^{M} b_m x_m + \varepsilon, \quad \varepsilon \sim N(0, \sigma^2)
+\]</span></p>
+<p>This model yields elegant mathematics — hypothesis tests, confidence intervals, distributional theory for residual sums of squares. Its mathematical beauty made it seductive. Hundreds of published papers claimed to prove various effects simply because a coefficient reached the 5% significance threshold, with minimal scrutiny of whether the data could plausibly have been generated by a linear process.</p>
+<p>His specific case: a study of gender discrimination in faculty salaries used linear regression on 25 predictor variables. The gender coefficient was significant at the 5% level, and this was taken as definitive evidence. No one checked whether the model actually fit the data.</p>
+</section>
+<section id="the-weakness-of-goodness-of-fit" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="the-weakness-of-goodness-of-fit"><span class="header-section-number">3.3</span> The Weakness of Goodness-of-Fit</h3>
+<p>Breiman reveals a critical vulnerability:</p>
+<ul>
+<li>He set up a <strong>simulated</strong> regression in seven dimensions with controlled nonlinearity. Standard goodness-of-fit tests failed to reject linearity until the departure was extreme.</li>
+<li>Bickel, Ritov, and Stoker (2001) showed that omnibus goodness-of-fit tests have very little power unless the direction of the alternative is precisely specified.</li>
+<li>William Cleveland — one of the founders of residual analysis — admitted at a 1993 Berkeley seminar that residual analysis could not reliably detect lack of fit beyond four to five dimensions.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A Sobering Implication
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An acceptable residual plot <strong>does not</strong> imply the model is a good fit to the data. In high dimensions, many very different models can produce passable residual plots.</p>
+</div>
+</div>
+</section>
+<section id="the-multiplicity-problem" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="the-multiplicity-problem"><span class="header-section-number">3.4</span> The Multiplicity Problem</h3>
+<p>Even when goodness-of-fit tests are applied, they give binary yes/no answers. Multiple models can pass all checks and yet tell <strong>completely different stories</strong> about nature. This multiplicity — which Breiman would later connect to the “Rashomon Effect” — means the choice of model is often arbitrary, yet the conclusions are presented as definitive.</p>
+<hr>
+</section>
+</section>
+<section id="the-limitations-and-the-hammer" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="the-limitations-and-the-hammer"><span class="header-section-number">4</span> The Limitations and the Hammer</h2>
+<p>Breiman’s most memorable line in this section echoes an old proverb:</p>
+<blockquote class="blockquote">
+<p><em>“If all a man has is a hammer, then every problem looks like a nail.”</em></p>
+</blockquote>
+<p>The insistence on data models has, he argues:</p>
+<ul>
+<li><strong>Frozen</strong> the statistical toolkit at logistic regression, discriminant analysis, and linear regression.</li>
+<li><strong>Excluded</strong> statisticians from exciting problems in speech recognition, image classification, and financial prediction.</li>
+<li>Driven the field toward ever more baroque Bayesian and MCMC constructions that lose the original simplicity advantage.</li>
+</ul>
+<hr>
+</section>
+<section id="the-rise-of-algorithmic-modeling" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="the-rise-of-algorithmic-modeling"><span class="header-section-number">5</span> The Rise of Algorithmic Modeling</h2>
+<section id="a-new-community" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="a-new-community"><span class="header-section-number">5.1</span> A New Community</h3>
+<p>In the mid-1980s, neural nets and decision trees became practical. A community of young computer scientists, physicists, and engineers began tackling complex prediction problems — handwriting recognition, speech recognition, nonlinear time series — where data models were plainly inadequate. Their criterion was stark: <strong>predictive accuracy on test data</strong>.</p>
+</section>
+<section id="theoretical-foundations" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="theoretical-foundations"><span class="header-section-number">5.2</span> Theoretical Foundations</h3>
+<p>The theory in this community shifted from data model assumptions to <strong>algorithm properties</strong> — convergence, capacity, and what makes predictors accurate. The single assumption: data is drawn i.i.d. from an unknown distribution.</p>
+<p>The most consequential theoretical advance came from <strong>Vladimir Vapnik</strong>, whose bounds on generalization error — depending on the “capacity” of an algorithm — led directly to the invention of <strong>Support Vector Machines</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="three-conceptual-revolutions" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="three-conceptual-revolutions"><span class="header-section-number">6</span> Three Conceptual Revolutions</h2>
+<p>Breiman identifies three paradigm-shifting lessons from the machine learning community, each named after a resonant cultural reference.</p>
+<section id="rashomon-the-multiplicity-of-good-models" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="rashomon-the-multiplicity-of-good-models"><span class="header-section-number">6.1</span> Rashomon: The Multiplicity of Good Models</h3>
+<p>Named after Kurosawa’s film in which four witnesses to the same event give irreconcilable accounts, the <strong>Rashomon Effect</strong> describes a mathematical reality: many very different models can achieve nearly identical error rates.</p>
+<p>Consider subset selection with 30 variables, seeking the best 5-variable linear regression. There are roughly 140,000 possible subsets. Many will have residual sum of squares within 1% of the best. Three such models might look like this:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Model</th>
+<th style="text-align: left;">Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Picture 1</td>
+<td style="text-align: left;"><span class="math inline">\(y = 2.1 + 3.8x_3 - 0.6x_8 + 83.2x_{12} - 2.1x_{17} + 3.2x_{27}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Picture 2</td>
+<td style="text-align: left;"><span class="math inline">\(y = -8.9 + 4.6x_5 + 0.01x_6 + 12.0x_{15} + 17.5x_{21} + 0.2x_{22}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Picture 3</td>
+<td style="text-align: left;"><span class="math inline">\(y = -76.7 + 9.3x_2 + 22.0x_7 - 13.2x_8 + 3.4x_{11} + 7.2x_{28}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Each tells a <strong>completely different story</strong> about which variables matter — yet all fit equally well. Breiman also found this with neural nets: running the same small net 100 times with different random initializations produced <strong>32 distinct minima</strong> with roughly equal test error.</p>
+<p>The practical consequence is <strong>instability</strong>: slight perturbations of the data cause the procedure to hop between very different models. Aggregation methods like <strong>bagging</strong> can help by averaging over competing models.</p>
+</section>
+<section id="occam-simplicity-versus-accuracy" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="occam-simplicity-versus-accuracy"><span class="header-section-number">6.2</span> Occam: Simplicity versus Accuracy</h3>
+<p>Occam’s Razor suggests simpler models are preferable. Breiman argues this creates a genuine dilemma in prediction:</p>
+<blockquote class="blockquote">
+<p><em>Accuracy generally requires more complex prediction methods. Simple and interpretable functions do not make the most accurate predictors.</em></p>
+</blockquote>
+<p>His evidence is compelling. The following table, reproduced from the paper, compares single decision trees (CART) to random forests across ten benchmark datasets:</p>
+<table class="table-hover caption-top table">
+<caption><strong>Table 2 from Breiman (2001).</strong> Test set misclassification error (%). Forests consistently and dramatically outperform single trees.</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Data Set</th>
+<th style="text-align: center;">Training Size</th>
+<th style="text-align: center;">Test Size</th>
+<th style="text-align: center;">Variables</th>
+<th style="text-align: center;">Classes</th>
+<th style="text-align: center;">Forest Error (%)</th>
+<th style="text-align: center;">Single Tree Error (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Breast Cancer</td>
+<td style="text-align: center;">699</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>2.9</strong></td>
+<td style="text-align: center;">5.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ionosphere</td>
+<td style="text-align: center;">351</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>5.5</strong></td>
+<td style="text-align: center;">11.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Diabetes</td>
+<td style="text-align: center;">768</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>24.2</strong></td>
+<td style="text-align: center;">25.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Glass</td>
+<td style="text-align: center;">214</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"><strong>22.0</strong></td>
+<td style="text-align: center;">30.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Soybean</td>
+<td style="text-align: center;">683</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;"><strong>5.7</strong></td>
+<td style="text-align: center;">8.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Letters</td>
+<td style="text-align: center;">15,000</td>
+<td style="text-align: center;">5,000</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;"><strong>3.4</strong></td>
+<td style="text-align: center;">12.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Satellite</td>
+<td style="text-align: center;">4,435</td>
+<td style="text-align: center;">2,000</td>
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"><strong>8.6</strong></td>
+<td style="text-align: center;">14.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shuttle (×10³)</td>
+<td style="text-align: center;">43,500</td>
+<td style="text-align: center;">14,500</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"><strong>0.007</strong></td>
+<td style="text-align: center;">0.062</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DNA</td>
+<td style="text-align: center;">2,000</td>
+<td style="text-align: center;">1,186</td>
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><strong>3.9</strong></td>
+<td style="text-align: center;">6.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Digit</td>
+<td style="text-align: center;">7,291</td>
+<td style="text-align: center;">2,007</td>
+<td style="text-align: center;">256</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"><strong>6.2</strong></td>
+<td style="text-align: center;">17.1</td>
+</tr>
+</tbody>
+</table>
+<p>The reductions are striking. Some errors are halved; others cut by two-thirds. On the Statlog Project’s four benchmark datasets with separate test sets, random forests ranked <strong>first on all four</strong>. The next best classifier averaged rank 7.3.</p>
+<p>But forests are essentially <strong>uninterpretable</strong> — a tangle of 50 to 100 trees voting together. Breiman’s resolution: pursue accuracy first, then extract understanding. Which leads to the final section’s crucial argument.</p>
+</section>
+<section id="bellman-dimensionality-as-blessing" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="bellman-dimensionality-as-blessing"><span class="header-section-number">6.3</span> Bellman: Dimensionality as Blessing</h3>
+<p>For decades, the received wisdom was to <em>reduce</em> dimensionality — find a few good features and discard the rest. Breiman argues the opposite: <strong>more variables mean more information</strong>, and modern algorithms can extract it.</p>
+<p>Two landmark examples:</p>
+<ol type="1">
+<li><p><strong>The Amit–Geman Shape Recognition Forest</strong>: Thousands of hierarchically assembled geometric features, 1,000+ shallow trees with random feature selection at each node. On the NIST handwriting dataset (100,000 training / 50,000 test): <strong>0.7% error</strong> — near human limits.</p></li>
+<li><p><strong>Support Vector Machines</strong>: Vapnik’s insight — if classes aren’t separable in the original space, <em>increase</em> dimensionality by adding polynomial features. An elegant bound governs generalization:</p></li>
+</ol>
+<p><span class="math display">\[
+\mathbb{E}[\text{GE}] \leq \frac{\mathbb{E}[\text{number of support vectors}]}{N - 1}
+\]</span></p>
+<p>On the ZIP Code digit data with fourth-degree monomials: <strong>4.1% test error</strong>. On the larger NIST dataset: <strong>1.1%</strong>.</p>
+<hr>
+</section>
+</section>
+<section id="information-from-a-black-box" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="information-from-a-black-box"><span class="header-section-number">7</span> Information from a Black Box</h2>
+<p>This is the paper’s crescendo. Breiman dismantles the assumption that interpretability requires a simple model:</p>
+<blockquote class="blockquote">
+<p><em>The goal is not interpretability, but accurate information.</em></p>
+</blockquote>
+<section id="example-i-hepatitis-survival" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="example-i-hepatitis-survival"><span class="header-section-number">7.1</span> Example I: Hepatitis Survival</h3>
+<p>A dataset of 155 hepatitis patients with 19 covariates and a survive/die outcome.</p>
+<p><strong>Logistic regression</strong> achieves 17.4% error — barely better than the 20.6% baseline of predicting everyone survives. Its standardized coefficients point to variables 7 and 11 as most important (the paper’s Figure 1).</p>
+<p><strong>Random forests</strong> achieves <strong>12.3% error</strong> — a nearly 30% reduction. Its variable importance measure (Figure 2) highlights variables 12 and 17 instead. When these are tested individually, each yields ~14.3% error alone, and combining them does no better — they are <strong>highly correlated surrogates</strong> for each other.</p>
+<table class="table-hover caption-top table">
+<caption>Comparison of methods on the hepatitis dataset. The more accurate model identifies different — and more reliable — important variables.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: center;">Error Rate</th>
+<th style="text-align: left;">Important Variables Identified</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Logistic Regression</td>
+<td style="text-align: center;">17.4%</td>
+<td style="text-align: left;">Variables 7, 11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Random Forests</td>
+<td style="text-align: center;"><strong>12.3%</strong></td>
+<td style="text-align: left;">Variables 12, 17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baseline (predict all survive)</td>
+<td style="text-align: center;">20.6%</td>
+<td style="text-align: left;">—</td>
+</tr>
+</tbody>
+</table>
+<p>This resolves a puzzle from earlier work by Diaconis and Efron (1983), who had found via bootstrap analysis that no single variable appeared important in more than 60% of samples. Breiman explains: variables 12 and 17 are surrogates, so when one appears in a bootstrap model, the other is redundant. Either one appears in 7 out of 10 bootstrap samples they examined.</p>
+</section>
+<section id="example-ii-liver-disease-clustering" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="example-ii-liver-disease-clustering"><span class="header-section-number">7.2</span> Example II: Liver Disease Clustering</h3>
+<p>The Bupa liver dataset (345 patients, 6 blood test covariates, two severity classes) reveals something logistic regression cannot: random forests’ intrinsic similarity measure discovers <strong>two distinct clusters</strong> within the severe class. One cluster has high scores on blood tests 3, 4, and 5; the other has low scores. This kind of substructure — potentially representing different disease pathways — is invisible to standard parametric models.</p>
+</section>
+<section id="example-iii-microarray-gene-expression" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="example-iii-microarray-gene-expression"><span class="header-section-number">7.3</span> Example III: Microarray Gene Expression</h3>
+<p>A lymphoma dataset with 81 samples and <strong>4,682 gene expression variables</strong> across three classes. Traditional statistical wisdom says fitting a model to 4,682 variables with 81 observations is folly. Random forests handles it naturally — with no variable selection — achieving low error and producing a sharp importance ranking across all genes (Figure 6 in the paper).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Core Lesson from Section 11
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Higher predictive accuracy is associated with <strong>more reliable information</strong> about the underlying data mechanism. Weak predictive accuracy can lead to questionable conclusions. The choice is not between accuracy and understanding — accuracy <em>enables</em> understanding.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="final-remarks-a-call-to-arms" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="final-remarks-a-call-to-arms"><span class="header-section-number">8</span> Final Remarks: A Call to Arms</h2>
+<p>Breiman closes with a plea that is both generous and firm. He is not against data models — sometimes they are the right tool. But the field’s <strong>vested interest</strong> in them, regardless of the problem, is damaging. He points to astronomy (scanning millions of stellar objects), genetics (microarray analysis), and massive commercial datasets as domains where statisticians are being sidelined because they refuse to look beyond parametric models.</p>
+<blockquote class="blockquote">
+<p>The roots of statistics, as in science, lie in working with data and checking theory against data.</p>
+</blockquote>
+<p>He expresses hope that the field will return to those roots — a hope that, viewed from 2026, has been substantially fulfilled by the rise of data science, machine learning, and a new generation of statisticians comfortable with both cultures.</p>
+<hr>
+</section>
+<section id="why-this-paper-still-matters-in-2026" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="why-this-paper-still-matters-in-2026"><span class="header-section-number">9</span> Why This Paper Still Matters in 2026</h2>
+<p>Twenty-five years later, Breiman’s paper reads as remarkably prescient:</p>
+<ul>
+<li><strong>Deep learning</strong> has vindicated the algorithmic culture far beyond what Breiman could have imagined, achieving superhuman performance in vision, language, and protein structure prediction.</li>
+<li><strong>Explainable AI (XAI)</strong> has become a major research field — essentially the formalization of Breiman’s Section 11 argument that black boxes can yield information.</li>
+<li><strong>The Rashomon Effect</strong> has been formalized into an active research program, with recent work by Cynthia Rudin and others on “Rashomon sets” of near-optimal models.</li>
+<li><strong>Cross-validation and test-set evaluation</strong> are now standard practice, just as Breiman advocated.</li>
+<li>The <strong>98/2 split</strong> has shifted dramatically. Many statistics departments now teach random forests, gradient boosting, and neural networks alongside regression and hypothesis testing.</li>
+</ul>
+<p>Yet the paper’s deeper warning remains relevant: the temptation to let the model drive the analysis, rather than the problem and the data, is perennial. Every time a practitioner fits a model without checking predictive accuracy, or treats a significant p-value as proof without examining model adequacy, Breiman’s critique applies.</p>
+<hr>
+</section>
+<section id="key-figures-to-study-in-the-original-paper" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="key-figures-to-study-in-the-original-paper"><span class="header-section-number">10</span> Key Figures to Study in the Original Paper</h2>
+<p>For readers who wish to examine the original, the following figures are especially instructive:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 30%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Figure</th>
+<th style="text-align: left;">Content</th>
+<th style="text-align: left;">Key Insight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Figure 1</td>
+<td style="text-align: left;">Standardized logistic regression coefficients (hepatitis)</td>
+<td style="text-align: left;">Shows what a weaker model considers important</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Figure 2</td>
+<td style="text-align: left;">Random forest variable importance (hepatitis)</td>
+<td style="text-align: left;">Reveals different, more reliable important variables</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Figure 3</td>
+<td style="text-align: left;">Variables 12 &amp; 17 vs.&nbsp;probability of death</td>
+<td style="text-align: left;">Demonstrates the two variables are correlated surrogates</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Figure 4</td>
+<td style="text-align: left;">Variable importance (Bupa liver data)</td>
+<td style="text-align: left;">Identifies key blood tests via algorithmic importance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Figure 5</td>
+<td style="text-align: left;">Cluster averages in Bupa data</td>
+<td style="text-align: left;">Uncovers hidden subgroups invisible to logistic regression</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Figure 6</td>
+<td style="text-align: left;">Microarray gene importance (4,682 genes)</td>
+<td style="text-align: left;">Demonstrates scalability to ultra-high-dimensional data</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" role="list">
+
+</div>
+<p>Breiman, L. (2001). Statistical Modeling: The Two Cultures. <em>Statistical Science</em>, 16(3), 199–231. <a href="https://doi.org/10.1214/ss/1009213726">https://doi.org/10.1214/ss/1009213726</a></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -579,4 +1171,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
