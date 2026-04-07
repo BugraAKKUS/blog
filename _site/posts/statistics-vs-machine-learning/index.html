@@ -273,12 +273,12 @@ window.Quarto = {
 <h2 class="unnumbered anchored" data-anchor-id="why-i-read-this-paper">Why I Read This Paper</h2>
 <p>I kept seeing this paper mentioned everywhere — in lectures, in blog posts, in Twitter threads. “Breiman 2001” kept coming up like some kind of secret handshake between people who take statistics seriously. So I finally read it.</p>
 <p>It was written in 2001. But honestly? It feels like it was written about today.</p>
-<p>This post is my attempt to walk through the paper’s main ideas in plain language. I’m not an expert — I’m just someone who found this paper really thought-provoking and wanted to share what I learned.</p>
+<p>This post is my attempt to walk through the paper’s main ideas in plain language. I’m not an expert. I’m just someone who found this paper really thought-provoking and wanted to share what I learned.</p>
 <hr>
 </section>
 <section id="the-setup-what-even-is-a-statistical-model" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="the-setup-what-even-is-a-statistical-model"><span class="header-section-number">1</span> The Setup: What Even Is a Statistical Model?</h2>
-<p>Breiman starts with a simple picture. You have some input data <strong>x</strong>, and you want to predict some output <strong>y</strong>. Between them sits a black box — nature, doing something mysterious to connect the two.</p>
+<p>Breiman starts with a simple picture. You have some input data <strong>x</strong>, and you want to predict some output <strong>y</strong>. Between them sits a black box nature, doing something mysterious to connect the two.</p>
 <p><span class="math display">\[
 \mathbf{x} \longrightarrow \boxed{\text{???}} \longrightarrow \mathbf{y}
 \]</span></p>
@@ -356,7 +356,7 @@ window.Quarto = {
 </section>
 <section id="breimans-background-he-wasnt-just-theorizing" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="breimans-background-he-wasnt-just-theorizing"><span class="header-section-number">2</span> Breiman’s Background: He Wasn’t Just Theorizing</h2>
-<p>One thing that makes this paper different from a typical academic critique is that Breiman actually spent 13 years as a freelance consultant before going back to academia. He worked on real, messy, high-stakes prediction problems — ozone levels, chemical toxicity, speech, radar.</p>
+<p>One thing that makes this paper different from a typical academic critique is that Breiman actually spent 13 years as a freelance consultant before going back to academia. He worked on real, messy, high-stakes prediction problems ozone levels, chemical toxicity, speech, radar.</p>
 <p>Two examples he shares:</p>
 <p><strong>Predicting LA ozone levels:</strong> They had 7 years of data, 450+ weather variables, and needed to predict next-day ozone 12 hours ahead. They used the best statistical tools available in the 1970s — linear regression, variable selection. It failed. The false alarm rate was too high. Breiman says he wishes he could go back and try it with modern tools.</p>
 <p><strong>Identifying chlorine in chemicals:</strong> Using mass spectra data, they needed to classify whether a compound contained chlorine. Standard methods struggled because the data had variable dimensions. Breiman built a decision tree with 1,500 binary questions. Result: 95% accuracy.</p>
@@ -392,7 +392,7 @@ The principles he took from consulting
 </section>
 <section id="goodness-of-fit-tests-dont-really-work" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="goodness-of-fit-tests-dont-really-work"><span class="header-section-number">3.2</span> Goodness-of-fit tests don’t really work</h3>
-<p>You might say “but we test whether the model fits!” And Breiman says — yeah, those tests are weaker than you think. He ran a simulation with a clearly non-linear dataset and standard tests kept saying “the linear model fits just fine” until the non-linearity became extreme.</p>
+<p>You might say “but we test whether the model fits!” And Breiman says yeah, those tests are weaker than you think. He ran a simulation with a clearly non-linear dataset and standard tests kept saying “the linear model fits just fine” until the non-linearity became extreme.</p>
 <p>William Cleveland, one of the people who invented residual analysis, admitted at a seminar that residual analysis can’t reliably detect problems in data with more than 4-5 dimensions. Most real datasets have way more than that.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -410,7 +410,7 @@ The uncomfortable truth
 </section>
 <section id="the-multiplicity-problem" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="the-multiplicity-problem"><span class="header-section-number">3.3</span> The multiplicity problem</h3>
-<p>Here’s another thing that bothered him. Say you have 30 variables and you want to find the best 5-variable linear model. There are around 140,000 possible combinations. Many of them will fit your data almost equally well — but they’ll tell completely different stories about which variables matter.</p>
+<p>Here’s another thing that bothered him. Say you have 30 variables and you want to find the best 5-variable linear model. There are around 140,000 possible combinations. Many of them will fit your data almost equally well but they’ll tell completely different stories about which variables matter.</p>
 <p>Breiman called this the <strong>Rashomon Effect</strong>, named after a Kurosawa film where four witnesses describe the same event in completely contradictory ways. The effect is real in statistics too.</p>
 <div class="cell">
 <details class="code-fold">
@@ -473,9 +473,9 @@ The uncomfortable truth
 <section id="the-algorithmic-world-was-moving-fast" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="the-algorithmic-world-was-moving-fast"><span class="header-section-number">4</span> The Algorithmic World Was Moving Fast</h2>
 <p>While statisticians were busy debating which parametric model to use, something was happening outside statistics departments.</p>
-<p>In the mid-1980s, a community of computer scientists, physicists and engineers started working on prediction problems where it was obvious no standard model would work — handwriting recognition, speech, image classification. They didn’t care about the model. They cared about whether it worked.</p>
+<p>In the mid-1980s, a community of computer scientists, physicists and engineers started working on prediction problems where it was obvious no standard model would work handwriting recognition, speech, image classification. They didn’t care about the model. They cared about whether it worked.</p>
 <p>This community eventually became what we now call <strong>machine learning</strong>.</p>
-<p>Their theoretical foundation was different too. Vladimir Vapnik built a theory of how well algorithms generalize to new data, which led to <strong>Support Vector Machines</strong> — which at the time outperformed neural nets on many tasks.</p>
+<p>Their theoretical foundation was different too. Vladimir Vapnik built a theory of how well algorithms generalize to new data, which led to <strong>Support Vector Machines</strong> which at the time outperformed neural nets on many tasks.</p>
 <hr>
 </section>
 <section id="three-big-lessons-from-machine-learning" class="level2" data-number="5">
@@ -483,12 +483,12 @@ The uncomfortable truth
 <p>Breiman identified three ideas from the ML world that he thought statisticians were ignoring.</p>
 <section id="the-rashomon-effect" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="the-rashomon-effect"><span class="header-section-number">5.1</span> 1. The Rashomon Effect</h3>
-<p>Many models fit equally well but tell different stories. Aggregating them — like <strong>Random Forests</strong> do — reduces this instability and usually improves accuracy.</p>
+<p>Many models fit equally well but tell different stories. Aggregating them — like <strong>Random Forests</strong> do reduces this instability and usually improves accuracy.</p>
 </section>
 <section id="simpler-isnt-always-better" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="simpler-isnt-always-better"><span class="header-section-number">5.2</span> 2. Simpler isn’t always better</h3>
 <p>The traditional idea is: simpler models are better, interpretable is good. Breiman says that for <em>prediction accuracy</em>, this is just not true. Complex models predict better.</p>
-<p>Here’s the actual data from the paper — Random Forests vs single Decision Trees:</p>
+<p>Here’s the actual data from the paper Random Forests vs single Decision Trees:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -567,7 +567,7 @@ The uncomfortable truth
 <section id="can-a-black-box-give-you-real-information" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="can-a-black-box-give-you-real-information"><span class="header-section-number">6</span> Can a Black Box Give You Real Information?</h2>
 <p>The obvious objection to algorithmic models is: sure, they predict well, but you can’t understand what they’re doing. A doctor can read a logistic regression. Nobody can read a forest of 100 trees.</p>
-<p>Breiman’s response: you’re asking the wrong question. The goal isn’t interpretability — it’s <strong>accurate information</strong>. And sometimes complex models give you <em>more</em> accurate information than simple ones, even about which variables matter.</p>
+<p>Breiman’s response: you’re asking the wrong question. The goal isn’t interpretability it’s <strong>accurate information</strong>. And sometimes complex models give you <em>more</em> accurate information than simple ones, even about which variables matter.</p>
 <p>He shows this with three examples from real medical and biological datasets.</p>
 <section id="hepatitis-survival" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="hepatitis-survival"><span class="header-section-number">6.1</span> Hepatitis survival</h3>
@@ -598,15 +598,15 @@ The uncomfortable truth
 </tr>
 </tbody>
 </table>
-<p>The random forest not only predicted better — it pointed to completely different variables as important. When Breiman tested variables 12 and 17 individually, they were much more predictive than 7 and 11. The simpler model was literally pointing at the wrong things because it couldn’t fit the data properly.</p>
+<p>The random forest not only predicted better it pointed to completely different variables as important. When Breiman tested variables 12 and 17 individually, they were much more predictive than 7 and 11. The simpler model was literally pointing at the wrong things because it couldn’t fit the data properly.</p>
 </section>
 <section id="liver-disease" class="level3" data-number="6.2">
 <h3 data-number="6.2" class="anchored" data-anchor-id="liver-disease"><span class="header-section-number">6.2</span> Liver disease</h3>
-<p>On another medical dataset, the random forest’s similarity measure found that patients with severe liver disease actually split into two distinct groups — high blood test scores vs low. Standard logistic regression never would have found this because it doesn’t look for subgroups.</p>
+<p>On another medical dataset, the random forest’s similarity measure found that patients with severe liver disease actually split into two distinct groups high blood test scores vs low. Standard logistic regression never would have found this because it doesn’t look for subgroups.</p>
 </section>
 <section id="genes-81-patients" class="level3" data-number="6.3">
 <h3 data-number="6.3" class="anchored" data-anchor-id="genes-81-patients"><span class="header-section-number">6.3</span> 4,682 genes, 81 patients</h3>
-<p>Classical statistics would say this is impossible — you can’t fit a model with more variables than observations. Random forests handled it fine, got low error, and produced a ranking of which genes mattered most.</p>
+<p>Classical statistics would say this is impossible you can’t fit a model with more variables than observations. Random forests handled it fine, got low error, and produced a ranking of which genes mattered most.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -626,8 +626,8 @@ The actual point
 <section id="why-this-paper-feels-different-in-2026" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="why-this-paper-feels-different-in-2026"><span class="header-section-number">7</span> Why This Paper Feels Different in 2026</h2>
 <p>When Breiman wrote this, deep learning barely existed. Random forests were new. The idea that a computer could beat a human at chess still felt futuristic.</p>
-<p>Now look where we are. GPT-4, Claude, Gemini — language models that nobody fully understands but that clearly work. AlphaFold predicted protein structures that biologists spent decades trying to solve, using a black box. Explainable AI has become its own research field, basically formalizing exactly what Breiman argued. The Rashomon Effect is now an active area of study — Cynthia Rudin and others are building on it directly.</p>
-<p>The 98/2 split he described in 2001 has completely flipped. Most ML researchers are clearly in the algorithmic culture now. The question has actually reversed — how do we make these incredibly powerful black boxes more interpretable?</p>
+<p>Now look where we are. GPT-4, Claude, Gemini language models that nobody fully understands but that clearly work. AlphaFold predicted protein structures that biologists spent decades trying to solve, using a black box. Explainable AI has become its own research field, basically formalizing exactly what Breiman argued. The Rashomon Effect is now an active area of study Cynthia Rudin and others are building on it directly.</p>
+<p>The 98/2 split he described in 2001 has completely flipped. Most ML researchers are clearly in the algorithmic culture now. The question has actually reversed how do we make these incredibly powerful black boxes more interpretable?</p>
 <p>But his warning still applies in both directions. Using a complex model just because it’s trendy is as wrong as using linear regression just because it’s familiar. The data and the problem should drive the choice.</p>
 <p>He ended the paper with this line, and I think it still holds:</p>
 <blockquote class="blockquote">
